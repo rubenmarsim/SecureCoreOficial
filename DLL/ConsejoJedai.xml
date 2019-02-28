@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsejoJedai</name>
+    </assembly>
+    <members>
+        <member name="T:ConsejoJedai.ConsejoForm">
+            <summary>
+            ConsejoForm
+            </summary>
+        </member>
+        <member name="M:ConsejoJedai.ConsejoForm.ConsejoForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            ConsejoForm_Load
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ConsejoJedai.ConsejoForm.CargarFlow">
+            <summary>
+            CargarFlow
+            </summary>
+        </member>
+        <member name="M:ConsejoJedai.ConsejoForm.Actualizar">
+            <summary>
+            Actualizar
+            </summary>
+        </member>
+        <member name="F:ConsejoJedai.ConsejoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ConsejoJedai.ConsejoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ConsejoJedai.ConsejoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

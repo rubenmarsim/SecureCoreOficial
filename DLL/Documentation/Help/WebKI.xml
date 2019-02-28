@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Actualitzar method" Url="html/a07526db-8ead-c4c2-41da-ec6907d6d32d.htm" />
+  <HelpKINode Title="Actualizar method" Url="html/2bbe5730-05b3-3335-d673-7515e421f973.htm" />
+  <HelpKINode Title="bEsNou field" Url="html/769f53d8-47ab-773b-784c-63ff0c1a2ae2.htm" />
+  <HelpKINode Title="btnInsert field" Url="html/867d52ce-7d97-c35c-b9ff-8f0ddc4b24fd.htm" />
+  <HelpKINode Title="btnUpdate field" Url="html/65539347-d6b9-6873-17f2-4c458c563f30.htm" />
+  <HelpKINode Title="ClassBDD class">
+    <HelpKINode Title="ClassBDD Class" Url="html/da3cc1fb-f2c4-c7c6-4316-2bed8a14223f.htm" />
+    <HelpKINode Title="constructor" Url="html/a5e06c35-e4be-9b9b-d815-9d92f2c6d00d.htm" />
+    <HelpKINode Title="methods" Url="html/0f3da414-19b5-edfb-5b88-7afec2957f98.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClassBDD.Actualitzar method" Url="html/a07526db-8ead-c4c2-41da-ec6907d6d32d.htm" />
+  <HelpKINode Title="ClassBDD.ClassBDD constructor" Url="html/a5e06c35-e4be-9b9b-d815-9d92f2c6d00d.htm" />
+  <HelpKINode Title="ClassBDD.ComprobarUser method" Url="html/81fe01ad-e498-ea38-2a43-d47d1614c9e7.htm" />
+  <HelpKINode Title="ClassBDD.ConnectBD method" Url="html/28c02e3b-70ba-44dd-3dcd-98d8093afa02.htm" />
+  <HelpKINode Title="ClassBDD.Executa method" Url="html/8733f395-645b-afb6-9157-6f7f9ab3c526.htm" />
+  <HelpKINode Title="ClassBDD.GetConnexionString method" Url="html/eec5dcf8-34e6-66f8-3c74-b1054e65e0b0.htm" />
+  <HelpKINode Title="ClassBDD.PortaPerConsulta method" Url="html/84d6490d-685d-9c8d-525c-58469f6cd996.htm" />
+  <HelpKINode Title="ClassBDD.PortarPerID method" Url="html/efb67c47-948c-bd6c-6150-8d5cd6802cd9.htm" />
+  <HelpKINode Title="ClassBDD.PortaTaula method" Url="html/fe819f85-f9b9-2950-4c76-52191ce5e044.htm" />
+  <HelpKINode Title="ComprobarUser method" Url="html/81fe01ad-e498-ea38-2a43-d47d1614c9e7.htm" />
+  <HelpKINode Title="ConnectBD method" Url="html/28c02e3b-70ba-44dd-3dcd-98d8093afa02.htm" />
+  <HelpKINode Title="ConnectionClass namespace" Url="html/20d1e926-d02d-8ee8-ee0a-d8efcb552d01.htm" />
+  <HelpKINode Title="ConnectionClass.ClassBDD class" Url="html/da3cc1fb-f2c4-c7c6-4316-2bed8a14223f.htm" />
+  <HelpKINode Title="dgvMant_table field" Url="html/44f37b88-d7c6-7810-c81f-57241d7606b8.htm" />
+  <HelpKINode Title="Dispose method" Url="html/4696a332-3956-95f5-ae62-77356a179131.htm" />
+  <HelpKINode Title="Executa method" Url="html/8733f395-645b-afb6-9157-6f7f9ab3c526.htm" />
+  <HelpKINode Title="GetConnexionString method" Url="html/eec5dcf8-34e6-66f8-3c74-b1054e65e0b0.htm" />
+  <HelpKINode Title="id field" Url="html/fe0c14ea-6442-bf47-5e87-69f5ca90057f.htm" />
+  <HelpKINode Title="LabelCodeForanea field" Url="html/82e9d582-6ff5-024e-ce56-61101463ba3e.htm" />
+  <HelpKINode Title="MantenimentBase class">
+    <HelpKINode Title="MantenimentBase Class" Url="html/a276bc71-1166-1820-66fa-d523543a9dfb.htm" />
+    <HelpKINode Title="constructor" Url="html/0691d373-9629-4dc5-63c5-d9ed56e69fb5.htm" />
+    <HelpKINode Title="events" Url="html/2951b816-1ab6-713d-1d31-5d940c4c1ff0.htm" />
+    <HelpKINode Title="fields" Url="html/2d49615e-0024-2432-ecb5-583101c828b0.htm" />
+    <HelpKINode Title="methods" Url="html/76ea8df7-40f6-a925-361b-f4dfdcd4af4f.htm" />
+    <HelpKINode Title="properties" Url="html/936ab10f-374a-d26d-c905-7f70993dbfa1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MantenimentBase.Actualizar method" Url="html/2bbe5730-05b3-3335-d673-7515e421f973.htm" />
+  <HelpKINode Title="MantenimentBase.bEsNou field" Url="html/769f53d8-47ab-773b-784c-63ff0c1a2ae2.htm" />
+  <HelpKINode Title="MantenimentBase.btnInsert field" Url="html/867d52ce-7d97-c35c-b9ff-8f0ddc4b24fd.htm" />
+  <HelpKINode Title="MantenimentBase.btnUpdate field" Url="html/65539347-d6b9-6873-17f2-4c458c563f30.htm" />
+  <HelpKINode Title="MantenimentBase.dgvMant_table field" Url="html/44f37b88-d7c6-7810-c81f-57241d7606b8.htm" />
+  <HelpKINode Title="MantenimentBase.Dispose method" Url="html/4696a332-3956-95f5-ae62-77356a179131.htm" />
+  <HelpKINode Title="MantenimentBase.id field" Url="html/fe0c14ea-6442-bf47-5e87-69f5ca90057f.htm" />
+  <HelpKINode Title="MantenimentBase.LabelCodeForanea field" Url="html/82e9d582-6ff5-024e-ce56-61101463ba3e.htm" />
+  <HelpKINode Title="MantenimentBase.MantenimentBase constructor" Url="html/0691d373-9629-4dc5-63c5-d9ed56e69fb5.htm" />
+  <HelpKINode Title="MantenimentBase.query field" Url="html/1293cf8e-c437-0819-19e3-c01e8d828bb7.htm" />
+  <HelpKINode Title="MantenimentBase.Validar method" Url="html/fd72e440-86c1-ed25-8385-3ac76e2b2a84.htm" />
+  <HelpKINode Title="MantenimientoBase namespace" Url="html/41687676-61d2-0e38-0d83-1681ddf9fe14.htm" />
+  <HelpKINode Title="MantenimientoBase.MantenimentBase class" Url="html/a276bc71-1166-1820-66fa-d523543a9dfb.htm" />
+  <HelpKINode Title="PortaPerConsulta method" Url="html/84d6490d-685d-9c8d-525c-58469f6cd996.htm" />
+  <HelpKINode Title="PortarPerID method" Url="html/efb67c47-948c-bd6c-6150-8d5cd6802cd9.htm" />
+  <HelpKINode Title="PortaTaula method" Url="html/fe819f85-f9b9-2950-4c76-52191ce5e044.htm" />
+  <HelpKINode Title="query field" Url="html/1293cf8e-c437-0819-19e3-c01e8d828bb7.htm" />
+  <HelpKINode Title="Validar method" Url="html/fd72e440-86c1-ed25-8385-3ac76e2b2a84.htm" />
+</HelpKI>

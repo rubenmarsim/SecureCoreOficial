@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WookieTablas</name>
+    </assembly>
+    <members>
+        <member name="F:WookieTablas.DefinedRoutes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.DefinedRoutes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.DefinedRoutes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Filiations.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Filiations.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Filiations.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.LogUsers.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.LogUsers.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.LogUsers.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.MenuSecureCore.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.MenuSecureCore.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.MenuSecureCore.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.MilitaryCamps.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.MilitaryCamps.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.MilitaryCamps.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.PlanetRoutes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.PlanetRoutes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.PlanetRoutes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Planets.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Planets.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Planets.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:WookieTablas.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:WookieTablas.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:WookieTablas.Properties.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Regions.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Regions.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Regions.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Routes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Routes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Routes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.RouteTypes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.RouteTypes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.RouteTypes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Sectors.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Sectors.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Sectors.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.SpaceShipCategories.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.SpaceShipCategories.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.SpaceShipCategories.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.SpaceShips.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.SpaceShips.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.SpaceShips.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.SpaceShipTypes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.SpaceShipTypes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.SpaceShipTypes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Species.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Species.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Species.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.UserCategories.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.UserCategories.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.UserCategories.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.UserRanks.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.UserRanks.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.UserRanks.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WookieTablas.Users.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WookieTablas.Users.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WookieTablas.Users.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConnectionClass</name>
+    </assembly>
+    <members>
+        <member name="T:ConnectionClass.ClassBDD">
+            <summary>
+            Clase que nos permite conectarnos a una base de datos, hacer
+            consultas, etc...
+            </summary>
+        </member>
+        <member name="F:ConnectionClass.ClassBDD._ConnectionString">
+            <summary>
+            String que contiene el ConnectionString
+            </summary>
+        </member>
+        <member name="F:ConnectionClass.ClassBDD.connexxion">
+            <summary>
+            Clase que vamos a usar para gestionar DB tipo SQl Server
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.GetConnexionString">
+            <summary>
+            Metodo que coje el ConnectionString y lo guarda en la variable _ConnectionString
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.ConnectBD">
+            <summary>
+            Abre la conexion con la Base de datos
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.PortaTaula(System.String)">
+            <summary>
+            Coje la tabla que indiquemos de la DB
+            </summary>
+            <param name="nomTaula">Nombre de la tabla que queremos obtener</param>
+            <returns>Devuelve un dataset con la tabla que hemos indicado</returns>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.PortarPerID(System.String,System.String,System.Int32)">
+            <summary>
+            Trae una consulta mediante un ID
+            </summary>
+            <param name="nomTaula">Nombre de la tabla en la que queremos trabajar</param>
+            <param name="nomCamp">Nombre del campo en el cual queremos trabajar</param>
+            <param name="valor">valor del ID</param>
+            <returns>Devuelve un dataset</returns>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.PortarPerID(System.String,System.Int32)">
+            <summary>
+            Trae una consulta mediante un ID
+            </summary>
+            <param name="nomTaula">Nombre de la tabla en la que queremos trabajar</param>
+            <param name="valor">valor del ID</param>
+            <returns>Devuelve un dataset</returns>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.Executa(System.String)">
+            <summary>
+            Executa una Query sin devolver nada, muy util para deletes, inserts, etc...
+            </summary>
+            <param name="consulta">Consulta que queremos ejecutar, puede ser un insert, update, etc...</param>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.Actualitzar(System.Data.DataSet,System.String)">
+            <summary>
+            Compara la informacion que le pasamos en el dataset con la info de la DB y
+            cambia en la DB lo que encuentra diferente en el dataset
+            </summary>
+            <param name="dts">Dataset con la informacion modificada</param>
+            <param name="consulta">Consulta a la DB</param>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.PortaPerConsulta(System.String)">
+            <summary>
+            Coger informacion mediante una consulta
+            </summary>
+            <param name="consultaSql">Consulta que va a definir la info que se va a mostrar</param>
+            <returns>Devuelve un Dataset con la consulta hecha</returns>
+        </member>
+        <member name="M:ConnectionClass.ClassBDD.ComprobarUser(System.String,System.String)">
+            <summary>
+            ComprobarUser
+            </summary>
+            <param name="nombre">nombre del usuario</param>
+            <param name="contra">contraseña del usuario</param>
+            <returns>Devuelve un Dataset</returns>
+        </member>
+    </members>
+</doc>

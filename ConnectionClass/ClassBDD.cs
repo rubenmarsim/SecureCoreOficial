@@ -9,18 +9,28 @@ using System.Configuration;
 
 namespace ConnectionClass
 {
+    /// <summary>
+    /// Clase que nos permite conectarnos a una base de datos, hacer
+    /// consultas, etc...
+    /// </summary>
     public class ClassBDD
     {
-       private string _ConnectionString;
+        /// <summary>
+        /// String que contiene el ConnectionString
+        /// </summary>
+        private string _ConnectionString;
+        /// <summary>
+        /// Clase que vamos a usar para gestionar DB tipo SQl Server
+        /// </summary>
         SqlConnection connexxion;
         /// <summary>
-        /// GetConnexionString
+        /// Metodo que coje el ConnectionString y lo guarda en la variable _ConnectionString
         /// </summary>
         public void  GetConnexionString(){
            _ConnectionString = ConfigurationManager.ConnectionStrings["Splash.SecureCoreConnectionString"].ConnectionString;
         }
         /// <summary>
-        /// ConnectBD
+        /// Abre la conexion con la Base de datos
         /// </summary>
         public void ConnectBD() {
             GetConnexionString();
@@ -28,11 +38,10 @@ namespace ConnectionClass
             connexxion.Open();
         }
         /// <summary>
-        /// PortaTaula
+        /// Coje la tabla que indiquemos de la DB
         /// </summary>
-        /// <param name="nomTaula"></param>
-        /// <returns>DataSet</returns>
-
+        /// <param name="nomTaula">Nombre de la tabla que queremos obtener</param>
+        /// <returns>Devuelve un dataset con la tabla que hemos indicado</returns>
         public DataSet PortaTaula(string nomTaula) {
             ConnectBD();
             string query = "SELECT * FROM "+nomTaula+"";
@@ -43,12 +52,12 @@ namespace ConnectionClass
             return dtsCli;
         }
         /// <summary>
-        /// PortarPerID
+        /// Trae una consulta mediante un ID
         /// </summary>
-        /// <param name="nomTaula"></param>
-        /// <param name="nomCamp"></param>
-        /// <param name="valor"></param>
-        /// <returns>DataSet</returns>
+        /// <param name="nomTaula">Nombre de la tabla en la que queremos trabajar</param>
+        /// <param name="nomCamp">Nombre del campo en el cual queremos trabajar</param>
+        /// <param name="valor">valor del ID</param>
+        /// <returns>Devuelve un dataset</returns>
         public DataSet PortarPerID(string nomTaula,string nomCamp,int valor)
         {
             ConnectBD();
@@ -56,15 +65,14 @@ namespace ConnectionClass
             SqlDataAdapter adapter = new SqlDataAdapter(query, _ConnectionString);
             DataSet dtsCli = new DataSet();
             adapter.Fill(dtsCli, nomTaula);
-            return dtsCli;
-           
+            return dtsCli;           
         }
         /// <summary>
-        /// PortarPerID
+        /// Trae una consulta mediante un ID
         /// </summary>
-        /// <param name="nomTaula"></param>
-        /// <param name="valor"></param>
-        /// <returns>DataSet</returns>
+        /// <param name="nomTaula">Nombre de la tabla en la que queremos trabajar</param>
+        /// <param name="valor">valor del ID</param>
+        /// <returns>Devuelve un dataset</returns>
         public DataSet PortarPerID(string nomTaula, int valor)
         {
             ConnectBD();
@@ -84,12 +92,11 @@ namespace ConnectionClass
             DataSet dtsCli = new DataSet();
             adapter.Fill(dtsCli, nomTaula);
             return dtsCli;
-
         }
         /// <summary>
-        /// Executa
+        /// Executa una Query sin devolver nada, muy util para deletes, inserts, etc...
         /// </summary>
-        /// <param name="consulta"></param>
+        /// <param name="consulta">Consulta que queremos ejecutar, puede ser un insert, update, etc...</param>
         public void Executa(string consulta)
         {
             try
@@ -100,17 +107,18 @@ namespace ConnectionClass
             }
             catch (SqlException)
             {
+
             }
             finally {
                 connexxion.Close();
-
             }
         }
         /// <summary>
-        /// Actualitzar
+        /// Compara la informacion que le pasamos en el dataset con la info de la DB y
+        /// cambia en la DB lo que encuentra diferente en el dataset
         /// </summary>
-        /// <param name="dts"></param>
-        /// <param name="consulta"></param>
+        /// <param name="dts">Dataset con la informacion modificada</param>
+        /// <param name="consulta">Consulta a la DB</param>
         public void Actualitzar(DataSet dts, string consulta)
         {
             try
@@ -127,14 +135,13 @@ namespace ConnectionClass
             }
             finally{
                 connexxion.Close();
-
             }
         }
         /// <summary>
-        /// PortaPerConsulta
+        /// Coger informacion mediante una consulta
         /// </summary>
-        /// <param name="consultaSql"></param>
-        /// <returns>DataSet</returns>
+        /// <param name="consultaSql">Consulta que va a definir la info que se va a mostrar</param>
+        /// <returns>Devuelve un Dataset con la consulta hecha</returns>
         public DataSet PortaPerConsulta(string consultaSql)
         {
 
@@ -148,9 +155,9 @@ namespace ConnectionClass
         /// <summary>
         /// ComprobarUser
         /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="contra"></param>
-        /// <returns>DataSet</returns>
+        /// <param name="nombre">nombre del usuario</param>
+        /// <param name="contra">contraseña del usuario</param>
+        /// <returns>Devuelve un Dataset</returns>
         public DataSet ComprobarUser(string nombre, string contra) {
 
             ConnectBD();
@@ -161,8 +168,5 @@ namespace ConnectionClass
             connexxion.Close();
             return dtsCli;
         }
-
-        
-
     }
 }
