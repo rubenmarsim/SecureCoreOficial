@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64A4FC30-71DE-473D-8DB8-A69C81CF22AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WookieTablas</RootNamespace>
+    <AssemblyName>WookieTablas</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefinedRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefinedRoutes.Designer.cs">
+      <DependentUpon>DefinedRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filiations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filiations.Designer.cs">
+      <DependentUpon>Filiations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogUsers.Designer.cs">
+      <DependentUpon>LogUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuSecureCore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuSecureCore.Designer.cs">
+      <DependentUpon>MenuSecureCore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MilitaryCamps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MilitaryCamps.Designer.cs">
+      <DependentUpon>MilitaryCamps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanetRoutes.Designer.cs">
+      <DependentUpon>PlanetRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Planets.Designer.cs">
+      <DependentUpon>Planets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Regions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Regions.Designer.cs">
+      <DependentUpon>Regions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Routes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Routes.Designer.cs">
+      <DependentUpon>Routes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RouteTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RouteTypes.Designer.cs">
+      <DependentUpon>RouteTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sectors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sectors.Designer.cs">
+      <DependentUpon>Sectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceShipCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpaceShipCategories.Designer.cs">
+      <DependentUpon>SpaceShipCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceShips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpaceShips.Designer.cs">
+      <DependentUpon>SpaceShips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceShipTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpaceShipTypes.Designer.cs">
+      <DependentUpon>SpaceShipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Species.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Species.Designer.cs">
+      <DependentUpon>Species.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserCategories.Designer.cs">
+      <DependentUpon>UserCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserRanks.Designer.cs">
+      <DependentUpon>UserRanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectionClass\ConnectionClass.csproj">
+      <Project>{bbbee6f8-abb3-428e-9b39-574546f407b0}</Project>
+      <Name>ConnectionClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MantenimientoTest\MantenimientoBase.csproj">
+      <Project>{8f7f1e3c-4358-43a0-8079-d72ac5c1d48e}</Project>
+      <Name>MantenimientoBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PantallaCerca\PantallaCerca.csproj">
+      <Project>{2f6b0d0c-6544-480b-a660-9b7f388a0c0d}</Project>
+      <Name>PantallaCerca</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlantillaPrincipalStarWars\PlantillaPrincipalStarWars.csproj">
+      <Project>{494ee00c-8609-4ab3-b2f4-0a1a69197724}</Project>
+      <Name>PlantillaPrincipalStarWars</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SdsTexBox\SdsTexBox.csproj">
+      <Project>{bf4d52ff-1166-4f33-9954-feced8827e8f}</Project>
+      <Name>SdsTexBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WookieCodeControls\WookieCodeControls.csproj">
+      <Project>{9fa849fb-9441-4261-a4c3-ca19857eb644}</Project>
+      <Name>WookieCodeControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DefinedRoutes.resx">
+      <DependentUpon>DefinedRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filiations.resx">
+      <DependentUpon>Filiations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogUsers.resx">
+      <DependentUpon>LogUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuSecureCore.resx">
+      <DependentUpon>MenuSecureCore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MilitaryCamps.resx">
+      <DependentUpon>MilitaryCamps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanetRoutes.resx">
+      <DependentUpon>PlanetRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planets.resx">
+      <DependentUpon>Planets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Regions.resx">
+      <DependentUpon>Regions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Routes.resx">
+      <DependentUpon>Routes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RouteTypes.resx">
+      <DependentUpon>RouteTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sectors.resx">
+      <DependentUpon>Sectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpaceShipCategories.resx">
+      <DependentUpon>SpaceShipCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpaceShips.resx">
+      <DependentUpon>SpaceShips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpaceShipTypes.resx">
+      <DependentUpon>SpaceShipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Species.resx">
+      <DependentUpon>Species.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCategories.resx">
+      <DependentUpon>UserCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRanks.resx">
+      <DependentUpon>UserRanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
