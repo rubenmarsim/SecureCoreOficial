@@ -33,5 +33,16 @@ namespace SecureCodeSplashScreen.Properties {
                 return ((string)(this["SecureCoreConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=W10B304PC06;Initial Catalog=XWingsFactory;Persist Security Info=True;" +
+            "User ID=Ruben;Password=12345aA")]
+        public string XWingsFactoryConnectionString {
+            get {
+                return ((string)(this["XWingsFactoryConnectionString"]));
+            }
+        }
     }
 }

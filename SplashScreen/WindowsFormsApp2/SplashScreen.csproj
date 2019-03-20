@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SecureCoreDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="XWingsFactoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XWingsFactoryDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +104,17 @@
     </None>
     <None Include="SecureCoreDataSet.xss">
       <DependentUpon>SecureCoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="XWingsFactoryDataSet.xsc">
+      <DependentUpon>XWingsFactoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="XWingsFactoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>XWingsFactoryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XWingsFactoryDataSet.xss">
+      <DependentUpon>XWingsFactoryDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -481,6 +481,431 @@
             Used to sort self-referenced table's rows
             </summary>
         </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.AssemblyInstructionsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.AssemblyInstructionsDetailDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FactoryUsersDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FinalProductDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FinalProductDetailsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.IntermediateProductDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.LOPDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.LOPDetailsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OperationPartsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OrdersDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OrdersDetailDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.ReferencesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.ReferenceTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StatusDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StockMovementsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StockMovementTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StocksDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StructureDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.UserTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.AssemblyInstructionsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.AssemblyInstructionsDetailRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FactoryUsersRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FinalProductRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FinalProductDetailsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.IntermediateProductRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.LOPRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.LOPDetailsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OperationPartsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OrdersRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OrdersDetailRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.ReferencesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.ReferenceTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StatusRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StockMovementsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StockMovementTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StocksRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StructureRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.UserTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.AssemblyInstructionsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.AssemblyInstructionsDetailRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FactoryUsersRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FinalProductRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.FinalProductDetailsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.IntermediateProductRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.LOPRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.LOPDetailsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OperationPartsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OrdersRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.OrdersDetailRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.ReferencesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.ReferenceTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StatusRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StockMovementsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StockMovementTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StocksRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.StructureRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSet.UserTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.AssemblyInstructionsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.AssemblyInstructionsDetailTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.FactoryUsersTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.FinalProductTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.FinalProductDetailsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.IntermediateProductTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.LOPTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.LOPDetailsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.OperationPartsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.OrdersTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.OrdersDetailTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.ReferencesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.ReferenceTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.StatusTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.StockMovementsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.StockMovementTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.StocksTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.StructureTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.UserTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(LogonScreen.XWingsFactoryDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(LogonScreen.XWingsFactoryDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(LogonScreen.XWingsFactoryDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateAll(LogonScreen.XWingsFactoryDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:LogonScreen.XWingsFactoryDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
         <member name="T:LogonScreen.Properties.Resources">
             <summary>
               Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.

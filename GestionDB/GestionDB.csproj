@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B94F45B-B315-49D2-A817-A1E295170DB5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestionDB</RootNamespace>
+    <AssemblyName>GestionDB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\DLL\GestionDB.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInstructions.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInstructionsDetail.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="FactoryUsers.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinalProduct.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinalProductDetails.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntermediateProduct.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOP.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOPDetails.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OperationParts.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersDetail.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="References.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceTypes.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockMovements.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockMovementTypes.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Structure.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTypes.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="XWingsFactoryEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XWingsFactoryEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="XWingsFactoryEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="XWingsFactoryEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XWingsFactoryEntities.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="XWingsFactoryEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>XWingsFactoryEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="XWingsFactoryEntities.edmx.diagram">
+      <DependentUpon>XWingsFactoryEntities.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XWingsFactoryEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XWingsFactoryEntities.Context.cs</LastGenOutput>
+      <DependentUpon>XWingsFactoryEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="XWingsFactoryEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>XWingsFactoryEntities.edmx</DependentUpon>
+      <LastGenOutput>XWingsFactoryEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
