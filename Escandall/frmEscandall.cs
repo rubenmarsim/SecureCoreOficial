@@ -15,8 +15,12 @@ namespace Escandall
         #region Variables Globales
         GestionDB.XWingsFactoryEntities db;
         List<string> _lstFinalProducts;
-        List<string> _lstMiddleProducts;
+        List<GestionDB.References> _lstMiddleProducts;
         List<GestionDB.References> _lstRawMaterials;
+        List<string> _lstProductsAla;
+        List<string> _lstProductsMotor;
+        List<string> _lstProductsCabina;
+        List<string> _lstProductsMorro;
         /// <summary>
         /// Definicion de cada id del campo idRederenceType
         /// </summary>
@@ -32,6 +36,13 @@ namespace Escandall
             Motor = 22,
             Cabina = 23,
             Morro = 24
+        }
+        enum MiddleProductsInTreeView
+        {
+            Ala,
+            Motor,
+            Cabina,
+            Morro
         }
         #endregion
 
@@ -115,8 +126,13 @@ namespace Escandall
         private void GetData()
         {
             _lstFinalProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.FinalProducts).Select(x => x.descReference).ToList();
-            _lstMiddleProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.MiddleProducts).Select(x => x.descReference).ToList();
+            _lstMiddleProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.MiddleProducts).Select(x => x).ToList();
             _lstRawMaterials = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.RawMaterials).Select(x => x).ToList();
+            var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
+            _lstProductsAla = JoinRefStruct.Where(x=>x.Structura.idReferenceFinal== (short)eIdReference.Ala).Select(x=>x.Referencia.descReference).ToList();
+            _lstProductsMotor = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Motor).Select(x => x.Referencia.descReference).ToList();
+            _lstProductsCabina = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Cabina).Select(x => x.Referencia.descReference).ToList();
+            _lstProductsMorro = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Morro).Select(x => x.Referencia.descReference).ToList();
         }
         private void LoadData()
         {
@@ -125,19 +141,37 @@ namespace Escandall
             //--- Productos intermedios y materia prima -----------------------------
             foreach (var middleProd in _lstMiddleProducts)
             {
-                treeViewEscandall.Nodes[0].Nodes.Add(middleProd);
+                treeViewEscandall.Nodes[0].Nodes.Add(middleProd.descReference);
 
-                foreach(var RawProd in _lstRawMaterials)
+                if(middleProd.idReference == (short)eIdReference.Ala)
                 {
-                    if(RawProd.idReference == (short)eIdReference.Ala)
-                        treeViewEscandall.Nodes[0].Nodes[0].Nodes.Add(RawProd.descReference);
-                    else if(RawProd.idReference == (short)eIdReference.Motor)
-                        treeViewEscandall.Nodes[0].Nodes[1].Nodes.Add(RawProd.descReference);
-                    else if (RawProd.idReference == (short)eIdReference.Cabina)
-                        treeViewEscandall.Nodes[0].Nodes[2].Nodes.Add(RawProd.descReference);
-                    else if (RawProd.idReference == (short)eIdReference.Morro)
-                        treeViewEscandall.Nodes[0].Nodes[3].Nodes.Add(RawProd.descReference);
-                }                
+                    foreach (var ProductAla in _lstProductsAla)
+                    {
+                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Ala].Nodes.Add(ProductAla);
+                    }
+                    
+                }                        
+                else if(middleProd.idReference == (short)eIdReference.Motor)
+                {
+                    foreach (var ProductMotor in _lstProductsMotor)
+                    {
+                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Motor].Nodes.Add(ProductMotor);
+                    }
+                }                    
+                else if (middleProd.idReference == (short)eIdReference.Cabina)
+                {
+                    foreach (var ProductCabina in _lstProductsCabina)
+                    {
+                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Cabina].Nodes.Add(ProductCabina);
+                    }
+                }                    
+                else if (middleProd.idReference == (short)eIdReference.Morro)
+                {
+                    foreach (var ProductMorro in _lstProductsMorro)
+                    {
+                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Morro].Nodes.Add(ProductMorro);
+                    }
+                }                                                 
             }
         }
         #endregion
