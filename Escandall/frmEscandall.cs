@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Escandall
 {
+    /// <summary>
+    /// Formulario que muestra el escandall mediante un treeview
+    /// </summary>
     public partial class frmEscandall : Form
     {
         #region Variables Globales
