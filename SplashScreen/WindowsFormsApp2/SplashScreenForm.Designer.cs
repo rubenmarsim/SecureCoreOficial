@@ -30,50 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreenForm));
-            this.BarraRigth = new System.Windows.Forms.Panel();
-            this.BarraBottom = new System.Windows.Forms.Panel();
-            this.BarraLeft = new System.Windows.Forms.Panel();
-            this.BarraTop = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.ComentProgess = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BarraRigth
-            // 
-            this.BarraRigth.BackColor = System.Drawing.Color.OrangeRed;
-            this.BarraRigth.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BarraRigth.Location = new System.Drawing.Point(611, 0);
-            this.BarraRigth.Name = "BarraRigth";
-            this.BarraRigth.Size = new System.Drawing.Size(3, 371);
-            this.BarraRigth.TabIndex = 0;
-            // 
-            // BarraBottom
-            // 
-            this.BarraBottom.BackColor = System.Drawing.Color.OrangeRed;
-            this.BarraBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BarraBottom.Location = new System.Drawing.Point(0, 368);
-            this.BarraBottom.Name = "BarraBottom";
-            this.BarraBottom.Size = new System.Drawing.Size(611, 3);
-            this.BarraBottom.TabIndex = 1;
-            // 
-            // BarraLeft
-            // 
-            this.BarraLeft.BackColor = System.Drawing.Color.OrangeRed;
-            this.BarraLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BarraLeft.Location = new System.Drawing.Point(0, 0);
-            this.BarraLeft.Name = "BarraLeft";
-            this.BarraLeft.Size = new System.Drawing.Size(3, 368);
-            this.BarraLeft.TabIndex = 1;
-            // 
-            // BarraTop
-            // 
-            this.BarraTop.BackColor = System.Drawing.Color.OrangeRed;
-            this.BarraTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTop.Location = new System.Drawing.Point(3, 0);
-            this.BarraTop.Name = "BarraTop";
-            this.BarraTop.Size = new System.Drawing.Size(608, 3);
-            this.BarraTop.TabIndex = 1;
             // 
             // timer
             // 
@@ -105,6 +67,17 @@
             this.ComentProgess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ComentProgess.Click += new System.EventHandler(this.Label1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(122, 56);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(360, 236);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // SplashScreenForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -112,12 +85,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(614, 371);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ComentProgess);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.BarraTop);
-            this.Controls.Add(this.BarraLeft);
-            this.Controls.Add(this.BarraBottom);
-            this.Controls.Add(this.BarraRigth);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimizeBox = false;
@@ -128,20 +98,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel BarraRigth;
-        private System.Windows.Forms.Panel BarraBottom;
-        private System.Windows.Forms.Panel BarraLeft;
-        private System.Windows.Forms.Panel BarraTop;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label ComentProgess;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

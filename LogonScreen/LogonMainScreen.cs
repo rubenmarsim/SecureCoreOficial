@@ -114,39 +114,14 @@ namespace LogonScreen
         }
         private void IconStarWars_Click(object sender, EventArgs e)
         {
-            if (!musicOn)
-            {
-                player.Play();
-                musicOn = true;
-                EasterEgg1.Visible = true;
-                EasterEgg2.Visible = true;
-                EasterEgg3.Visible = true;
-                EasterEgg4.Visible = true;
-                EasterEgg5.Visible = true;
-                EasterEgg6.Visible = true;
-                EasterEgg7.Visible = true;
-                EasterEgg8.Visible = true;
-            }
+        
         }
         private void GifEasterEgg_Click(object sender, EventArgs e)
         {
             desactviarMusic();
         }
         public void desactviarMusic() {
-            if (musicOn)
-            {
-                player.Stop();
-                musicOn = false;
-                EasterEgg1.Visible = false;
-                EasterEgg2.Visible = false;
-                EasterEgg3.Visible = false;
-                EasterEgg4.Visible = false;
-                EasterEgg5.Visible = false;
-                EasterEgg6.Visible = false;
-                EasterEgg7.Visible = false;
-                EasterEgg8.Visible = false;
-
-            }
+      
         }
 
      
