@@ -121,9 +121,9 @@ namespace Escandall
         private void LoadData()
         {
             //--- Productos Principales ---------------------------------------------
-            treeViewEscandall.Nodes.Add(_lstFinalProducts[0]);
+            foreach(var FinalProd in _lstFinalProducts) treeViewEscandall.Nodes.Add(FinalProd);
             //--- Productos intermedios y materia prima -----------------------------
-            foreach(var middleProd in _lstMiddleProducts)
+            foreach (var middleProd in _lstMiddleProducts)
             {
                 treeViewEscandall.Nodes[0].Nodes.Add(middleProd);
 

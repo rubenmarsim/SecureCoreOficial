@@ -140,6 +140,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DllsEntity\EntityFramework.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DllsEntity\EntityFramework.SqlServer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="XWingsFactoryEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>XWingsFactoryEntities.Context.cs</LastGenOutput>
