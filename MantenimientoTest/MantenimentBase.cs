@@ -19,6 +19,7 @@ namespace MantenimientoBase
     /// </summary>
     public partial class MantenimentBase : PlantillaPrincipalStarWars.PlantillaForm
     {
+        #region Variables Globales
         /// <summary>
         /// Definimos un dataset
         /// </summary>
@@ -39,7 +40,9 @@ namespace MantenimientoBase
         /// ID
         /// </summary>
         public string id="idPlanet";
-        
+        #endregion
+
+        #region Constructores
         /// <summary>
         /// Constructor por defecto de la clase MantenimentBase
         /// </summary>
@@ -47,6 +50,9 @@ namespace MantenimientoBase
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Methods
         /// <summary>
         /// Aqui hacemos todas las instancias que necesitamos, llenamos el DataGridView, y definimos los parametros necesarios
         /// </summary>
@@ -194,6 +200,6 @@ namespace MantenimientoBase
             this.IconUser = ConfigurationManager.AppSettings["Icon"].ToString();
         }
 
-
+        #endregion
     }
 }
