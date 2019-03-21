@@ -59,70 +59,19 @@ namespace Escandall
             db = new GestionDB.XWingsFactoryEntities();
             GetData();
             LoadData();
-            CanExecute();
         }
-
-        private void btnPadre_Click(object sender, EventArgs e)
-        {
-                treeViewEscandall.Nodes.Add(txtBoxAddCampo.Text);
-                txtBoxAddCampo.Clear();            
-        }
-
-        private void btnHijo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                treeViewEscandall.SelectedNode.Nodes.Add(txtBoxAddCampo.Text);
-                txtBoxAddCampo.Clear();
-            }
-            catch(NullReferenceException)
-            {
-                MessageBox.Show("Selecciona un padre para poder crear el hijo anidado a este.");
-            }
-        }
-
-        private void btnBorrarCampo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                treeViewEscandall.Nodes.Remove(treeViewEscandall.SelectedNode);
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("Selecciona el campo que quieres borrar");
-            }
-            
-        }
-
-        private void btnBorrarArbol_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             treeViewEscandall.Nodes.Clear();
-        }
-        private void txtBoxAddCampo_TextChanged(object sender, EventArgs e)
-        {
-            CanExecute();
+            GetData();
+            LoadData();
         }
         #endregion
 
         #region Methods
         /// <summary>
-        /// Comprueba si el textbox esta vacio o no y activa los 
-        /// botones de crear en funcion de eso
+        /// Cogemos la info que queremos de la DB y la guardamos en variables
         /// </summary>
-        private void CanExecute()
-        {
-            if (string.IsNullOrEmpty(txtBoxAddCampo.Text))
-            {
-                btnPadre.Enabled = false;
-                btnHijo.Enabled = false;
-            }
-            else
-            {
-                btnPadre.Enabled = true;
-                btnHijo.Enabled = true;
-            }
-        }
-
         private void GetData()
         {
             _lstFinalProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.FinalProducts).Select(x => x.descReference).ToList();
@@ -134,6 +83,9 @@ namespace Escandall
             _lstProductsCabina = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Cabina).Select(x => x.Referencia.descReference).ToList();
             _lstProductsMorro = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Morro).Select(x => x.Referencia.descReference).ToList();
         }
+        /// <summary>
+        /// Filtramos la info y la ponemos en el treeview
+        /// </summary>
         private void LoadData()
         {
             //--- Productos Principales ---------------------------------------------
@@ -149,7 +101,6 @@ namespace Escandall
                     {
                         treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Ala].Nodes.Add(ProductAla);
                     }
-                    
                 }                        
                 else if(middleProd.idReference == (short)eIdReference.Motor)
                 {
@@ -176,6 +127,6 @@ namespace Escandall
         }
         #endregion
 
-
+        
     }
 }

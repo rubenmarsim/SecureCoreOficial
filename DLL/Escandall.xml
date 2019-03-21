@@ -9,10 +9,14 @@
             Definicion de cada id del campo idRederenceType
             </summary>
         </member>
-        <member name="M:Escandall.frmEscandall.CanExecute">
+        <member name="M:Escandall.frmEscandall.GetData">
             <summary>
-            Comprueba si el textbox esta vacio o no y activa los 
-            botones de crear en funcion de eso
+            Cogemos la info que queremos de la DB y la guardamos en variables
+            </summary>
+        </member>
+        <member name="M:Escandall.frmEscandall.LoadData">
+            <summary>
+            Filtramos la info y la ponemos en el treeview
             </summary>
         </member>
         <member name="F:Escandall.frmEscandall.components">
