@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionDB", "GestionDB\Gest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escandall", "Escandall\Escandall.csproj", "{083E766E-DD61-4F39-A94E-FD6254F421F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimientosXWings", "MantenimientosXWings\MantenimientosXWings.csproj", "{D6466EA0-1DA8-45C8-B76B-8F9F7709747E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{083E766E-DD61-4F39-A94E-FD6254F421F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{083E766E-DD61-4F39-A94E-FD6254F421F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{083E766E-DD61-4F39-A94E-FD6254F421F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6466EA0-1DA8-45C8-B76B-8F9F7709747E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6466EA0-1DA8-45C8-B76B-8F9F7709747E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6466EA0-1DA8-45C8-B76B-8F9F7709747E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6466EA0-1DA8-45C8-B76B-8F9F7709747E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
