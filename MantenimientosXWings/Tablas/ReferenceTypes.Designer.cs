@@ -49,15 +49,15 @@
             // sdsTexBoxcodeReference
             // 
             this.sdsTexBoxcodeReference.CodeSector = null;
-            this.sdsTexBoxcodeReference.ColumnName = null;
+            this.sdsTexBoxcodeReference.ColumnName = "codeReferenceType";
             this.sdsTexBoxcodeReference.DescCodi = null;
             this.sdsTexBoxcodeReference.Location = new System.Drawing.Point(629, 160);
             this.sdsTexBoxcodeReference.Name = "sdsTexBoxcodeReference";
             this.sdsTexBoxcodeReference.Nom = null;
-            this.sdsTexBoxcodeReference.NomBBDD = null;
-            this.sdsTexBoxcodeReference.NomCamp = null;
+            this.sdsTexBoxcodeReference.NomBBDD = "XWingsFactory";
+            this.sdsTexBoxcodeReference.NomCamp = "codeReferenceType";
             this.sdsTexBoxcodeReference.NomControl = null;
-            this.sdsTexBoxcodeReference.NomTaula = null;
+            this.sdsTexBoxcodeReference.NomTaula = "ReferenceTypes";
             this.sdsTexBoxcodeReference.Requerit = false;
             this.sdsTexBoxcodeReference.SiEsForana = false;
             this.sdsTexBoxcodeReference.Size = new System.Drawing.Size(142, 20);
@@ -66,15 +66,15 @@
             // sdsTexBoxdescReference
             // 
             this.sdsTexBoxdescReference.CodeSector = null;
-            this.sdsTexBoxdescReference.ColumnName = null;
+            this.sdsTexBoxdescReference.ColumnName = "descReferenceType";
             this.sdsTexBoxdescReference.DescCodi = null;
             this.sdsTexBoxdescReference.Location = new System.Drawing.Point(629, 204);
             this.sdsTexBoxdescReference.Name = "sdsTexBoxdescReference";
             this.sdsTexBoxdescReference.Nom = null;
-            this.sdsTexBoxdescReference.NomBBDD = null;
-            this.sdsTexBoxdescReference.NomCamp = null;
+            this.sdsTexBoxdescReference.NomBBDD = "XWingsFactory";
+            this.sdsTexBoxdescReference.NomCamp = "descReferenceType";
             this.sdsTexBoxdescReference.NomControl = null;
-            this.sdsTexBoxdescReference.NomTaula = null;
+            this.sdsTexBoxdescReference.NomTaula = "ReferenceTypes";
             this.sdsTexBoxdescReference.Requerit = false;
             this.sdsTexBoxdescReference.SiEsForana = false;
             this.sdsTexBoxdescReference.Size = new System.Drawing.Size(142, 20);

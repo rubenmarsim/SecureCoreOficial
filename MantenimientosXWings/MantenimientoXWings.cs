@@ -34,6 +34,7 @@ namespace MantenimientosXWings
 
         private void btnReferenceTypes_Click(object sender, EventArgs e)
         {
+            Instancias();
             _ReferenceTypes.Show();
         }
         private void btnReferences_Click(object sender, EventArgs e)

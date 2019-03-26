@@ -48,7 +48,7 @@
             Boolean que nos indica si estamos haciendo un insert o no
             </summary>
         </member>
-        <member name="M:MantenimientosXWings.ReferenceTypes.BindDades">
+        <member name="M:MantenimientosXWings.ReferenceTypes.BindDades(System.Windows.Forms.BindingSource)">
             <summary>
             Con este metodo hacemos que cuando pulsamos un campo del datagrid,
             se muestren los datos en los SDSTextBox
