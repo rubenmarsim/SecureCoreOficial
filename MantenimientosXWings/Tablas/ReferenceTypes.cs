@@ -42,7 +42,8 @@ namespace MantenimientosXWings
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-
+            //QuitarBindDades();
+            dGVReferenceTypes.AllowUserToAddRows = true;
         }
         #endregion Events
 
