@@ -15,7 +15,7 @@ namespace MantenimientosXWings
         #region Variables Globales
         GestionDB.XWingsFactoryEntities db;
         SdsTexBox.SdsTexBox _CSDStxtBox;
-        Dictionary<string, string> _TableReferenceTypes;
+        List<GestionDB.ReferenceTypes> _TableReferenceTypes;
         /// <summary>
         /// Boolean que nos indica si estamos haciendo un insert o no
         /// </summary>
@@ -46,29 +46,24 @@ namespace MantenimientosXWings
         }
         private void FillGrid()
         {
-            _TableReferenceTypes = db.ReferenceTypes.Select(x => new { cod = x.codeReferenceType, desc = x.descReferenceType }).ToDictionary(x=>x.cod, x=>x.desc);
-            BindingSource bindingSource = new BindingSource();
-            dGVReferenceTypes.DataSource = bindingSource;
-            bindingSource.DataSource = _TableReferenceTypes;
-            //BindDades(bindingSource);            
+            _TableReferenceTypes = db.ReferenceTypes.Select(x => x).ToList();
+            dGVReferenceTypes.DataSource = _TableReferenceTypes;
+            dGVReferenceTypes.Columns[0].Visible = false;
+            dGVReferenceTypes.Columns[3].Visible = false;
+            BindDades();            
         }
         /// <summary>
         /// Con este metodo hacemos que cuando pulsamos un campo del datagrid,
         /// se muestren los datos en los SDSTextBox
         /// </summary>
-        private void BindDades(BindingSource src)
+        private void BindDades()
         {
-            //var a = _TableReferenceTypes.Select(x => x);
-
-            var a = dGVReferenceTypes.SelectedRows.GetEnumerator();
-            var aa = a.Current;
-
             foreach (Control sdsControl in this.Controls)
             {
                 if (sdsControl is SdsTexBox.SdsTexBox)
                 {
                     ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
-                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Add("Text", src, ((SdsTexBox.SdsTexBox)sdsControl).ColumnName.ToString());
+                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Add("Text", _TableReferenceTypes, ((SdsTexBox.SdsTexBox)sdsControl).ColumnName.ToString());
                     ((SdsTexBox.SdsTexBox)sdsControl).Validated += new EventHandler(Validar);
                 }
             }
