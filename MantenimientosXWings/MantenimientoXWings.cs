@@ -39,6 +39,7 @@ namespace MantenimientosXWings
         }
         private void btnReferences_Click(object sender, EventArgs e)
         {
+            Instancias();
             _References.Show();
         }
         #endregion

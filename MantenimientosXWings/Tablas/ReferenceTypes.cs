@@ -37,7 +37,7 @@ namespace MantenimientosXWings
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            db.SaveChanges();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
