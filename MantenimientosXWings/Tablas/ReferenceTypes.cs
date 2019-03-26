@@ -20,14 +20,14 @@ namespace MantenimientosXWings
         /// Boolean que nos indica si estamos haciendo un insert o no
         /// </summary>
         public bool _bEsNou = false;
-        #endregion
+        #endregion Variables Globales
 
         #region Constructores
         public ReferenceTypes()
         {
             InitializeComponent();
         }
-        #endregion
+        #endregion Constructores
 
         #region Events
         private void ReferenceTypes_Load(object sender, EventArgs e)
@@ -35,7 +35,16 @@ namespace MantenimientosXWings
             Inicializaciones();
             FillGrid();
         }
-        #endregion
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion Events
 
         #region Methods
         private void Inicializaciones()
@@ -91,6 +100,6 @@ namespace MantenimientosXWings
                 ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
             }
         }
-        #endregion
+        #endregion Methods
     }
 }
