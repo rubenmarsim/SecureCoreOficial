@@ -79,7 +79,7 @@
             this.sdstxtcodeReference.Name = "sdstxtcodeReference";
             this.sdstxtcodeReference.Nom = null;
             this.sdstxtcodeReference.NomBBDD = "XWingsFactory";
-            this.sdstxtcodeReference.NomCamp = "codeReference";
+            this.sdstxtcodeReference.NomCamp = "";
             this.sdstxtcodeReference.NomControl = "References";
             this.sdstxtcodeReference.NomTaula = null;
             this.sdstxtcodeReference.Requerit = false;
@@ -96,7 +96,7 @@
             this.sdstxtdescReference.Name = "sdstxtdescReference";
             this.sdstxtdescReference.Nom = null;
             this.sdstxtdescReference.NomBBDD = "XWingsFactory";
-            this.sdstxtdescReference.NomCamp = "descReference";
+            this.sdstxtdescReference.NomCamp = "";
             this.sdstxtdescReference.NomControl = null;
             this.sdstxtdescReference.NomTaula = "References";
             this.sdstxtdescReference.Requerit = false;
@@ -131,7 +131,7 @@
             this.sdstxtphoto.Name = "sdstxtphoto";
             this.sdstxtphoto.Nom = null;
             this.sdstxtphoto.NomBBDD = "XWingsFactory";
-            this.sdstxtphoto.NomCamp = "Photo";
+            this.sdstxtphoto.NomCamp = "";
             this.sdstxtphoto.NomControl = null;
             this.sdstxtphoto.NomTaula = "References";
             this.sdstxtphoto.Requerit = false;
@@ -148,7 +148,7 @@
             this.sdstxtvideo.Name = "sdstxtvideo";
             this.sdstxtvideo.Nom = null;
             this.sdstxtvideo.NomBBDD = "XWingsFactory";
-            this.sdstxtvideo.NomCamp = "VideoExplode";
+            this.sdstxtvideo.NomCamp = "";
             this.sdstxtvideo.NomControl = null;
             this.sdstxtvideo.NomTaula = "References";
             this.sdstxtvideo.Requerit = false;
