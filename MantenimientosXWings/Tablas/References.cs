@@ -55,7 +55,37 @@ namespace MantenimientosXWings.Tablas
             {
                 dGVReferences.Columns[i].Visible = false;
             }
-            //BindDades();
-        }        
+            BindDades();
+        }
+        private void BindDades()
+        {
+            foreach (Control sdsControl in this.Controls)
+            {
+                if (sdsControl is SdsTexBox.SdsTexBox)
+                {
+                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
+                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Add("Text", _TableReferences, ((SdsTexBox.SdsTexBox)sdsControl).ColumnName.ToString());
+                    ((SdsTexBox.SdsTexBox)sdsControl).Validated += new EventHandler(Validar);
+                }
+            }
+        }       
+        private void QuitarBindDades()
+        {
+            foreach (Control sdsControl in this.Controls)
+            {
+                if (sdsControl is SdsTexBox.SdsTexBox)
+                {
+                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
+                    sdsControl.Text = "";
+                }
+            }
+        }
+        public void Validar(object sender, EventArgs e)
+        {
+            if (!_bEsNou)
+            {
+                ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+            }
+        }
     }
 }
