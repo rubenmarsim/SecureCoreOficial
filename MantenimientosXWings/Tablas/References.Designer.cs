@@ -52,7 +52,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(527, 417);
+            this.btnUpdate.Location = new System.Drawing.Point(530, 265);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 23);
             this.btnUpdate.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(639, 417);
+            this.btnInsert.Location = new System.Drawing.Point(642, 265);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 2;
