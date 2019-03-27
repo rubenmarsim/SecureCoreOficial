@@ -46,7 +46,15 @@ namespace MantenimientosXWings.Tablas
         private void FillGrid()
         {
             _TableReferences = db.References.Select(x => x).ToList();
-            dGVReferences.DataSource = _TableReferences;            
+            dGVReferences.DataSource = _TableReferences;
+           
+            var iTotalColumns = dGVReferences.Columns.Count;
+            dGVReferences.Columns[0].Visible = false;
+
+            for (int i = 5; i < iTotalColumns; i++)
+            {
+                dGVReferences.Columns[i].Visible = false;
+            }
             //BindDades();
         }        
     }
