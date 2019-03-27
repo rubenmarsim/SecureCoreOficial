@@ -45,15 +45,13 @@ namespace MantenimientosXWings
                 BindDades();
                 _bEsNou = false;
             }            
+
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            QuitarBindDades();
+            //QuitarBindDades();
             dGVReferenceTypes.AllowUserToAddRows = true;
-            sdsTexBoxcodeReference.Clear();
-            sdsTexBoxdescReference.Clear();
-            _bEsNou = true;
         }
         #endregion Events
 

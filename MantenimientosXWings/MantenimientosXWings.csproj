@@ -91,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tablas\References.resx">
+      <DependentUpon>References.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tablas\ReferenceTypes.resx">
       <DependentUpon>ReferenceTypes.cs</DependentUpon>
     </EmbeddedResource>
