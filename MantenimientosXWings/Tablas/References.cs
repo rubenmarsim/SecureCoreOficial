@@ -12,6 +12,12 @@ namespace MantenimientosXWings.Tablas
 {
     public partial class References : Form
     {
+        #region Variables Globales
+        GestionDB.XWingsFactoryEntities db;
+        SdsTexBox.SdsTexBox _CSDStxtBox;
+        List<GestionDB.ReferenceTypes> _TableReferenceTypes;
+        #endregion Variables Globales
+
         public References()
         {
             InitializeComponent();
