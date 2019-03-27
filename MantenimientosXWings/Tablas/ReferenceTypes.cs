@@ -38,10 +38,13 @@ namespace MantenimientosXWings
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             db.SaveChanges();
-            dGVReferenceTypes.add
-            _TableReferenceTypes.Add(sdsTexBoxcodeReference.Text, sdsTexBoxdescReference.Text);
-            BindDades();
-            _bEsNou = false;
+            if (_bEsNou)
+            {
+                //dGVReferenceTypes.add
+                //_TableReferenceTypes.Add(sdsTexBoxcodeReference.Text, sdsTexBoxdescReference.Text);
+                BindDades();
+                _bEsNou = false;
+            }            
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
