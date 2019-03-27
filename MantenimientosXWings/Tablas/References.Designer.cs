@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dGVReferenceTypes = new System.Windows.Forms.DataGridView();
+            this.dGVReference = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVReferenceTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVReference)).BeginInit();
             this.SuspendLayout();
             // 
-            // dGVReferenceTypes
+            // dGVReference
             // 
-            this.dGVReferenceTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVReferenceTypes.Location = new System.Drawing.Point(12, 12);
-            this.dGVReferenceTypes.Name = "dGVReferenceTypes";
-            this.dGVReferenceTypes.Size = new System.Drawing.Size(464, 352);
-            this.dGVReferenceTypes.TabIndex = 0;
+            this.dGVReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVReference.Location = new System.Drawing.Point(12, 12);
+            this.dGVReference.Name = "dGVReference";
+            this.dGVReference.Size = new System.Drawing.Size(464, 352);
+            this.dGVReference.TabIndex = 0;
             // 
             // btnUpdate
             // 
@@ -69,17 +69,17 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.dGVReferenceTypes);
+            this.Controls.Add(this.dGVReference);
             this.Name = "References";
             this.Text = "References";
-            ((System.ComponentModel.ISupportInitialize)(this.dGVReferenceTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVReference)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dGVReferenceTypes;
+        private System.Windows.Forms.DataGridView dGVReference;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnInsert;
     }

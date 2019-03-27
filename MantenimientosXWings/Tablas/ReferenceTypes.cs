@@ -37,21 +37,24 @@ namespace MantenimientosXWings
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            db.SaveChanges();
             if (_bEsNou)
             {
                 //dGVReferenceTypes.add
                 //_TableReferenceTypes.Add(sdsTexBoxcodeReference.Text, sdsTexBoxdescReference.Text);
                 BindDades();
                 _bEsNou = false;
-            }            
+            }
 
+            db.SaveChanges();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            //QuitarBindDades();
+            QuitarBindDades();
             dGVReferenceTypes.AllowUserToAddRows = true;
+            sdsTexBoxcodeReference.Clear();
+            sdsTexBoxdescReference.Clear();
+            _bEsNou = true;
         }
         #endregion Events
 
