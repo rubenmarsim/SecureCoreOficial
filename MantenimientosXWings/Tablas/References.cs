@@ -87,5 +87,70 @@ namespace MantenimientosXWings.Tablas
                 ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
             }
         }
+        #region Foranea
+        private string _TableName;
+
+        public string TableName
+        {
+            get { return _TableName; }
+            set { _TableName = value; }
+        }
+
+        private string _ControlName;
+
+        public string ControlName
+        {
+            get { return _ControlName; }
+            set { _ControlName = value; }
+        }
+        private string _NomFomr;
+
+        public string NomFomr
+        {
+            get { return _NomFomr; }
+            set { _NomFomr = value; }
+        }
+        public References(string TableName, string ControlName, string NomFomr)
+        {
+            InitializeComponent();
+
+            this.TableName = TableName;
+            this.ControlName = ControlName;
+            this.NomFomr = NomFomr;
+        }
+        private void dGVReferences_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.Name == NomFomr)
+                    {
+                        foreach (Control frmControl in frm.Controls)
+                        {
+                            if (frmControl.Name == ControlName)
+                            {
+                                try
+                                {
+                                    ((WookieCodeControls.sdsForanea)frmControl).Text = dGVReferences.SelectedCells[0].Value.ToString();
+
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("ERROR DE DADES");
+                                }
+
+                            }
+                        }
+                    }
+
+                }                
+            }
+            catch
+            {
+                MessageBox.Show("Selecciona toda la linea.");
+            }
+        }
+        #endregion Foranea
     }
 }
