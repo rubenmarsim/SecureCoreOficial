@@ -133,13 +133,14 @@ namespace SdsTexBox
             // 
             // SdsTexBox
             // 
+            #region Comentar para añadir y luego descomentar
             this.Name = "TextBox1";
             this.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             this.Leave += new System.EventHandler(this.TxtCode_Leave);
             this.Validating += new System.ComponentModel.CancelEventHandler(this.TxtCode_Validating);
             this.Validated += new System.EventHandler(this.TxtCode_Validated);
             this.ResumeLayout(false);
-
+            #endregion
         }
         private void TxtCode_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {

@@ -4,6 +4,11 @@
         <name>Escandall</name>
     </assembly>
     <members>
+        <member name="T:Escandall.frmEscandall">
+            <summary>
+            Formulario que muestra el escandall mediante un treeview
+            </summary>
+        </member>
         <member name="T:Escandall.frmEscandall.eReferenceTypes">
             <summary>
             Definicion de cada id del campo idRederenceType

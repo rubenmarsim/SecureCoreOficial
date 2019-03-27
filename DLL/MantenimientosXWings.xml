@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MantenimientosXWings</name>
+    </assembly>
+    <members>
+        <member name="F:MantenimientosXWings.frmMantenimientoXWings.components">
+            <summary>
+            Variable del diseñador necesaria.
+            </summary>
+        </member>
+        <member name="M:MantenimientosXWings.frmMantenimientoXWings.Dispose(System.Boolean)">
+            <summary>
+            Limpiar los recursos que se estén usando.
+            </summary>
+            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        </member>
+        <member name="M:MantenimientosXWings.frmMantenimientoXWings.InitializeComponent">
+            <summary>
+            Método necesario para admitir el Diseñador. No se puede modificar
+            el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="M:MantenimientosXWings.Program.Main">
+            <summary>
+            Punto de entrada principal para la aplicación.
+            </summary>
+        </member>
+        <member name="F:MantenimientosXWings.Tablas.References.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MantenimientosXWings.Tablas.References.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MantenimientosXWings.Tablas.References.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MantenimientosXWings.ReferenceTypes._bEsNou">
+            <summary>
+            Boolean que nos indica si estamos haciendo un insert o no
+            </summary>
+        </member>
+        <member name="M:MantenimientosXWings.ReferenceTypes.BindDades">
+            <summary>
+            Con este metodo hacemos que cuando pulsamos un campo del datagrid,
+            se muestren los datos en los SDSTextBox
+            </summary>
+        </member>
+        <member name="M:MantenimientosXWings.ReferenceTypes.QuitarBindDades">
+            <summary>
+            Con este metodo deshacemos que cuando pulsemos un campo en el datagrid 
+            se muestren los datos en el SDSTextBox
+            </summary>
+        </member>
+        <member name="F:MantenimientosXWings.ReferenceTypes.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MantenimientosXWings.ReferenceTypes.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MantenimientosXWings.ReferenceTypes.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MantenimientosXWings.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:MantenimientosXWings.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:MantenimientosXWings.Properties.Resources.Culture">
+            <summary>
+              Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos usando esta clase de recursos fuertemente tipados.
+            </summary>
+        </member>
+    </members>
+</doc>
