@@ -117,6 +117,12 @@
     <Content Include="Recursos\Ala-X_T65_2 Final.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Recursos\Cano.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Recursos\radar.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Recursos\xwings.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

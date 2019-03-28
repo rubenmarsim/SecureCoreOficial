@@ -150,9 +150,15 @@ namespace Escandall
         private void FillMedia()
         {
             var ResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
-            picBoxEscandall.ImageLocation = ResourcesPath + _NamePhoto;
-            picBoxEscandall.SizeMode = PictureBoxSizeMode.StretchImage;
-
+            if (!string.IsNullOrEmpty(_NamePhoto))
+            {
+                picBoxEscandall.ImageLocation = ResourcesPath + _NamePhoto;
+                picBoxEscandall.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            if (!string.IsNullOrEmpty(_NameVideo))
+            {
+                WMPEscandall.URL = ResourcesPath + _NameVideo;
+            }            
         }
         #endregion Methods
 
