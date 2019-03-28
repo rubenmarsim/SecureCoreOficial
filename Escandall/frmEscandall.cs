@@ -24,6 +24,8 @@ namespace Escandall
         List<string> _lstProductsMotor;
         List<string> _lstProductsCabina;
         List<string> _lstProductsMorro;
+        List<string> _NamePhoto;
+        List<string> _NameVideo;
         /// <summary>
         /// Definicion de cada id del campo idRederenceType
         /// </summary>
@@ -47,6 +49,7 @@ namespace Escandall
             Cabina,
             Morro
         }
+
         #endregion
 
         #region Constructores
@@ -69,7 +72,11 @@ namespace Escandall
             GetData();
             LoadData();
         }
-        #endregion
+        private void treeViewEscandall_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            GetMediaData();
+        }
+        #endregion Events
 
         #region Methods
         /// <summary>
@@ -128,7 +135,17 @@ namespace Escandall
                 }                                                 
             }
         }
-        #endregion
+        /// <summary>
+        /// Cogemos unicamente los nombres de la photo y del video teniendo en cuenta 
+        /// el campo que esta seleccionado en el treeview
+        /// </summary>
+        private void GetMediaData()
+        {
+            var slctedNode = treeViewEscandall.SelectedNode.Text;
+            _NamePhoto = db.References.Where(x=>x.descReference.Equals(slctedNode)).Select(x => x.Photo).ToList();
+            _NameVideo = db.References.Where(x => x.descReference.Equals(slctedNode)).Select(x => x.VideoExplode).ToList();
+        }
+        #endregion Methods
 
         
     }

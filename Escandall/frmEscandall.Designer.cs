@@ -43,6 +43,7 @@
             this.treeViewEscandall.Name = "treeViewEscandall";
             this.treeViewEscandall.Size = new System.Drawing.Size(351, 426);
             this.treeViewEscandall.TabIndex = 0;
+            this.treeViewEscandall.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewEscandall_AfterSelect);
             // 
             // btnRefresh
             // 
