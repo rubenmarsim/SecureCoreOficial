@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,8 @@ namespace Escandall
         List<string> _lstProductsMotor;
         List<string> _lstProductsCabina;
         List<string> _lstProductsMorro;
-        List<string> _NamePhoto;
-        List<string> _NameVideo;
+        string _NamePhoto;
+        string _NameVideo;
         /// <summary>
         /// Definicion de cada id del campo idRederenceType
         /// </summary>
@@ -75,6 +76,7 @@ namespace Escandall
         private void treeViewEscandall_AfterSelect(object sender, TreeViewEventArgs e)
         {
             GetMediaData();
+            FillMedia();
         }
         #endregion Events
 
@@ -142,8 +144,15 @@ namespace Escandall
         private void GetMediaData()
         {
             var slctedNode = treeViewEscandall.SelectedNode.Text;
-            _NamePhoto = db.References.Where(x=>x.descReference.Equals(slctedNode)).Select(x => x.Photo).ToList();
-            _NameVideo = db.References.Where(x => x.descReference.Equals(slctedNode)).Select(x => x.VideoExplode).ToList();
+            _NamePhoto = db.References.Where(x=>x.descReference.Equals(slctedNode)).Select(x => x.Photo).ToList().First();
+            _NameVideo = db.References.Where(x => x.descReference.Equals(slctedNode)).Select(x => x.VideoExplode).ToList().First();
+        }
+        private void FillMedia()
+        {
+            var ResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
+            picBoxEscandall.ImageLocation = ResourcesPath + _NamePhoto;
+            picBoxEscandall.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
         #endregion Methods
 

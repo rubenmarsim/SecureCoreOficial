@@ -24,6 +24,12 @@
             Filtramos la info y la ponemos en el treeview
             </summary>
         </member>
+        <member name="M:Escandall.frmEscandall.GetMediaData">
+            <summary>
+            Cogemos unicamente los nombres de la photo y del video teniendo en cuenta 
+            el campo que esta seleccionado en el treeview
+            </summary>
+        </member>
         <member name="F:Escandall.frmEscandall.components">
             <summary>
             Variable del diseñador necesaria.

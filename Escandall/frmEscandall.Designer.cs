@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEscandall));
             this.treeViewEscandall = new System.Windows.Forms.TreeView();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.picBoxEscandall = new System.Windows.Forms.PictureBox();
+            this.WMPEscandall = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxEscandall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WMPEscandall)).BeginInit();
             this.SuspendLayout();
             // 
             // treeViewEscandall
@@ -55,38 +55,38 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // pictureBox1
+            // picBoxEscandall
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(369, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(449, 205);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.picBoxEscandall.Location = new System.Drawing.Point(369, 12);
+            this.picBoxEscandall.Name = "picBoxEscandall";
+            this.picBoxEscandall.Size = new System.Drawing.Size(449, 205);
+            this.picBoxEscandall.TabIndex = 7;
+            this.picBoxEscandall.TabStop = false;
             // 
-            // axWindowsMediaPlayer1
+            // WMPEscandall
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(369, 223);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(449, 244);
-            this.axWindowsMediaPlayer1.TabIndex = 8;
+            this.WMPEscandall.Enabled = true;
+            this.WMPEscandall.Location = new System.Drawing.Point(369, 223);
+            this.WMPEscandall.Name = "WMPEscandall";
+            this.WMPEscandall.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMPEscandall.OcxState")));
+            this.WMPEscandall.Size = new System.Drawing.Size(449, 244);
+            this.WMPEscandall.TabIndex = 8;
             // 
             // frmEscandall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 475);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.WMPEscandall);
+            this.Controls.Add(this.picBoxEscandall);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.treeViewEscandall);
             this.Name = "frmEscandall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Escandall";
             this.Load += new System.EventHandler(this.frmEscandall_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxEscandall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WMPEscandall)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -95,8 +95,8 @@
 
         private System.Windows.Forms.TreeView treeViewEscandall;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.PictureBox picBoxEscandall;
+        private AxWMPLib.AxWindowsMediaPlayer WMPEscandall;
     }
 }
 
