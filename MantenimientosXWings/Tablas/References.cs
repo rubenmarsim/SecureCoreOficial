@@ -18,15 +18,14 @@ namespace MantenimientosXWings.Tablas
         public bool _bEsNou = false;
         #endregion Variables Globales
 
+        #region Const
         public References()
         {
             InitializeComponent();
         }
-        private void Inicializaciones()
-        {
-            db = new GestionDB.XWingsFactoryEntities();            
-            dGVReferences.AllowUserToAddRows = false;
-        }
+        #endregion
+
+        #region Events
         private void References_Load(object sender, EventArgs e)
         {
             Inicializaciones();
@@ -62,6 +61,14 @@ namespace MantenimientosXWings.Tablas
             sdstxtcodeReference.Clear();
             sdstxtdescReference.Clear();
             _bEsNou = true;
+        }
+        #endregion Events
+
+        #region Methods
+        private void Inicializaciones()
+        {
+            db = new GestionDB.XWingsFactoryEntities();
+            dGVReferences.AllowUserToAddRows = false;
         }
         private void FillGrid()
         {
@@ -106,6 +113,7 @@ namespace MantenimientosXWings.Tablas
             {
                 ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
             }
-        }        
+        }
+        #endregion Methods
     }
 }
