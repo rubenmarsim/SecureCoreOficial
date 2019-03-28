@@ -35,12 +35,32 @@ namespace MantenimientosXWings.Tablas
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            if (_bEsNou)
+            {
+                var inser = new GestionDB.References
+                {
+                    codeReference = sdstxtcodeReference.Text,
+                    descReference = sdstxtdescReference.Text
+                };
+                db.References.Add(inser);
+                db.SaveChanges();
+                FillGrid();
+                _bEsNou = false;
+            }
+            else
+            {
+                db.SaveChanges();
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
             dGVReferences.AllowUserToAddRows = true;
+            _bEsNou = true;
+
+            QuitarBindDades();
+            sdstxtcodeReference.Clear();
+            sdstxtdescReference.Clear();
             _bEsNou = true;
         }
         private void FillGrid()
@@ -66,7 +86,7 @@ namespace MantenimientosXWings.Tablas
                     ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
                     ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Add("Text", _TableReferences, ((SdsTexBox.SdsTexBox)sdsControl).ColumnName.ToString());
                     ((SdsTexBox.SdsTexBox)sdsControl).Validated += new EventHandler(Validar);
-                }
+                }               
             }
         }       
         private void QuitarBindDades()

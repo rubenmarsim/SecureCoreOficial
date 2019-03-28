@@ -39,7 +39,7 @@
             this.sdstxtvideo = new SdsTexBox.SdsTexBox();
             this.labphoto = new System.Windows.Forms.Label();
             this.labvideo = new System.Windows.Forms.Label();
-            this.sdstxtidReferenceType = new WookieCodeControls.sdsForanea();
+            this.sdstxtidReferenceTypes = new WookieCodeControls.sdsForanea();
             this.labidReferenceType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVReferences)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,6 @@
             this.dGVReferences.Name = "dGVReferences";
             this.dGVReferences.Size = new System.Drawing.Size(464, 352);
             this.dGVReferences.TabIndex = 0;
-            this.dGVReferences.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReferences_CellContentDoubleClick);
             // 
             // btnUpdate
             // 
@@ -178,22 +177,22 @@
             this.labvideo.Text = "Video";
             this.labvideo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // sdstxtidReferenceType
+            // sdstxtidReferenceTypes
             // 
-            this.sdstxtidReferenceType.Control_Id = "idReferenceTypes";
-            this.sdstxtidReferenceType.DescCodi = "descReferenceType";
-            this.sdstxtidReferenceType.ErrorText = null;
-            this.sdstxtidReferenceType.Location = new System.Drawing.Point(569, 155);
-            this.sdstxtidReferenceType.Margin = new System.Windows.Forms.Padding(2);
-            this.sdstxtidReferenceType.Name = "sdstxtidReferenceType";
-            this.sdstxtidReferenceType.NomCamp = "codeReferenceType";
-            this.sdstxtidReferenceType.NomControl = "idReferenceTypes";
-            this.sdstxtidReferenceType.NomID = "idReferenceType";
-            this.sdstxtidReferenceType.NomTaula = "ReferenceTypes";
-            this.sdstxtidReferenceType.Requerit = false;
-            this.sdstxtidReferenceType.Size = new System.Drawing.Size(345, 28);
-            this.sdstxtidReferenceType.TabIndex = 12;
-            this.sdstxtidReferenceType.TextLabel = null;
+            this.sdstxtidReferenceTypes.Control_Id = "idReferenceTypes";
+            this.sdstxtidReferenceTypes.DescCodi = "descReferenceType";
+            this.sdstxtidReferenceTypes.ErrorText = null;
+            this.sdstxtidReferenceTypes.Location = new System.Drawing.Point(569, 155);
+            this.sdstxtidReferenceTypes.Margin = new System.Windows.Forms.Padding(2);
+            this.sdstxtidReferenceTypes.Name = "sdstxtidReferenceTypes";
+            this.sdstxtidReferenceTypes.NomCamp = "codeReferenceType";
+            this.sdstxtidReferenceTypes.NomControl = "idReferenceTypes";
+            this.sdstxtidReferenceTypes.NomID = "idReferenceType";
+            this.sdstxtidReferenceTypes.NomTaula = "ReferenceTypes";
+            this.sdstxtidReferenceTypes.Requerit = false;
+            this.sdstxtidReferenceTypes.Size = new System.Drawing.Size(345, 28);
+            this.sdstxtidReferenceTypes.TabIndex = 12;
+            this.sdstxtidReferenceTypes.TextLabel = null;
             // 
             // labidReferenceType
             // 
@@ -210,7 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 536);
             this.Controls.Add(this.labidReferenceType);
-            this.Controls.Add(this.sdstxtidReferenceType);
+            this.Controls.Add(this.sdstxtidReferenceTypes);
             this.Controls.Add(this.labvideo);
             this.Controls.Add(this.labphoto);
             this.Controls.Add(this.sdstxtvideo);
@@ -244,7 +243,7 @@
         private SdsTexBox.SdsTexBox sdstxtvideo;
         private System.Windows.Forms.Label labphoto;
         private System.Windows.Forms.Label labvideo;
-        private WookieCodeControls.sdsForanea sdstxtidReferenceType;
+        private WookieCodeControls.sdsForanea sdstxtidReferenceTypes;
         private System.Windows.Forms.Label labidReferenceType;
     }
 }
