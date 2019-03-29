@@ -1,5 +1,4 @@
-﻿using GestionDB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +31,7 @@ namespace PDFtoDB
             {
                 textBox_Archivo.Text = openFileDialog1.FileName;
             }
-            var a = db.AssemblyInstructions
+            var a = db.AssemblyInstructions;
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -67,11 +66,11 @@ namespace PDFtoDB
         private void Refresh()
         {
 
-            //using (XWingsFactoryEntities db = new XWingsFactoryEntities())
-            //{
-            //    var lst = db.AssemblyInstructions.Select(x => x).ToList();
-            //    dgv_PDFtoDB.DataSource = lst;
-            //}
+            using (GestionDB.XWingsFactoryEntities db = new GestionDB.XWingsFactoryEntities())
+            {
+                var lst = db.AssemblyInstructions.Select(x => x).ToList();
+                dgv_PDFtoDB.DataSource = lst;
+            }
         }
 
         private void frm_PDFtoDB_Load(object sender, EventArgs e)
@@ -93,17 +92,17 @@ namespace PDFtoDB
 
                     string path = AppDomain.CurrentDomain.BaseDirectory;
                     string folder = path + "temp\\";
-                    string fullFilePath = folder + oDocument.realName;
+                    //string fullFilePath = folder + oDocument.realName;
 
                     if (!Directory.Exists(folder))
                         Directory.CreateDirectory(folder);
 
-                    if (File.Exists(fullFilePath))
-                        File.Delete(fullFilePath);
+                    //if (File.Exists(fullFilePath))
+                    //    File.Delete(fullFilePath);
 
-                    File.WriteAllBytes(fullFilePath, oDocument.archivo);
+                    //File.WriteAllBytes(fullFilePath, oDocument.Instructions);
 
-                    Process.Start(fullFilePath);
+                    //Process.Start(fullFilePath);
                 }
             }
         }
