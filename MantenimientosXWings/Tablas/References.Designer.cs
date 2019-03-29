@@ -52,6 +52,7 @@
             this.dGVReferences.Name = "dGVReferences";
             this.dGVReferences.Size = new System.Drawing.Size(464, 352);
             this.dGVReferences.TabIndex = 0;
+            this.dGVReferences.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReferences_CellClick);
             // 
             // btnUpdate
             // 
@@ -201,7 +202,7 @@
             this.sdstxBoxIdReferenceType.CodeSector = null;
             this.sdstxBoxIdReferenceType.ColumnName = "idReferenceType";
             this.sdstxBoxIdReferenceType.DescCodi = null;
-            this.sdstxBoxIdReferenceType.Location = new System.Drawing.Point(707, 162);
+            this.sdstxBoxIdReferenceType.Location = new System.Drawing.Point(638, 344);
             this.sdstxBoxIdReferenceType.Name = "sdstxBoxIdReferenceType";
             this.sdstxBoxIdReferenceType.Nom = null;
             this.sdstxBoxIdReferenceType.NomBBDD = "XWingsFactory";

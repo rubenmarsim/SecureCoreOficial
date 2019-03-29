@@ -71,6 +71,20 @@ namespace MantenimientosXWings.Tablas
                 Forania();
             }
         }
+        private void dGVReferences_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (sdstxBoxIdReferenceType.Text.Equals("1"))
+            {
+                cmbBoxIdReferenceType.SelectedIndex = 0;
+            }else if (sdstxBoxIdReferenceType.Text.Equals("2"))
+            {
+                cmbBoxIdReferenceType.SelectedIndex = 1;
+            }
+            else if (sdstxBoxIdReferenceType.Text.Equals("3"))
+            {
+                cmbBoxIdReferenceType.SelectedIndex = 2;
+            }
+        }
         #endregion Events
 
         #region Methods
@@ -129,6 +143,7 @@ namespace MantenimientosXWings.Tablas
                 ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
             }
         }
+
         #endregion Methods
 
         
