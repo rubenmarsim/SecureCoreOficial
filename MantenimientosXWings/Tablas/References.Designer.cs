@@ -77,7 +77,7 @@
             // labcodeReference
             // 
             this.labcodeReference.AutoSize = true;
-            this.labcodeReference.Location = new System.Drawing.Point(482, 55);
+            this.labcodeReference.Location = new System.Drawing.Point(534, 55);
             this.labcodeReference.Name = "labcodeReference";
             this.labcodeReference.Size = new System.Drawing.Size(82, 13);
             this.labcodeReference.TabIndex = 5;
@@ -86,7 +86,7 @@
             // labdescReference
             // 
             this.labdescReference.AutoSize = true;
-            this.labdescReference.Location = new System.Drawing.Point(482, 81);
+            this.labdescReference.Location = new System.Drawing.Point(534, 81);
             this.labdescReference.Name = "labdescReference";
             this.labdescReference.Size = new System.Drawing.Size(82, 13);
             this.labdescReference.TabIndex = 6;
@@ -95,7 +95,7 @@
             // labphoto
             // 
             this.labphoto.AutoSize = true;
-            this.labphoto.Location = new System.Drawing.Point(482, 104);
+            this.labphoto.Location = new System.Drawing.Point(534, 104);
             this.labphoto.Name = "labphoto";
             this.labphoto.Size = new System.Drawing.Size(35, 13);
             this.labphoto.TabIndex = 10;
@@ -104,7 +104,7 @@
             // labvideo
             // 
             this.labvideo.AutoSize = true;
-            this.labvideo.Location = new System.Drawing.Point(482, 133);
+            this.labvideo.Location = new System.Drawing.Point(534, 133);
             this.labvideo.Name = "labvideo";
             this.labvideo.Size = new System.Drawing.Size(34, 13);
             this.labvideo.TabIndex = 11;
@@ -114,16 +114,16 @@
             // labidReferenceType
             // 
             this.labidReferenceType.AutoSize = true;
-            this.labidReferenceType.Location = new System.Drawing.Point(478, 164);
+            this.labidReferenceType.Location = new System.Drawing.Point(530, 164);
             this.labidReferenceType.Name = "labidReferenceType";
-            this.labidReferenceType.Size = new System.Drawing.Size(90, 13);
+            this.labidReferenceType.Size = new System.Drawing.Size(105, 13);
             this.labidReferenceType.TabIndex = 13;
-            this.labidReferenceType.Text = "IdReferenceType";
+            this.labidReferenceType.Text = "codeReferenceType";
             // 
             // cmbBoxIdReferenceType
             // 
             this.cmbBoxIdReferenceType.FormattingEnabled = true;
-            this.cmbBoxIdReferenceType.Location = new System.Drawing.Point(565, 161);
+            this.cmbBoxIdReferenceType.Location = new System.Drawing.Point(648, 161);
             this.cmbBoxIdReferenceType.Name = "cmbBoxIdReferenceType";
             this.cmbBoxIdReferenceType.Size = new System.Drawing.Size(121, 21);
             this.cmbBoxIdReferenceType.TabIndex = 14;
@@ -134,7 +134,7 @@
             this.sdstxtvideo.CodeSector = null;
             this.sdstxtvideo.ColumnName = "VideoExplode";
             this.sdstxtvideo.DescCodi = null;
-            this.sdstxtvideo.Location = new System.Drawing.Point(565, 130);
+            this.sdstxtvideo.Location = new System.Drawing.Point(648, 133);
             this.sdstxtvideo.Name = "sdstxtvideo";
             this.sdstxtvideo.Nom = null;
             this.sdstxtvideo.NomBBDD = "XWingsFactory";
@@ -151,7 +151,7 @@
             this.sdstxtphoto.CodeSector = null;
             this.sdstxtphoto.ColumnName = "Photo";
             this.sdstxtphoto.DescCodi = null;
-            this.sdstxtphoto.Location = new System.Drawing.Point(565, 104);
+            this.sdstxtphoto.Location = new System.Drawing.Point(648, 107);
             this.sdstxtphoto.Name = "sdstxtphoto";
             this.sdstxtphoto.Nom = null;
             this.sdstxtphoto.NomBBDD = "XWingsFactory";
@@ -168,7 +168,7 @@
             this.sdstxtdescReference.CodeSector = null;
             this.sdstxtdescReference.ColumnName = "descReference";
             this.sdstxtdescReference.DescCodi = null;
-            this.sdstxtdescReference.Location = new System.Drawing.Point(565, 78);
+            this.sdstxtdescReference.Location = new System.Drawing.Point(648, 81);
             this.sdstxtdescReference.Name = "sdstxtdescReference";
             this.sdstxtdescReference.Nom = null;
             this.sdstxtdescReference.NomBBDD = "XWingsFactory";
@@ -185,7 +185,7 @@
             this.sdstxtcodeReference.CodeSector = null;
             this.sdstxtcodeReference.ColumnName = "codeReference";
             this.sdstxtcodeReference.DescCodi = null;
-            this.sdstxtcodeReference.Location = new System.Drawing.Point(565, 52);
+            this.sdstxtcodeReference.Location = new System.Drawing.Point(648, 55);
             this.sdstxtcodeReference.Name = "sdstxtcodeReference";
             this.sdstxtcodeReference.Nom = null;
             this.sdstxtcodeReference.NomBBDD = "XWingsFactory";
@@ -202,7 +202,7 @@
             this.sdstxBoxIdReferenceType.CodeSector = null;
             this.sdstxBoxIdReferenceType.ColumnName = "idReferenceType";
             this.sdstxBoxIdReferenceType.DescCodi = null;
-            this.sdstxBoxIdReferenceType.Location = new System.Drawing.Point(638, 344);
+            this.sdstxBoxIdReferenceType.Location = new System.Drawing.Point(438, 344);
             this.sdstxBoxIdReferenceType.Name = "sdstxBoxIdReferenceType";
             this.sdstxBoxIdReferenceType.Nom = null;
             this.sdstxBoxIdReferenceType.NomBBDD = "XWingsFactory";
