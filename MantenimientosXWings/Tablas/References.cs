@@ -17,6 +17,7 @@ namespace MantenimientosXWings.Tablas
         List<GestionDB.References> _TableReferences;
         List<GestionDB.ReferenceTypes> _TableReferencesTypes;
         public bool _bEsNou = false;
+        short _IdForania;
         #endregion Variables Globales
 
         #region Const
@@ -67,7 +68,7 @@ namespace MantenimientosXWings.Tablas
         {
             if(cmbBoxIdReferenceType.SelectedValue != null)
             {
-                sdstxBoxIdReferenceType.Text = cmbBoxIdReferenceType.SelectedValue.ToString();
+                Forania();
             }
         }
         #endregion Events
@@ -93,6 +94,10 @@ namespace MantenimientosXWings.Tablas
                 dGVReferences.Columns[i].Visible = false;
             }
             BindDades();
+        }
+        private void Forania()
+        {
+            sdstxBoxIdReferenceType.Text = _TableReferencesTypes.Where(x=>x.codeReferenceType.Equals(cmbBoxIdReferenceType.SelectedValue.ToString())).Select(x => x.idReferenceType).First().ToString();
         }
         private void BindDades()
         {

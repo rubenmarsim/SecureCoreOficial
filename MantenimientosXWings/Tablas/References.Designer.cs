@@ -207,7 +207,7 @@
             this.sdstxBoxIdReferenceType.NomBBDD = "XWingsFactory";
             this.sdstxBoxIdReferenceType.NomCamp = null;
             this.sdstxBoxIdReferenceType.NomControl = null;
-            this.sdstxBoxIdReferenceType.NomTaula = "ReferencesTypes";
+            this.sdstxBoxIdReferenceType.NomTaula = "References";
             this.sdstxBoxIdReferenceType.Requerit = false;
             this.sdstxBoxIdReferenceType.SiEsForana = false;
             this.sdstxBoxIdReferenceType.Size = new System.Drawing.Size(38, 20);
