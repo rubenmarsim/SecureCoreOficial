@@ -15,6 +15,7 @@ namespace MantenimientosXWings.Tablas
         #region Variables Globales
         GestionDB.XWingsFactoryEntities db;      
         List<GestionDB.References> _TableReferences;
+        List<GestionDB.ReferenceTypes> _TableReferencesTypes;
         public bool _bEsNou = false;
         #endregion Variables Globales
 
@@ -62,6 +63,13 @@ namespace MantenimientosXWings.Tablas
             sdstxtdescReference.Clear();
             _bEsNou = true;
         }
+        private void cmbBoxIdReferenceType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(cmbBoxIdReferenceType.SelectedValue != null)
+            {
+                sdstxBoxIdReferenceType.Text = cmbBoxIdReferenceType.SelectedValue.ToString();
+            }
+        }
         #endregion Events
 
         #region Methods
@@ -73,8 +81,10 @@ namespace MantenimientosXWings.Tablas
         private void FillGrid()
         {
             _TableReferences = db.References.Select(x => x).ToList();
-            dGVReferences.DataSource = _TableReferences;
-           
+            _TableReferencesTypes = db.ReferenceTypes.Select(x => x).ToList();
+            var a = _TableReferencesTypes.Select(x => x.codeReferenceType);
+            cmbBoxIdReferenceType.DataSource = _TableReferencesTypes.Select(x => x.codeReferenceType).ToList();
+            dGVReferences.DataSource = _TableReferences; 
             var iTotalColumns = dGVReferences.Columns.Count;
             dGVReferences.Columns[0].Visible = false;
 
@@ -115,5 +125,7 @@ namespace MantenimientosXWings.Tablas
             }
         }
         #endregion Methods
+
+        
     }
 }
