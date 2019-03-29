@@ -18,6 +18,12 @@ namespace MantenimientosXWings.Tablas
         List<GestionDB.ReferenceTypes> _TableReferencesTypes;
         public bool _bEsNou = false;
         short _IdForania;
+        enum CodeReferenceTypes
+        {
+            Producte_Final,
+            Producte_Intermig,
+            Materia_Prima
+        }
         #endregion Variables Globales
 
         #region Const
@@ -74,16 +80,11 @@ namespace MantenimientosXWings.Tablas
         private void dGVReferences_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (sdstxBoxIdReferenceType.Text.Equals("1"))
-            {
-                cmbBoxIdReferenceType.SelectedIndex = 0;
-            }else if (sdstxBoxIdReferenceType.Text.Equals("2"))
-            {
-                cmbBoxIdReferenceType.SelectedIndex = 1;
-            }
+                cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Producte_Final;
+            else if (sdstxBoxIdReferenceType.Text.Equals("2"))
+                cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Producte_Intermig;
             else if (sdstxBoxIdReferenceType.Text.Equals("3"))
-            {
-                cmbBoxIdReferenceType.SelectedIndex = 2;
-            }
+                cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Materia_Prima;
         }
         #endregion Events
 
