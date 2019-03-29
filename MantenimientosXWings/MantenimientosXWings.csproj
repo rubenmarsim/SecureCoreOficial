@@ -115,10 +115,33 @@
       <Project>{7b94f45b-b315-49d2-a817-a1e295170db5}</Project>
       <Name>GestionDB</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PantallaCerca\PantallaCerca.csproj">
+      <Project>{2f6b0d0c-6544-480b-a660-9b7f388a0c0d}</Project>
+      <Name>PantallaCerca</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SdsTexBox\SdsTexBox.csproj">
-      <Project>{BF4D52FF-1166-4F33-9954-FECED8827E8F}</Project>
+      <Project>{bf4d52ff-1166-4f33-9954-feced8827e8f}</Project>
       <Name>SdsTexBox</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

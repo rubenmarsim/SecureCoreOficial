@@ -141,6 +141,7 @@ namespace SdsTexBox
             this.Validated += new System.EventHandler(this.TxtCode_Validated);
             this.ResumeLayout(false);
             #endregion
+
         }
         private void TxtCode_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
