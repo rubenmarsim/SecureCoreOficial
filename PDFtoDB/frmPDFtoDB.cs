@@ -52,9 +52,8 @@ namespace PDFtoDB
 
             GestionDB.AssemblyInstructions oDocument = new GestionDB.AssemblyInstructions
             {
-                idreference = textBox_Nombre.Text.Trim(),
+                idAssemblyInstructions = short.Parse(textBox_Nombre.Text.Trim()),
                 Instructions = file,
-                id = openFileDialog1.SafeFileName,
             };
 
             db.AssemblyInstructions.Add(oDocument);
@@ -77,7 +76,8 @@ namespace PDFtoDB
         {
             db = new GestionDB.XWingsFactoryEntities();
             Refresh();
-            dgv_PDFtoDB.Columns[3].Visible = false;
+            dgv_PDFtoDB.Columns[1].Visible = false;
+            dgv_PDFtoDB.Columns[2].Visible = false;
         }
 
         private void btn_Open_Click(object sender, EventArgs e)
