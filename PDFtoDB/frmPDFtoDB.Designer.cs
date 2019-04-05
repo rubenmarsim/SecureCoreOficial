@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dgv_PDFtoDB = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_Nombre = new System.Windows.Forms.TextBox();
-            this.textBox_Archivo = new System.Windows.Forms.TextBox();
-            this.btn_Browse = new System.Windows.Forms.Button();
-            this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Open = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.btn_Browse = new System.Windows.Forms.Button();
+            this.textBox_Archivo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgv_PDFtoDB = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboPart = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,81 +55,20 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.comboPart);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Open);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Save);
             this.splitContainer1.Panel1.Controls.Add(this.btn_Browse);
             this.splitContainer1.Panel1.Controls.Add(this.textBox_Archivo);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox_Nombre);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgv_PDFtoDB);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            this.splitContainer1.Size = new System.Drawing.Size(930, 450);
             this.splitContainer1.SplitterDistance = 169;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // dgv_PDFtoDB
-            // 
-            this.dgv_PDFtoDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_PDFtoDB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_PDFtoDB.Location = new System.Drawing.Point(0, 0);
-            this.dgv_PDFtoDB.Name = "dgv_PDFtoDB";
-            this.dgv_PDFtoDB.Size = new System.Drawing.Size(800, 277);
-            this.dgv_PDFtoDB.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Identificador:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Archivo:";
-            // 
-            // textBox_Nombre
-            // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(92, 27);
-            this.textBox_Nombre.Name = "textBox_Nombre";
-            this.textBox_Nombre.Size = new System.Drawing.Size(87, 20);
-            this.textBox_Nombre.TabIndex = 3;
-            // 
-            // textBox_Archivo
-            // 
-            this.textBox_Archivo.Location = new System.Drawing.Point(92, 69);
-            this.textBox_Archivo.Name = "textBox_Archivo";
-            this.textBox_Archivo.Size = new System.Drawing.Size(543, 20);
-            this.textBox_Archivo.TabIndex = 4;
-            // 
-            // btn_Browse
-            // 
-            this.btn_Browse.Location = new System.Drawing.Point(641, 67);
-            this.btn_Browse.Name = "btn_Browse";
-            this.btn_Browse.Size = new System.Drawing.Size(32, 23);
-            this.btn_Browse.TabIndex = 5;
-            this.btn_Browse.Text = "...";
-            this.btn_Browse.UseVisualStyleBackColor = true;
-            this.btn_Browse.Click += new System.EventHandler(this.btn_Browse_Click);
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Location = new System.Drawing.Point(598, 112);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 23);
-            this.btn_Save.TabIndex = 6;
-            this.btn_Save.Text = "Guardar";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Open
             // 
@@ -141,15 +80,79 @@
             this.btn_Open.UseVisualStyleBackColor = true;
             this.btn_Open.Click += new System.EventHandler(this.btn_Open_Click);
             // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(598, 112);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_Save.TabIndex = 6;
+            this.btn_Save.Text = "Guardar";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // btn_Browse
+            // 
+            this.btn_Browse.Location = new System.Drawing.Point(641, 67);
+            this.btn_Browse.Name = "btn_Browse";
+            this.btn_Browse.Size = new System.Drawing.Size(32, 23);
+            this.btn_Browse.TabIndex = 5;
+            this.btn_Browse.Text = "...";
+            this.btn_Browse.UseVisualStyleBackColor = true;
+            this.btn_Browse.Click += new System.EventHandler(this.btn_Browse_Click);
+            // 
+            // textBox_Archivo
+            // 
+            this.textBox_Archivo.Location = new System.Drawing.Point(92, 69);
+            this.textBox_Archivo.Name = "textBox_Archivo";
+            this.textBox_Archivo.Size = new System.Drawing.Size(543, 20);
+            this.textBox_Archivo.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Archivo:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ideference:";
+            // 
+            // dgv_PDFtoDB
+            // 
+            this.dgv_PDFtoDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_PDFtoDB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_PDFtoDB.Location = new System.Drawing.Point(0, 0);
+            this.dgv_PDFtoDB.Name = "dgv_PDFtoDB";
+            this.dgv_PDFtoDB.Size = new System.Drawing.Size(930, 277);
+            this.dgv_PDFtoDB.TabIndex = 0;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // comboPart
+            // 
+            this.comboPart.DisplayMember = "descReference";
+            this.comboPart.FormattingEnabled = true;
+            this.comboPart.Location = new System.Drawing.Point(92, 27);
+            this.comboPart.Name = "comboPart";
+            this.comboPart.Size = new System.Drawing.Size(121, 21);
+            this.comboPart.TabIndex = 8;
+            this.comboPart.ValueMember = "idReference";
             // 
             // frm_PDFtoDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(930, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frm_PDFtoDB";
             this.Text = "Form1";
@@ -171,11 +174,11 @@
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Browse;
         private System.Windows.Forms.TextBox textBox_Archivo;
-        private System.Windows.Forms.TextBox textBox_Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_PDFtoDB;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox comboPart;
     }
 }
 
