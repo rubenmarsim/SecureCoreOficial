@@ -127,13 +127,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="UserTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Star Jedi Hollow, 18pt</value>
+    <value>Microsoft Sans Serif, 18pt</value>
   </data>
   <data name="UserTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>417, 154</value>
   </data>
   <data name="UserTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 39</value>
+    <value>96, 29</value>
   </data>
   <data name="UserTitle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -220,13 +220,13 @@
     <value>True</value>
   </data>
   <data name="PasswordTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Star Jedi Hollow, 18pt</value>
+    <value>Microsoft Sans Serif, 18pt</value>
   </data>
   <data name="PasswordTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>417, 241</value>
   </data>
   <data name="PasswordTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 39</value>
+    <value>120, 29</value>
   </data>
   <data name="PasswordTitle.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -5873,7 +5873,7 @@
     <value>Flat</value>
   </data>
   <data name="ButtonEntrar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Star Jedi Hollow, 18pt</value>
+    <value>Microsoft Sans Serif, 18pt</value>
   </data>
   <data name="ButtonEntrar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
