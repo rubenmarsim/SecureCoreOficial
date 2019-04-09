@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="XWingsFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="XWingsFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AssemblyInstructions">
           <Key>
             <PropertyRef Name="idAssemblyInstructions" />
@@ -115,6 +115,7 @@
           <Property Name="Photo" Type="nvarchar" MaxLength="200" />
           <Property Name="VideoExplode" Type="nvarchar" MaxLength="200" />
           <Property Name="idReferenceType" Type="smallint" Nullable="false" />
+          <Property Name="IsUsed" Type="bit" />
         </EntityType>
         <EntityType Name="ReferenceTypes">
           <Key>
@@ -451,8 +452,7 @@
             <End Role="Structure" EntitySet="Structure" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="XWingsFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -593,6 +593,7 @@
           <NavigationProperty Name="ReferenceTypes" Relationship="Self.FK_References_ReferenceTypes" FromRole="References" ToRole="ReferenceTypes" />
           <NavigationProperty Name="Structure" Relationship="Self.FK_Structure_References" FromRole="References" ToRole="Structure" />
           <NavigationProperty Name="Structure1" Relationship="Self.FK_Structure_References1" FromRole="References" ToRole="Structure" />
+          <Property Name="IsUsed" Type="Boolean" />
         </EntityType>
         <EntityType Name="ReferenceTypes">
           <Key>
@@ -1054,6 +1055,7 @@
           <EntitySetMapping Name="References">
             <EntityTypeMapping TypeName="XWingsFactoryModel.References">
               <MappingFragment StoreEntitySet="References">
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
                 <ScalarProperty Name="idReference" ColumnName="idReference" />
                 <ScalarProperty Name="codeReference" ColumnName="codeReference" />
                 <ScalarProperty Name="descReference" ColumnName="descReference" />

@@ -30,8 +30,8 @@
         {
             this.listNoUsat = new System.Windows.Forms.ListBox();
             this.listUsats = new System.Windows.Forms.ListBox();
-            this.izquierda = new System.Windows.Forms.Button();
-            this.derecha = new System.Windows.Forms.Button();
+            this.btnIzquierda = new System.Windows.Forms.Button();
+            this.btnDerecha = new System.Windows.Forms.Button();
             this.comboPart = new System.Windows.Forms.ComboBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.comboObject = new System.Windows.Forms.ComboBox();
@@ -59,25 +59,25 @@
             this.listUsats.DragOver += new System.Windows.Forms.DragEventHandler(this.listUsats_DragOver);
             this.listUsats.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listUsats_MouseDown);
             // 
-            // izquierda
+            // btnIzquierda
             // 
-            this.izquierda.Location = new System.Drawing.Point(288, 185);
-            this.izquierda.Name = "izquierda";
-            this.izquierda.Size = new System.Drawing.Size(75, 23);
-            this.izquierda.TabIndex = 2;
-            this.izquierda.Text = "< <";
-            this.izquierda.UseVisualStyleBackColor = true;
-            this.izquierda.Click += new System.EventHandler(this.izquierda_Click);
+            this.btnIzquierda.Location = new System.Drawing.Point(288, 221);
+            this.btnIzquierda.Name = "btnIzquierda";
+            this.btnIzquierda.Size = new System.Drawing.Size(75, 23);
+            this.btnIzquierda.TabIndex = 2;
+            this.btnIzquierda.Text = "< <";
+            this.btnIzquierda.UseVisualStyleBackColor = true;
+            this.btnIzquierda.Click += new System.EventHandler(this.btnIzquierda_Click);
             // 
-            // derecha
+            // btnDerecha
             // 
-            this.derecha.Location = new System.Drawing.Point(288, 232);
-            this.derecha.Name = "derecha";
-            this.derecha.Size = new System.Drawing.Size(75, 23);
-            this.derecha.TabIndex = 3;
-            this.derecha.Text = "> >";
-            this.derecha.UseVisualStyleBackColor = true;
-            this.derecha.Click += new System.EventHandler(this.derecha_Click);
+            this.btnDerecha.Location = new System.Drawing.Point(288, 172);
+            this.btnDerecha.Name = "btnDerecha";
+            this.btnDerecha.Size = new System.Drawing.Size(75, 23);
+            this.btnDerecha.TabIndex = 3;
+            this.btnDerecha.Text = "> >";
+            this.btnDerecha.UseVisualStyleBackColor = true;
+            this.btnDerecha.Click += new System.EventHandler(this.btnDerecha_Click);
             // 
             // comboPart
             // 
@@ -88,7 +88,6 @@
             this.comboPart.Size = new System.Drawing.Size(165, 21);
             this.comboPart.TabIndex = 4;
             this.comboPart.ValueMember = "idReferenceType";
-            this.comboPart.SelectionChangeCommitted += new System.EventHandler(this.comboPart_SelectionChangeCommitted);
             this.comboPart.SelectedValueChanged += new System.EventHandler(this.comboPart_SelectedValueChanged);
             this.comboPart.Click += new System.EventHandler(this.comboPart_Click);
             // 
@@ -110,7 +109,6 @@
             this.comboObject.Size = new System.Drawing.Size(185, 21);
             this.comboObject.TabIndex = 6;
             this.comboObject.ValueMember = "idReference";
-            this.comboObject.SelectionChangeCommitted += new System.EventHandler(this.comboObject_SelectionChangeCommitted);
             this.comboObject.SelectedValueChanged += new System.EventHandler(this.comboObject_SelectedValueChanged);
             this.comboObject.Click += new System.EventHandler(this.comboObject_Click);
             // 
@@ -122,8 +120,8 @@
             this.Controls.Add(this.comboObject);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.comboPart);
-            this.Controls.Add(this.derecha);
-            this.Controls.Add(this.izquierda);
+            this.Controls.Add(this.btnDerecha);
+            this.Controls.Add(this.btnIzquierda);
             this.Controls.Add(this.listUsats);
             this.Controls.Add(this.listNoUsat);
             this.Name = "GestioEscfrm";
@@ -137,8 +135,8 @@
 
         private System.Windows.Forms.ListBox listNoUsat;
         private System.Windows.Forms.ListBox listUsats;
-        private System.Windows.Forms.Button izquierda;
-        private System.Windows.Forms.Button derecha;
+        private System.Windows.Forms.Button btnIzquierda;
+        private System.Windows.Forms.Button btnDerecha;
         private System.Windows.Forms.ComboBox comboPart;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.ComboBox comboObject;

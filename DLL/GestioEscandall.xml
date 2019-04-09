@@ -4,14 +4,93 @@
         <name>GestioEscandall</name>
     </assembly>
     <members>
+        <member name="F:GestioEscandall.GestioEscfrm._IsFirstTime">
+            <summary>
+            Determina si es la primera vez que pulsamos en el combobox
+            (Se usa para los 2 combos)
+            </summary>
+        </member>
+        <member name="F:GestioEscandall.GestioEscfrm.db">
+            <summary>
+            Conexion al Entity Framework
+            </summary>
+        </member>
         <member name="M:GestioEscandall.GestioEscfrm.#ctor">
             <summary>
             Constructor por defecto de la clase
             </summary>
         </member>
-        <member name="M:GestioEscandall.GestioEscfrm.cargarComboPart">
+        <member name="M:GestioEscandall.GestioEscfrm.GestioEscfrm_Load(System.Object,System.EventArgs)">
+            <summary>
+            Cuando carga el form
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.comboPart_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos en el comboBox de las partes
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.comboObject_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos en el comboBox de los elementos/objetos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.comboPart_SelectedValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Cuando seleccionamos otro campo en el comboBox de las partes
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.comboObject_SelectedValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Cuando seleccionamos otro campo en el combo de los elementos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.btnDerecha_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton para pasar un campo de 
+            izquierda --> derecha
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.btnIzquierda_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton para pasar un campo de 
+            derecha --> izquierda
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.CargarComboPart">
             <summary>
             Carga el comboBox de las partes principales e intermedias
+            </summary>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.CargarComboObject(System.String)">
+            <summary>
+            Carga el ComboBox de los Elementos segun la parte
+            </summary>
+            <param name="valor"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.CargarListViews(System.String)">
+            <summary>
+            Carga los elementos usados y no usados en sus respectivos listBox
+            </summary>
+            <param name="valor"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.LimpiarListBoxs">
+            <summary>
+            Limpiamos todso los items de los dos ListBoxs
             </summary>
         </member>
         <member name="F:GestioEscandall.GestioEscfrm.components">

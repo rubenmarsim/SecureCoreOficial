@@ -29,6 +29,7 @@ namespace GestionDB
         public string Photo { get; set; }
         public string VideoExplode { get; set; }
         public short idReferenceType { get; set; }
+        public Nullable<bool> IsUsed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AssemblyInstructions> AssemblyInstructions { get; set; }
