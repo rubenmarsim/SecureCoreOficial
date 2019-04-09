@@ -4,6 +4,16 @@
         <name>GestioEscandall</name>
     </assembly>
     <members>
+        <member name="M:GestioEscandall.GestioEscfrm.#ctor">
+            <summary>
+            Constructor por defecto de la clase
+            </summary>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.cargarComboPart">
+            <summary>
+            Carga el comboBox de las partes principales e intermedias
+            </summary>
+        </member>
         <member name="F:GestioEscandall.GestioEscfrm.components">
             <summary>
             Variable del diseñador necesaria.
