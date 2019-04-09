@@ -252,6 +252,8 @@ namespace GestioEscandall
 
             var lSubElementos = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num).Select(x=>x.Referencia.descReference)).ToList();
 
+            listNoUsat.DataSource = lSubElementos;
+
             //DataTable dt = new DataTable();
 
             //foreach (var item in query)
