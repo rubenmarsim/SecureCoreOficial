@@ -53,6 +53,7 @@
             // 
             resources.ApplyResources(this.PassBox, "PassBox");
             this.PassBox.Name = "PassBox";
+            this.PassBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PassBox_KeyUp);
             // 
             // IconStarWars
             // 

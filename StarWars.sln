@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionDB", "GestionDB\Gest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escandall", "Escandall\Escandall.csproj", "{083E766E-DD61-4F39-A94E-FD6254F421F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MantenimientosXWings", "MantenimientosXWings\MantenimientosXWings.csproj", "{D6466EA0-1DA8-45C8-B76B-8F9F7709747E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestioEscandall", "GestioEscandall\GestioEscandall.csproj", "{4BD1BC73-F0D6-4D71-9151-92E39BF281EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
