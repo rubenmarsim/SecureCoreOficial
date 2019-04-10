@@ -84,7 +84,7 @@ namespace PDFtoDB
         {
             db = new XWingsFactoryEntities();
             cargarListaNombre();
-            //dgv_PDFtoDB.Columns[1].Visible = false;
+            dgv_PDFtoDB.Columns[1].Visible = false;
             //dgv_PDFtoDB.Columns[2].Visible = false;
         }
 
