@@ -13,6 +13,9 @@ using GestionDB;
 
 namespace GestioEscandall
 {
+    /// <summary>
+    /// Clase/Form para la gestion del escandall
+    /// </summary>
     public partial class GestioEscfrm : Form
     {
         #region Variables Globales
@@ -338,7 +341,5 @@ namespace GestioEscandall
         }
 
         #endregion Methods        
-
-        
     }
 }
