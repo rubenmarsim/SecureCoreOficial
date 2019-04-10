@@ -59,7 +59,7 @@ namespace GestioEscandall
         /// <param name="e"></param>
         private void GestioEscfrm_Load(object sender, EventArgs e)
         {
-            db = new XWingsFactoryEntities();
+            db = new XWingsFactoryEntities();           
             CargarComboPart();
         }
 
@@ -227,9 +227,15 @@ namespace GestioEscandall
                 MessageBox.Show(_SelectionErrorMessage);
             }            
         }
+        /// <summary>
+        /// Cuando pulsamos el boton update, este sirve para guardar los elementos del los 
+        /// listbox en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            SavelstBoxToDB();
 
             CargarListBoxs();
         }
@@ -305,6 +311,7 @@ namespace GestioEscandall
         /// <param name="valor"></param>
         private void CargarListBoxs()
         {
+            LimpiarListBoxs();
             var num = short.Parse(_valComboObject);
             
             var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
@@ -316,6 +323,11 @@ namespace GestioEscandall
 
             foreach(var subElem in lSubElemNoUsados) listNoUsat.Items.Add(subElem);
             foreach(var subElem in lSubElemUsados) listUsats.Items.Add(subElem);  
+        }
+
+        private void SavelstBoxToDB()
+        {
+
         }
 
         /// <summary>

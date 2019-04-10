@@ -20,6 +20,16 @@
             Mensaje para cuando hacemos una accion que requiere hacer alguna seleccion previamente
             </summary>
         </member>
+        <member name="F:GestioEscandall.GestioEscfrm._valComboPart">
+            <summary>
+            Id del valor seleccionado en el combo de las partes
+            </summary>
+        </member>
+        <member name="F:GestioEscandall.GestioEscfrm._valComboObject">
+            <summary>
+            Id del valor seleccionado en el combo de las partes
+            </summary>
+        </member>
         <member name="M:GestioEscandall.GestioEscfrm.#ctor">
             <summary>
             Constructor por defecto de la clase
@@ -76,6 +86,14 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:GestioEscandall.GestioEscfrm.btnUpdate_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton update, este sirve para guardar los elementos del los 
+            listbox en la base de datos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:GestioEscandall.GestioEscfrm.CargarComboPart">
             <summary>
             Carga el comboBox de las partes principales e intermedias
@@ -87,7 +105,7 @@
             </summary>
             <param name="valor"></param>
         </member>
-        <member name="M:GestioEscandall.GestioEscfrm.CargarListViews(System.String)">
+        <member name="M:GestioEscandall.GestioEscfrm.CargarListBoxs">
             <summary>
             Carga los elementos usados y no usados en sus respectivos listBox
             </summary>
