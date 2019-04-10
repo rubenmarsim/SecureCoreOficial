@@ -118,28 +118,48 @@ namespace GestioEscandall
                     CargarListBoxs();
                 }
             }
+        }        
+
+        /// <summary>
+        /// Cuando pulsamos el boton para pasar un campo de 
+        /// izquierda --> derecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUnUsedToUsed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listUsats.Items.Add(listNoUsat.SelectedItem);
+                listNoUsat.Items.Remove(listNoUsat.SelectedItem);
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show(_SelectionErrorMessage);
+            }
+        }
+
+        /// <summary>
+        /// Cuando pulsamos el boton para pasar un campo de 
+        /// derecha --> izquierda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUsedToUnUsed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listNoUsat.Items.Add(listUsats.SelectedItem);
+                listUsats.Items.Remove(listUsats.SelectedItem);
+
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show(_SelectionErrorMessage);
+            }            
         }
 
         #region DRAG & DROP
-        //////////////////// DRAG & DROP //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        private void listUsats_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (listUsats.Items.Count == 0)
-                return;
-
-            int index = listUsats.IndexFromPoint(e.X, e.Y);
-            if (index >= 0)
-            {
-                string s = listUsats.Items[index].ToString();
-                DragDropEffects dde1 = DoDragDrop(s,
-                    DragDropEffects.All);
-
-                if (dde1 == DragDropEffects.All)
-                {
-                    listUsats.Items.RemoveAt(listUsats.IndexFromPoint(e.X, e.Y));
-                }
-            }
-        }
 
         private void listNoUsat_DragOver(object sender, DragEventArgs e)
         {
@@ -191,46 +211,28 @@ namespace GestioEscandall
                 listUsats.Items.Add(str);
             }
         }
+
+        private void listUsats_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (listUsats.Items.Count == 0)
+                return;
+
+            int index = listUsats.IndexFromPoint(e.X, e.Y);
+            if (index >= 0)
+            {
+                string s = listUsats.Items[index].ToString();
+                DragDropEffects dde1 = DoDragDrop(s,
+                    DragDropEffects.All);
+
+                if (dde1 == DragDropEffects.All)
+                {
+                    listUsats.Items.RemoveAt(listUsats.IndexFromPoint(e.X, e.Y));
+                }
+            }
+        }
+
         #endregion DRAG & DROP
-        
-        /// <summary>
-        /// Cuando pulsamos el boton para pasar un campo de 
-        /// izquierda --> derecha
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnUnUsedToUsed_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                listUsats.Items.Add(listNoUsat.SelectedItem);
-                listNoUsat.Items.Remove(listNoUsat.SelectedItem);
-            }
-            catch (ArgumentNullException)
-            {
-                MessageBox.Show(_SelectionErrorMessage);
-            }
-        }
 
-        /// <summary>
-        /// Cuando pulsamos el boton para pasar un campo de 
-        /// derecha --> izquierda
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnUsedToUnUsed_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                listNoUsat.Items.Add(listUsats.SelectedItem);
-                listUsats.Items.Remove(listUsats.SelectedItem);
-
-            }
-            catch (ArgumentNullException)
-            {
-                MessageBox.Show(_SelectionErrorMessage);
-            }            
-        }
         /// <summary>
         /// Cuando pulsamos el boton update, este sirve para guardar los elementos del los 
         /// listbox en la base de datos
