@@ -39,6 +39,8 @@ namespace GestioEscandall
         /// </summary>
         string _valComboObject = string.Empty;
 
+        IQueryable<References> _lSubElementos;
+
         #endregion Variables Globales
 
         #region Constructores
@@ -316,7 +318,7 @@ namespace GestioEscandall
             
             var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
 
-            //var lSubElementos = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num).Select(x=>x.Referencia.descReference)).ToList();
+            _lSubElementos = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num).Select(x=>x.Referencia);
 
             var lSubElemNoUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == false).Select(x => x.Referencia.descReference)).ToList();
             var lSubElemUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == true).Select(x => x.Referencia.descReference)).ToList();
@@ -327,7 +329,18 @@ namespace GestioEscandall
 
         private void SavelstBoxToDB()
         {
-
+            foreach(var SubElem in _lSubElementos)
+            {
+                if (listNoUsat.Items.Contains(SubElem.descReference))
+                {
+                    SubElem.IsUsed = false;
+                }else if (listUsats.Items.Contains(SubElem.descReference))
+                {
+                    SubElem.IsUsed = true;
+                }
+            }
+            db.SaveChanges();
+            CargarListBoxs();
         }
 
         /// <summary>
