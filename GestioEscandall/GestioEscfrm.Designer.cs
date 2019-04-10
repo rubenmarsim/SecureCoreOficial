@@ -39,6 +39,7 @@
             // 
             // listNoUsat
             // 
+            this.listNoUsat.AllowDrop = true;
             this.listNoUsat.FormattingEnabled = true;
             this.listNoUsat.Location = new System.Drawing.Point(50, 95);
             this.listNoUsat.Name = "listNoUsat";
@@ -50,6 +51,7 @@
             // 
             // listUsats
             // 
+            this.listUsats.AllowDrop = true;
             this.listUsats.FormattingEnabled = true;
             this.listUsats.Location = new System.Drawing.Point(369, 95);
             this.listUsats.Name = "listUsats";

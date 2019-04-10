@@ -4,6 +4,11 @@
         <name>GestioEscandall</name>
     </assembly>
     <members>
+        <member name="T:GestioEscandall.GestioEscfrm">
+            <summary>
+            Clase/Form para la gestion del escandall
+            </summary>
+        </member>
         <member name="F:GestioEscandall.GestioEscfrm._IsFirstTime">
             <summary>
             Determina si es la primera vez que pulsamos en el combobox
