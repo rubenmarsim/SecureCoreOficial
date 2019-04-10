@@ -15,6 +15,11 @@
             Conexion al Entity Framework
             </summary>
         </member>
+        <member name="F:GestioEscandall.GestioEscfrm._SelectionErrorMessage">
+            <summary>
+            Mensaje para cuando hacemos una accion que requiere hacer alguna seleccion previamente
+            </summary>
+        </member>
         <member name="M:GestioEscandall.GestioEscfrm.#ctor">
             <summary>
             Constructor por defecto de la clase
@@ -55,7 +60,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:GestioEscandall.GestioEscfrm.btnDerecha_Click(System.Object,System.EventArgs)">
+        <member name="M:GestioEscandall.GestioEscfrm.btnUnUsedToUsed_Click(System.Object,System.EventArgs)">
             <summary>
             Cuando pulsamos el boton para pasar un campo de 
             izquierda --> derecha
@@ -63,7 +68,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:GestioEscandall.GestioEscfrm.btnIzquierda_Click(System.Object,System.EventArgs)">
+        <member name="M:GestioEscandall.GestioEscfrm.btnUsedToUnUsed_Click(System.Object,System.EventArgs)">
             <summary>
             Cuando pulsamos el boton para pasar un campo de 
             derecha --> izquierda

@@ -16,6 +16,7 @@ namespace GestioEscandall
     public partial class GestioEscfrm : Form
     {
         #region Variables Globales
+
         /// <summary>
         /// Determina si es la primera vez que pulsamos en el combobox
         /// (Se usa para los 2 combos)
@@ -25,6 +26,19 @@ namespace GestioEscandall
         /// Conexion al Entity Framework
         /// </summary>
         XWingsFactoryEntities db;
+        /// <summary>
+        /// Mensaje para cuando hacemos una accion que requiere hacer alguna seleccion previamente
+        /// </summary>
+        string _SelectionErrorMessage = "Selecciona un elemento!";
+        /// <summary>
+        /// Id del valor seleccionado en el combo de las partes
+        /// </summary>
+        string _valComboPart = string.Empty;
+        /// <summary>
+        /// Id del valor seleccionado en el combo de las partes
+        /// </summary>
+        string _valComboObject = string.Empty;
+
         #endregion Variables Globales
 
         #region Constructores
@@ -78,9 +92,9 @@ namespace GestioEscandall
         {
             if (!_IsFirstTime)
             {
-                string valComboPart = this.comboPart.GetItemText(this.comboPart.SelectedValue);
+                _valComboPart = this.comboPart.GetItemText(this.comboPart.SelectedValue);
 
-                CargarComboObject(valComboPart);
+                CargarComboObject(_valComboPart);
             }
         }
 
@@ -93,11 +107,11 @@ namespace GestioEscandall
         {
             if (!_IsFirstTime)
             {
-                string valComboObject = this.comboObject.GetItemText(this.comboObject.SelectedValue);
+                _valComboObject = this.comboObject.GetItemText(this.comboObject.SelectedValue);
 
-                if (!string.IsNullOrEmpty(valComboObject))
+                if (!string.IsNullOrEmpty(_valComboObject))
                 {
-                    CargarListViews(valComboObject);
+                    CargarListBoxs();
                 }
             }
         }
@@ -174,19 +188,23 @@ namespace GestioEscandall
             }
         }
         #endregion DRAG & DROP
-
+        
         /// <summary>
         /// Cuando pulsamos el boton para pasar un campo de 
         /// izquierda --> derecha
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnDerecha_Click(object sender, EventArgs e)
+        private void btnUnUsedToUsed_Click(object sender, EventArgs e)
         {
-            if (listUsats.SelectedIndex != -1)
+            try
             {
-                listNoUsat.Items.Add(listUsats.SelectedItem);
-                listUsats.Items.Remove(listUsats.SelectedItem);
+                listUsats.Items.Add(listNoUsat.SelectedItem);
+                listNoUsat.Items.Remove(listNoUsat.SelectedItem);
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show(_SelectionErrorMessage);
             }
         }
 
@@ -196,15 +214,26 @@ namespace GestioEscandall
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnIzquierda_Click(object sender, EventArgs e)
+        private void btnUsedToUnUsed_Click(object sender, EventArgs e)
         {
-            if (listNoUsat.SelectedIndex != -1)
+            try
             {
-                listUsats.Items.Add(listNoUsat.SelectedItem);
-                listNoUsat.Items.Remove(listNoUsat.SelectedItem);
+                listNoUsat.Items.Add(listUsats.SelectedItem);
+                listUsats.Items.Remove(listUsats.SelectedItem);
+
             }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show(_SelectionErrorMessage);
+            }            
         }
-        
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+
+            CargarListBoxs();
+        }
+
         #endregion Events
 
         #region Methods
@@ -274,20 +303,19 @@ namespace GestioEscandall
         /// Carga los elementos usados y no usados en sus respectivos listBox
         /// </summary>
         /// <param name="valor"></param>
-        private void CargarListViews(string valor)
+        private void CargarListBoxs()
         {
-            var num = short.Parse(valor);
+            var num = short.Parse(_valComboObject);
             
             var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
 
             //var lSubElementos = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num).Select(x=>x.Referencia.descReference)).ToList();
 
             var lSubElemNoUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == false).Select(x => x.Referencia.descReference)).ToList();
-
             var lSubElemUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == true).Select(x => x.Referencia.descReference)).ToList();
 
-            listNoUsat.DataSource = lSubElemNoUsados;
-            listUsats.DataSource = lSubElemUsados;        
+            foreach(var subElem in lSubElemNoUsados) listNoUsat.Items.Add(subElem);
+            foreach(var subElem in lSubElemUsados) listUsats.Items.Add(subElem);  
         }
 
         /// <summary>
@@ -299,7 +327,7 @@ namespace GestioEscandall
             listNoUsat.Items.Clear();
         }
 
-        #endregion Methods
+        #endregion Methods        
 
         
     }
