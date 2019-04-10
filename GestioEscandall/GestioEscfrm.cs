@@ -38,7 +38,9 @@ namespace GestioEscandall
         /// Id del valor seleccionado en el combo de las partes
         /// </summary>
         string _valComboObject = string.Empty;
-
+        /// <summary>
+        /// Lista de todos los subElementos del objeto
+        /// </summary>
         IQueryable<References> _lSubElementos;
 
         #endregion Variables Globales
@@ -246,35 +248,6 @@ namespace GestioEscandall
 
         #region Methods
 
-        #region Miralles
-        public void cargarListUsats(string valor)
-        {
-            int num = Convert.ToInt32(valor);
-            //string selectQuery = "select descReference from [References] r, [Structure] s where idReferenceType = " + num + "and s.idReferenceFinal = r.idReference";
-            //DataTable dt = PortaTaula(selectQuery);
-
-            List<References> query = (from r in db.References// outer sequence
-                                      join s in db.Structure //inner sequence 
-                                      on r.idReference equals s.idReferenceFinal // key selector 
-                                      where r.idReferenceType == num
-                                      select r).ToList();
-
-            DataTable dt = new DataTable();
-            foreach (var item in query.ToList())
-            {
-                dt.Rows.Add(item.ToString());
-            }
-
-            //listNoUsat.DataSource = dt.ToList();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                listUsats.Items.Add(dt.Rows[i][0].ToString());
-            }
-        }
-
-        #endregion Miralles
-
         /// <summary>
         /// Carga el comboBox de las partes principales e intermedias
         /// </summary>
@@ -326,21 +299,31 @@ namespace GestioEscandall
             foreach(var subElem in lSubElemNoUsados) listNoUsat.Items.Add(subElem);
             foreach(var subElem in lSubElemUsados) listUsats.Items.Add(subElem);  
         }
-
+        /// <summary>
+        /// Comprueba los cambios de los listbox y los sube a la base de datos.
+        /// </summary>
         private void SavelstBoxToDB()
         {
-            foreach(var SubElem in _lSubElementos)
+            try
             {
-                if (listNoUsat.Items.Contains(SubElem.descReference))
+                foreach (var SubElem in _lSubElementos)
                 {
-                    SubElem.IsUsed = false;
-                }else if (listUsats.Items.Contains(SubElem.descReference))
-                {
-                    SubElem.IsUsed = true;
+                    if (listNoUsat.Items.Contains(SubElem.descReference))
+                    {
+                        SubElem.IsUsed = false;
+                    }
+                    else if (listUsats.Items.Contains(SubElem.descReference))
+                    {
+                        SubElem.IsUsed = true;
+                    }
                 }
-            }
-            db.SaveChanges();
-            CargarListBoxs();
+                db.SaveChanges();
+                CargarListBoxs();
+                MessageBox.Show("Update Correcte!");
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }            
         }
 
         /// <summary>

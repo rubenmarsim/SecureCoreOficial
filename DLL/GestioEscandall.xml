@@ -30,6 +30,11 @@
             Id del valor seleccionado en el combo de las partes
             </summary>
         </member>
+        <member name="F:GestioEscandall.GestioEscfrm._lSubElementos">
+            <summary>
+            Lista de todos los subElementos del objeto
+            </summary>
+        </member>
         <member name="M:GestioEscandall.GestioEscfrm.#ctor">
             <summary>
             Constructor por defecto de la clase
@@ -110,6 +115,11 @@
             Carga los elementos usados y no usados en sus respectivos listBox
             </summary>
             <param name="valor"></param>
+        </member>
+        <member name="M:GestioEscandall.GestioEscfrm.SavelstBoxToDB">
+            <summary>
+            Comprueba los cambios de los listbox y los sube a la base de datos.
+            </summary>
         </member>
         <member name="M:GestioEscandall.GestioEscfrm.LimpiarListBoxs">
             <summary>
