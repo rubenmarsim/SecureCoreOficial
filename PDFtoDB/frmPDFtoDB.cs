@@ -66,8 +66,8 @@ namespace PDFtoDB
                     myStream.CopyTo(ms);
                     file = ms.ToArray();
                 }
-                using (XWingsFactoryEntities db = new XWingsFactoryEntities())
-                {
+                //using (XWingsFactoryEntities db = new XWingsFactoryEntities())
+                //{
                     var ref1 = (short)comboPart.SelectedValue;
                     //string ref1 = "Ala";
                     //AssemblyInstructions instructions;
@@ -81,17 +81,25 @@ namespace PDFtoDB
 
                     var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
 
-                    AssemblyInstructions instructions = new AssemblyInstructions();
+                    //AssemblyInstructions instructions = new AssemblyInstructions();
 
-                    instructions.idreference = sReferences;
-                    instructions.Instructions = file;
+                    //instructions.idreference = sReferences;
+                    //instructions.Instructions = file;
+
+                    foreach(var tAssemblyIntruct in db.AssemblyInstructions)
+                    {
+                        if (tAssemblyIntruct.idreference == sReferences)
+                        {
+                            tAssemblyIntruct.Instructions = file;
+                        }
+                    }
 
                     //db.AssemblyInstructions.Select(x => x.idreference) = sReferences;
                     //db.AssemblyInstructions.Select(x => x.Instructions) = file;
 
                     db.SaveChanges();
                     MessageBox.Show("arxiu guardat");
-                }
+                //}
             }            
         }
 
