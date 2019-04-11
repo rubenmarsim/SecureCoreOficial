@@ -72,12 +72,13 @@ namespace PDFtoDB
 
                 var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
 
-                var inser = new AssemblyInstructions
+                foreach (var tAssemblyIntruct in db.AssemblyInstructions)
                 {
-                    idreference = sReferences,
-                    Instructions = file,
-                };
-                db.AssemblyInstructions.Add(inser);
+                    if (tAssemblyIntruct.idreference == sReferences)
+                    {
+                        tAssemblyIntruct.Instructions = file;
+                    }
+                }
 
                 db.SaveChanges();
                 MessageBox.Show("Arxiu guardat.");
