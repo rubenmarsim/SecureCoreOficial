@@ -9,17 +9,39 @@ namespace PDFtoDB
 {
     public partial class frm_PDFtoDB : Form
     {
+        #region Variables globales
         XWingsFactoryEntities db;
+        #endregion Variables globales
+
+        #region Constructores
 
         public frm_PDFtoDB()
         {
             InitializeComponent();
         }
 
+        #endregion Constructores
+
+        #region Events
+        /// <summary>
+        /// Cuando carga el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frm_PDFtoDB_Load(object sender, EventArgs e)
+        {
+            db = new XWingsFactoryEntities();
+            cargarListaNombre();
+        }
+
+        /// <summary>
+        /// Cuando pulsamos el boton browse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Browse_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Todos los archivos (*.*)|*.*";
+            openFileDialog1.Filter = "PDFs (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 
@@ -27,27 +49,16 @@ namespace PDFtoDB
             {
                 textBox_Archivo.Text = openFileDialog1.FileName;
             }
-            var a = db.AssemblyInstructions;
-        }
-
-        private void cargarListaNombre() {
-
-            var dt = from r in db.References
-                     where r.idReferenceType == 2
-                     select r;
-            comboPart.DataSource = dt.ToList();
-            comboPart.ValueMember = "idReference";
-            comboPart.DisplayMember = "descReference";
-            
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (comboPart.Text.Trim().Equals("") || textBox_Archivo.Text.Trim().Equals(""))
+            if (string.IsNullOrEmpty(comboPart.Text.Trim()) || string.IsNullOrEmpty(textBox_Archivo.Text.Trim()))
             {
                 MessageBox.Show("El nombre es obligatorio");
-                return;
             }
+            else
+            {
                 byte[] file = null;
                 Stream myStream = openFileDialog1.OpenFile();
                 using (MemoryStream ms = new MemoryStream())
@@ -57,35 +68,31 @@ namespace PDFtoDB
                 }
                 using (XWingsFactoryEntities db = new XWingsFactoryEntities())
                 {
-                var ref1 = (short)comboPart.SelectedValue;
-                //string ref1 = "Ala";
-                //AssemblyInstructions instructions;
-                //IQueryable<AssemblyInstructions> lst = from b in db.AssemblyInstructions
-                //          join d in db.References
-                //          on b.idreference equals d.idReference
-                //          where d.descReference == ref1
-                //          select b;
-                //var JoinAsemblyRefe = db.AssemblyInstructions.Join(db.References, asm=>asm.idreference, refe=>refe.idReference,(asm, refe)=>new { Assembly = asm, Referenc = refe });
-                //var lst = JoinAsemblyRefe.Where(x => x.Referenc.descReference.Equals(ref1)).Select(x=>x.Assembly.idreference).ToList();
+                    var ref1 = (short)comboPart.SelectedValue;
+                    //string ref1 = "Ala";
+                    //AssemblyInstructions instructions;
+                    //IQueryable<AssemblyInstructions> lst = from b in db.AssemblyInstructions
+                    //          join d in db.References
+                    //          on b.idreference equals d.idReference
+                    //          where d.descReference == ref1
+                    //          select b;
+                    //var JoinAsemblyRefe = db.AssemblyInstructions.Join(db.References, asm=>asm.idreference, refe=>refe.idReference,(asm, refe)=>new { Assembly = asm, Referenc = refe });
+                    //var lst = JoinAsemblyRefe.Where(x => x.Referenc.descReference.Equals(ref1)).Select(x=>x.Assembly.idreference).ToList();
 
-                var sReferences = db.References.Where(x=>x.idReference.Equals(ref1)).Select(x=>x.idReference).First();
+                    var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
 
-                AssemblyInstructions instructions = new AssemblyInstructions();
+                    AssemblyInstructions instructions = new AssemblyInstructions();
 
-                instructions.idreference = sReferences;
-                instructions.Instructions = file;
+                    instructions.idreference = sReferences;
+                    instructions.Instructions = file;
 
-                db.SaveChanges();
+                    //db.AssemblyInstructions.Select(x => x.idreference) = sReferences;
+                    //db.AssemblyInstructions.Select(x => x.Instructions) = file;
+
+                    db.SaveChanges();
                     MessageBox.Show("arxiu guardat");
                 }
-        }
-
-        private void frm_PDFtoDB_Load(object sender, EventArgs e)
-        {
-            db = new XWingsFactoryEntities();
-            cargarListaNombre();
-            dgv_PDFtoDB.Columns[1].Visible = false;
-            //dgv_PDFtoDB.Columns[2].Visible = false;
+            }            
         }
 
         private void btn_Open_Click(object sender, EventArgs e)
@@ -115,5 +122,23 @@ namespace PDFtoDB
                 }
             }
         }
+        #endregion Events
+
+        #region Methods
+        /// <summary>
+        /// Carga el comboBox (Idreference --> comboPart) con las partes
+        /// </summary>
+        private void cargarListaNombre()
+        {
+            var dt = db.References.Where(x => x.idReferenceType == 2).Select(x => x).ToList();
+            
+            comboPart.DataSource = dt;
+            comboPart.ValueMember = "idReference";
+            comboPart.DisplayMember = "descReference";
+
+        }
+
+        #endregion Methods
+        
     }
 }

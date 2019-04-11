@@ -4,6 +4,25 @@
         <name>PDFtoDB</name>
     </assembly>
     <members>
+        <member name="M:PDFtoDB.frm_PDFtoDB.frm_PDFtoDB_Load(System.Object,System.EventArgs)">
+            <summary>
+            Cuando carga el form
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PDFtoDB.frm_PDFtoDB.btn_Browse_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton browse
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PDFtoDB.frm_PDFtoDB.cargarListaNombre">
+            <summary>
+            Carga el comboBox (Idreference --> comboPart) con las partes
+            </summary>
+        </member>
         <member name="F:PDFtoDB.frm_PDFtoDB.components">
             <summary>
             Variable del diseñador necesaria.

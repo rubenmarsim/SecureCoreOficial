@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.comboPart = new System.Windows.Forms.ComboBox();
             this.btn_Open = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Browse = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_PDFtoDB = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.comboPart = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +69,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(930, 450);
             this.splitContainer1.SplitterDistance = 169;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // comboPart
+            // 
+            this.comboPart.DisplayMember = "descReference";
+            this.comboPart.FormattingEnabled = true;
+            this.comboPart.Location = new System.Drawing.Point(92, 27);
+            this.comboPart.Name = "comboPart";
+            this.comboPart.Size = new System.Drawing.Size(121, 21);
+            this.comboPart.TabIndex = 8;
+            this.comboPart.ValueMember = "idReference";
             // 
             // btn_Open
             // 
@@ -104,6 +114,7 @@
             // 
             this.textBox_Archivo.Location = new System.Drawing.Point(92, 69);
             this.textBox_Archivo.Name = "textBox_Archivo";
+            this.textBox_Archivo.ReadOnly = true;
             this.textBox_Archivo.Size = new System.Drawing.Size(543, 20);
             this.textBox_Archivo.TabIndex = 4;
             // 
@@ -137,16 +148,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // comboPart
-            // 
-            this.comboPart.DisplayMember = "descReference";
-            this.comboPart.FormattingEnabled = true;
-            this.comboPart.Location = new System.Drawing.Point(92, 27);
-            this.comboPart.Name = "comboPart";
-            this.comboPart.Size = new System.Drawing.Size(121, 21);
-            this.comboPart.TabIndex = 8;
-            this.comboPart.ValueMember = "idReference";
             // 
             // frm_PDFtoDB
             // 
