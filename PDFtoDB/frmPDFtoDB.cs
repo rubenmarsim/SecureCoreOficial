@@ -32,6 +32,7 @@ namespace PDFtoDB
         {
             db = new XWingsFactoryEntities();
             cargarListaNombre();
+            RefreshGrid();
         }
 
         /// <summary>
@@ -130,6 +131,14 @@ namespace PDFtoDB
             comboPart.ValueMember = "idReference";
             comboPart.DisplayMember = "descReference";
 
+        }
+
+        private void RefreshGrid()
+        {
+            var tAssemblyInstruct = db.AssemblyInstructions.ToList();
+            dgv_PDFtoDB.DataSource = tAssemblyInstruct;
+            dgv_PDFtoDB.Columns[0].Visible = false;
+            for(int i=3;i<=4;i++) dgv_PDFtoDB.Columns[i].Visible = false;
         }
 
         #endregion Methods
