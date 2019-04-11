@@ -12,19 +12,20 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class ReferenceTypes
+    public partial class AssemblyInstruction
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ReferenceTypes()
+        public AssemblyInstruction()
         {
-            this.References = new HashSet<References>();
+            this.AssemblyInstructionsDetails = new HashSet<AssemblyInstructionsDetail>();
         }
     
-        public short idReferenceType { get; set; }
-        public string codeReferenceType { get; set; }
-        public string descReferenceType { get; set; }
+        public short idAssemblyInstructions { get; set; }
+        public Nullable<short> idreference { get; set; }
+        public byte[] Instructions { get; set; }
     
+        public virtual Reference Reference { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<References> References { get; set; }
+        public virtual ICollection<AssemblyInstructionsDetail> AssemblyInstructionsDetails { get; set; }
     }
 }

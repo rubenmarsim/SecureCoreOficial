@@ -12,15 +12,15 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class References
+    public partial class Reference
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public References()
+        public Reference()
         {
-            this.AssemblyInstructions = new HashSet<AssemblyInstructions>();
-            this.OperationParts = new HashSet<OperationParts>();
-            this.Structure = new HashSet<Structure>();
-            this.Structure1 = new HashSet<Structure>();
+            this.AssemblyInstructions = new HashSet<AssemblyInstruction>();
+            this.OperationParts = new HashSet<OperationPart>();
+            this.Structures = new HashSet<Structure>();
+            this.Structures1 = new HashSet<Structure>();
         }
     
         public short idReference { get; set; }
@@ -31,13 +31,13 @@ namespace GestionDB
         public short idReferenceType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AssemblyInstructions> AssemblyInstructions { get; set; }
+        public virtual ICollection<AssemblyInstruction> AssemblyInstructions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OperationParts> OperationParts { get; set; }
-        public virtual ReferenceTypes ReferenceTypes { get; set; }
+        public virtual ICollection<OperationPart> OperationParts { get; set; }
+        public virtual ReferenceType ReferenceType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Structure> Structure { get; set; }
+        public virtual ICollection<Structure> Structures { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Structure> Structure1 { get; set; }
+        public virtual ICollection<Structure> Structures1 { get; set; }
     }
 }

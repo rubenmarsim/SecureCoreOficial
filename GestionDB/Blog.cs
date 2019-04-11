@@ -12,20 +12,19 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class AssemblyInstructions
+    public partial class Blog
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AssemblyInstructions()
+        public Blog()
         {
-            this.AssemblyInstructionsDetail = new HashSet<AssemblyInstructionsDetail>();
+            this.Posts = new HashSet<Post>();
         }
     
-        public short idAssemblyInstructions { get; set; }
-        public Nullable<short> idreference { get; set; }
-        public byte[] Instructions { get; set; }
+        public int BlogId { get; set; }
+        public string Name { get; set; }
+        public string Url { get; set; }
     
-        public virtual References References { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AssemblyInstructionsDetail> AssemblyInstructionsDetail { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

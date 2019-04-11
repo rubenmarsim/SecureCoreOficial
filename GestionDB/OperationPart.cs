@@ -12,15 +12,14 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class OrdersDetail
+    public partial class OperationPart
     {
-        public short idOrderDetail { get; set; }
-        public Nullable<short> idOrder { get; set; }
-        public Nullable<short> idPlanet { get; set; }
+        public short idOperationParts { get; set; }
+        public Nullable<short> idAssemblyInstructionsDetail { get; set; }
         public Nullable<short> idReference { get; set; }
-        public Nullable<short> Quantity { get; set; }
-        public Nullable<System.DateTime> DeliveryDate { get; set; }
+        public Nullable<short> NumberOfPieces { get; set; }
     
-        public virtual Order Order { get; set; }
+        public virtual AssemblyInstructionsDetail AssemblyInstructionsDetail { get; set; }
+        public virtual Reference Reference { get; set; }
     }
 }

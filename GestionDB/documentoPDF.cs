@@ -12,10 +12,11 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class FactoryUsers
+    public partial class documentoPDF
     {
-        public short idUser { get; set; }
-        public string UserName { get; set; }
-        public short idUserType { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string realName { get; set; }
+        public byte[] archivo { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="XWingsFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="XWingsFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AssemblyInstructions">
           <Key>
             <PropertyRef Name="idAssemblyInstructions" />
@@ -23,6 +23,23 @@
           <Property Name="DescOperation" Type="nvarchar" MaxLength="200" />
           <Property Name="NumberOfUsers" Type="smallint" />
           <Property Name="OperationOrder" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Url" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="documentoPDF">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="realName" Type="varchar" MaxLength="100" />
+          <Property Name="archivo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="FactoryUsers">
           <Key>
@@ -104,6 +121,15 @@
           <Property Name="idReference" Type="smallint" />
           <Property Name="Quantity" Type="smallint" />
           <Property Name="DeliveryDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="References">
           <Key>
@@ -195,6 +221,20 @@
             </Principal>
             <Dependent Role="AssemblyInstructionsDetail">
               <PropertyRef Name="idAssemblyInstructions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="BlogId" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="BlogId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -369,6 +409,8 @@
         <EntityContainer Name="XWingsFactoryModelStoreContainer">
           <EntitySet Name="AssemblyInstructions" EntityType="Self.AssemblyInstructions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AssemblyInstructionsDetail" EntityType="Self.AssemblyInstructionsDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="documentoPDF" EntityType="Self.documentoPDF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FactoryUsers" EntityType="Self.FactoryUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FinalProduct" EntityType="Self.FinalProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FinalProductDetails" EntityType="Self.FinalProductDetails" Schema="dbo" store:Type="Tables" />
@@ -378,6 +420,7 @@
           <EntitySet Name="OperationParts" EntityType="Self.OperationParts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="References" EntityType="Self.References" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReferenceTypes" EntityType="Self.ReferenceTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -393,6 +436,10 @@
           <AssociationSet Name="FK_AssemblyInstructionsDetail_AssemblyInstructions" Association="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions">
             <End Role="AssemblyInstructions" EntitySet="AssemblyInstructions" />
             <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
           <AssociationSet Name="FK_FinalProduct_LOPDetails" Association="Self.FK_FinalProduct_LOPDetails">
             <End Role="LOPDetails" EntitySet="LOPDetails" />
@@ -456,15 +503,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="XWingsFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AssemblyInstructions">
+        <EntityType Name="AssemblyInstruction">
           <Key>
             <PropertyRef Name="idAssemblyInstructions" />
           </Key>
           <Property Name="idAssemblyInstructions" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idreference" Type="Int16" />
           <Property Name="Instructions" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="References" Relationship="Self.FK_AssemblyInstructions_References" FromRole="AssemblyInstructions" ToRole="References" />
-          <NavigationProperty Name="AssemblyInstructionsDetail" Relationship="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions" FromRole="AssemblyInstructions" ToRole="AssemblyInstructionsDetail" />
+          <NavigationProperty Name="Reference" Relationship="Self.FK_AssemblyInstructions_References" FromRole="AssemblyInstructions" ToRole="References" />
+          <NavigationProperty Name="AssemblyInstructionsDetails" Relationship="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions" FromRole="AssemblyInstructions" ToRole="AssemblyInstructionsDetail" />
         </EntityType>
         <EntityType Name="AssemblyInstructionsDetail">
           <Key>
@@ -476,10 +523,28 @@
           <Property Name="DescOperation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="NumberOfUsers" Type="Int16" />
           <Property Name="OperationOrder" Type="Int16" />
-          <NavigationProperty Name="AssemblyInstructions" Relationship="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions" FromRole="AssemblyInstructionsDetail" ToRole="AssemblyInstructions" />
+          <NavigationProperty Name="AssemblyInstruction" Relationship="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions" FromRole="AssemblyInstructionsDetail" ToRole="AssemblyInstructions" />
           <NavigationProperty Name="OperationParts" Relationship="Self.FK_OperationParts_AssemblyInstructionsDetail" FromRole="AssemblyInstructionsDetail" ToRole="OperationParts" />
         </EntityType>
-        <EntityType Name="FactoryUsers">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Blogs" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="documentoPDF">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="realName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FactoryUser">
           <Key>
             <PropertyRef Name="idUser" />
           </Key>
@@ -496,11 +561,11 @@
           <Property Name="codeProduct" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="idStatus" Type="Int16" Nullable="false" />
           <Property Name="idLOPDetail" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="LOPDetails" Relationship="Self.FK_FinalProduct_LOPDetails" FromRole="FinalProduct" ToRole="LOPDetails" />
+          <NavigationProperty Name="LOPDetail" Relationship="Self.FK_FinalProduct_LOPDetails" FromRole="FinalProduct" ToRole="LOPDetails" />
           <NavigationProperty Name="Status" Relationship="Self.FK_FinalProduct_Status" FromRole="FinalProduct" ToRole="Status" />
           <NavigationProperty Name="FinalProductDetails" Relationship="Self.FK_FinalProductDetails_FinalProduct" FromRole="FinalProduct" ToRole="FinalProductDetails" />
         </EntityType>
-        <EntityType Name="FinalProductDetails">
+        <EntityType Name="FinalProductDetail">
           <Key>
             <PropertyRef Name="idFinalProductDetail" />
           </Key>
@@ -521,7 +586,7 @@
           <Property Name="idStatus" Type="Int16" Nullable="false" />
           <Property Name="idUser" Type="Int16" Nullable="false" />
           <NavigationProperty Name="FinalProductDetails" Relationship="Self.FK_FinalProductDetails_IntermediateProduct" FromRole="IntermediateProduct" ToRole="FinalProductDetails" />
-          <NavigationProperty Name="LOPDetails" Relationship="Self.FK_IntermediateProduct_LOPDetails" FromRole="IntermediateProduct" ToRole="LOPDetails" />
+          <NavigationProperty Name="LOPDetail" Relationship="Self.FK_IntermediateProduct_LOPDetails" FromRole="IntermediateProduct" ToRole="LOPDetails" />
           <NavigationProperty Name="Status" Relationship="Self.FK_IntermediateProduct_Status" FromRole="IntermediateProduct" ToRole="Status" />
         </EntityType>
         <EntityType Name="LOP">
@@ -530,10 +595,10 @@
           </Key>
           <Property Name="idLOP" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idOrder" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_LOP_Orders" FromRole="LOP" ToRole="Orders" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_LOP_Orders" FromRole="LOP" ToRole="Orders" />
           <NavigationProperty Name="LOPDetails" Relationship="Self.FK_LOPDetails_LOP" FromRole="LOP" ToRole="LOPDetails" />
         </EntityType>
-        <EntityType Name="LOPDetails">
+        <EntityType Name="LOPDetail">
           <Key>
             <PropertyRef Name="idLOPDetail" />
           </Key>
@@ -541,11 +606,11 @@
           <Property Name="idLOP" Type="Int16" Nullable="false" />
           <Property Name="idReference" Type="Int16" Nullable="false" />
           <Property Name="Quantity" Type="Int16" />
-          <NavigationProperty Name="FinalProduct" Relationship="Self.FK_FinalProduct_LOPDetails" FromRole="LOPDetails" ToRole="FinalProduct" />
-          <NavigationProperty Name="IntermediateProduct" Relationship="Self.FK_IntermediateProduct_LOPDetails" FromRole="LOPDetails" ToRole="IntermediateProduct" />
+          <NavigationProperty Name="FinalProducts" Relationship="Self.FK_FinalProduct_LOPDetails" FromRole="LOPDetails" ToRole="FinalProduct" />
+          <NavigationProperty Name="IntermediateProducts" Relationship="Self.FK_IntermediateProduct_LOPDetails" FromRole="LOPDetails" ToRole="IntermediateProduct" />
           <NavigationProperty Name="LOP" Relationship="Self.FK_LOPDetails_LOP" FromRole="LOPDetails" ToRole="LOP" />
         </EntityType>
-        <EntityType Name="OperationParts">
+        <EntityType Name="OperationPart">
           <Key>
             <PropertyRef Name="idOperationParts" />
           </Key>
@@ -554,17 +619,17 @@
           <Property Name="idReference" Type="Int16" />
           <Property Name="NumberOfPieces" Type="Int16" />
           <NavigationProperty Name="AssemblyInstructionsDetail" Relationship="Self.FK_OperationParts_AssemblyInstructionsDetail" FromRole="OperationParts" ToRole="AssemblyInstructionsDetail" />
-          <NavigationProperty Name="References" Relationship="Self.FK_OperationParts_References" FromRole="OperationParts" ToRole="References" />
+          <NavigationProperty Name="Reference" Relationship="Self.FK_OperationParts_References" FromRole="OperationParts" ToRole="References" />
         </EntityType>
-        <EntityType Name="Orders">
+        <EntityType Name="Order">
           <Key>
             <PropertyRef Name="idOrder" />
           </Key>
           <Property Name="idOrder" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codeOrder" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="dateOrder" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="LOP" Relationship="Self.FK_LOP_Orders" FromRole="Orders" ToRole="LOP" />
-          <NavigationProperty Name="OrdersDetail" Relationship="Self.FK_OrdersDetail_Orders" FromRole="Orders" ToRole="OrdersDetail" />
+          <NavigationProperty Name="LOPs" Relationship="Self.FK_LOP_Orders" FromRole="Orders" ToRole="LOP" />
+          <NavigationProperty Name="OrdersDetails" Relationship="Self.FK_OrdersDetail_Orders" FromRole="Orders" ToRole="OrdersDetail" />
         </EntityType>
         <EntityType Name="OrdersDetail">
           <Key>
@@ -576,9 +641,19 @@
           <Property Name="idReference" Type="Int16" />
           <Property Name="Quantity" Type="Int16" />
           <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_OrdersDetail_Orders" FromRole="OrdersDetail" ToRole="Orders" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrdersDetail_Orders" FromRole="OrdersDetail" ToRole="Orders" />
         </EntityType>
-        <EntityType Name="References">
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Posts" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="Reference">
           <Key>
             <PropertyRef Name="idReference" />
           </Key>
@@ -590,11 +665,11 @@
           <Property Name="idReferenceType" Type="Int16" Nullable="false" />
           <NavigationProperty Name="AssemblyInstructions" Relationship="Self.FK_AssemblyInstructions_References" FromRole="References" ToRole="AssemblyInstructions" />
           <NavigationProperty Name="OperationParts" Relationship="Self.FK_OperationParts_References" FromRole="References" ToRole="OperationParts" />
-          <NavigationProperty Name="ReferenceTypes" Relationship="Self.FK_References_ReferenceTypes" FromRole="References" ToRole="ReferenceTypes" />
-          <NavigationProperty Name="Structure" Relationship="Self.FK_Structure_References" FromRole="References" ToRole="Structure" />
-          <NavigationProperty Name="Structure1" Relationship="Self.FK_Structure_References1" FromRole="References" ToRole="Structure" />
+          <NavigationProperty Name="ReferenceType" Relationship="Self.FK_References_ReferenceTypes" FromRole="References" ToRole="ReferenceTypes" />
+          <NavigationProperty Name="Structures" Relationship="Self.FK_Structure_References" FromRole="References" ToRole="Structure" />
+          <NavigationProperty Name="Structures1" Relationship="Self.FK_Structure_References1" FromRole="References" ToRole="Structure" />
         </EntityType>
-        <EntityType Name="ReferenceTypes">
+        <EntityType Name="ReferenceType">
           <Key>
             <PropertyRef Name="idReferenceType" />
           </Key>
@@ -610,10 +685,10 @@
           <Property Name="idStatus" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codeStatus" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="descStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="FinalProduct" Relationship="Self.FK_FinalProduct_Status" FromRole="Status" ToRole="FinalProduct" />
-          <NavigationProperty Name="IntermediateProduct" Relationship="Self.FK_IntermediateProduct_Status" FromRole="Status" ToRole="IntermediateProduct" />
+          <NavigationProperty Name="FinalProducts" Relationship="Self.FK_FinalProduct_Status" FromRole="Status" ToRole="FinalProduct" />
+          <NavigationProperty Name="IntermediateProducts" Relationship="Self.FK_IntermediateProduct_Status" FromRole="Status" ToRole="IntermediateProduct" />
         </EntityType>
-        <EntityType Name="StockMovements">
+        <EntityType Name="StockMovement">
           <Key>
             <PropertyRef Name="idStockMovement" />
           </Key>
@@ -622,7 +697,7 @@
           <Property Name="Quantity" Type="Int16" />
           <Property Name="idDocument" Type="Int16" />
         </EntityType>
-        <EntityType Name="StockMovementTypes">
+        <EntityType Name="StockMovementType">
           <Key>
             <PropertyRef Name="idStockMovementTypes" />
           </Key>
@@ -630,13 +705,13 @@
           <Property Name="codeStockMovementTypes" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="descStockMovementTypes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Stocks">
+        <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="idStock" />
           </Key>
           <Property Name="idStock" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idReference" Type="Int16" Nullable="false" />
-          <Property Name="Stock" Type="Int16" />
+          <Property Name="Stock1" Type="Int16" />
         </EntityType>
         <EntityType Name="Structure">
           <Key>
@@ -646,10 +721,10 @@
           <Property Name="idReferenceFinal" Type="Int16" />
           <Property Name="idReferencePart" Type="Int16" />
           <Property Name="NumberOfParts" Type="Int16" />
-          <NavigationProperty Name="References" Relationship="Self.FK_Structure_References" FromRole="Structure" ToRole="References" />
-          <NavigationProperty Name="References1" Relationship="Self.FK_Structure_References1" FromRole="Structure" ToRole="References" />
+          <NavigationProperty Name="Reference" Relationship="Self.FK_Structure_References" FromRole="Structure" ToRole="References" />
+          <NavigationProperty Name="Reference1" Relationship="Self.FK_Structure_References1" FromRole="Structure" ToRole="References" />
         </EntityType>
-        <EntityType Name="UserTypes">
+        <EntityType Name="UserType">
           <Key>
             <PropertyRef Name="idUserType" />
           </Key>
@@ -658,8 +733,8 @@
           <Property Name="descUserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_AssemblyInstructions_References">
-          <End Role="References" Type="Self.References" Multiplicity="0..1" />
-          <End Role="AssemblyInstructions" Type="Self.AssemblyInstructions" Multiplicity="*" />
+          <End Role="References" Type="Self.Reference" Multiplicity="0..1" />
+          <End Role="AssemblyInstructions" Type="Self.AssemblyInstruction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="References">
               <PropertyRef Name="idReference" />
@@ -670,7 +745,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AssemblyInstructionsDetail_AssemblyInstructions">
-          <End Role="AssemblyInstructions" Type="Self.AssemblyInstructions" Multiplicity="1" />
+          <End Role="AssemblyInstructions" Type="Self.AssemblyInstruction" Multiplicity="1" />
           <End Role="AssemblyInstructionsDetail" Type="Self.AssemblyInstructionsDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AssemblyInstructions">
@@ -683,7 +758,7 @@
         </Association>
         <Association Name="FK_OperationParts_AssemblyInstructionsDetail">
           <End Role="AssemblyInstructionsDetail" Type="Self.AssemblyInstructionsDetail" Multiplicity="0..1" />
-          <End Role="OperationParts" Type="Self.OperationParts" Multiplicity="*" />
+          <End Role="OperationParts" Type="Self.OperationPart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AssemblyInstructionsDetail">
               <PropertyRef Name="idAssemblyInstructionsDetail" />
@@ -693,8 +768,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="BlogId" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FinalProduct_LOPDetails">
-          <End Role="LOPDetails" Type="Self.LOPDetails" Multiplicity="1" />
+          <End Role="LOPDetails" Type="Self.LOPDetail" Multiplicity="1" />
           <End Role="FinalProduct" Type="Self.FinalProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOPDetails">
@@ -719,7 +808,7 @@
         </Association>
         <Association Name="FK_FinalProductDetails_FinalProduct">
           <End Role="FinalProduct" Type="Self.FinalProduct" Multiplicity="1" />
-          <End Role="FinalProductDetails" Type="Self.FinalProductDetails" Multiplicity="*" />
+          <End Role="FinalProductDetails" Type="Self.FinalProductDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FinalProduct">
               <PropertyRef Name="idFinalProduct" />
@@ -731,7 +820,7 @@
         </Association>
         <Association Name="FK_FinalProductDetails_IntermediateProduct">
           <End Role="IntermediateProduct" Type="Self.IntermediateProduct" Multiplicity="1" />
-          <End Role="FinalProductDetails" Type="Self.FinalProductDetails" Multiplicity="*" />
+          <End Role="FinalProductDetails" Type="Self.FinalProductDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="IntermediateProduct">
               <PropertyRef Name="idIntermediateProduct" />
@@ -742,7 +831,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IntermediateProduct_LOPDetails">
-          <End Role="LOPDetails" Type="Self.LOPDetails" Multiplicity="1" />
+          <End Role="LOPDetails" Type="Self.LOPDetail" Multiplicity="1" />
           <End Role="IntermediateProduct" Type="Self.IntermediateProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOPDetails">
@@ -766,7 +855,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LOP_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
           <End Role="LOP" Type="Self.LOP" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Orders">
@@ -779,7 +868,7 @@
         </Association>
         <Association Name="FK_LOPDetails_LOP">
           <End Role="LOP" Type="Self.LOP" Multiplicity="1" />
-          <End Role="LOPDetails" Type="Self.LOPDetails" Multiplicity="*" />
+          <End Role="LOPDetails" Type="Self.LOPDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOP">
               <PropertyRef Name="idLOP" />
@@ -790,8 +879,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OperationParts_References">
-          <End Role="References" Type="Self.References" Multiplicity="0..1" />
-          <End Role="OperationParts" Type="Self.OperationParts" Multiplicity="*" />
+          <End Role="References" Type="Self.Reference" Multiplicity="0..1" />
+          <End Role="OperationParts" Type="Self.OperationPart" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="References">
               <PropertyRef Name="idReference" />
@@ -802,7 +891,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrdersDetail_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
           <End Role="OrdersDetail" Type="Self.OrdersDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Orders">
@@ -814,8 +903,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_References_ReferenceTypes">
-          <End Role="ReferenceTypes" Type="Self.ReferenceTypes" Multiplicity="1" />
-          <End Role="References" Type="Self.References" Multiplicity="*" />
+          <End Role="ReferenceTypes" Type="Self.ReferenceType" Multiplicity="1" />
+          <End Role="References" Type="Self.Reference" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ReferenceTypes">
               <PropertyRef Name="idReferenceType" />
@@ -826,7 +915,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Structure_References">
-          <End Role="References" Type="Self.References" Multiplicity="0..1" />
+          <End Role="References" Type="Self.Reference" Multiplicity="0..1" />
           <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="References">
@@ -838,7 +927,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Structure_References1">
-          <End Role="References" Type="Self.References" Multiplicity="0..1" />
+          <End Role="References" Type="Self.Reference" Multiplicity="0..1" />
           <End Role="Structure" Type="Self.Structure" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="References">
@@ -849,68 +938,75 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="XWingsFactoryEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AssemblyInstructions" EntityType="Self.AssemblyInstructions" />
-          <EntitySet Name="AssemblyInstructionsDetail" EntityType="Self.AssemblyInstructionsDetail" />
-          <EntitySet Name="FactoryUsers" EntityType="Self.FactoryUsers" />
-          <EntitySet Name="FinalProduct" EntityType="Self.FinalProduct" />
-          <EntitySet Name="FinalProductDetails" EntityType="Self.FinalProductDetails" />
-          <EntitySet Name="IntermediateProduct" EntityType="Self.IntermediateProduct" />
-          <EntitySet Name="LOP" EntityType="Self.LOP" />
-          <EntitySet Name="LOPDetails" EntityType="Self.LOPDetails" />
-          <EntitySet Name="OperationParts" EntityType="Self.OperationParts" />
-          <EntitySet Name="Orders" EntityType="Self.Orders" />
-          <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" />
-          <EntitySet Name="References" EntityType="Self.References" />
-          <EntitySet Name="ReferenceTypes" EntityType="Self.ReferenceTypes" />
+        <EntityContainer Name="XWingsFactoryEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssemblyInstructions" EntityType="Self.AssemblyInstruction" />
+          <EntitySet Name="AssemblyInstructionsDetails" EntityType="Self.AssemblyInstructionsDetail" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="documentoPDFs" EntityType="Self.documentoPDF" />
+          <EntitySet Name="FactoryUsers" EntityType="Self.FactoryUser" />
+          <EntitySet Name="FinalProducts" EntityType="Self.FinalProduct" />
+          <EntitySet Name="FinalProductDetails" EntityType="Self.FinalProductDetail" />
+          <EntitySet Name="IntermediateProducts" EntityType="Self.IntermediateProduct" />
+          <EntitySet Name="LOPs" EntityType="Self.LOP" />
+          <EntitySet Name="LOPDetails" EntityType="Self.LOPDetail" />
+          <EntitySet Name="OperationParts" EntityType="Self.OperationPart" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrdersDetails" EntityType="Self.OrdersDetail" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="References" EntityType="Self.Reference" />
+          <EntitySet Name="ReferenceTypes" EntityType="Self.ReferenceType" />
           <EntitySet Name="Status" EntityType="Self.Status" />
-          <EntitySet Name="StockMovements" EntityType="Self.StockMovements" />
-          <EntitySet Name="StockMovementTypes" EntityType="Self.StockMovementTypes" />
-          <EntitySet Name="Stocks" EntityType="Self.Stocks" />
-          <EntitySet Name="Structure" EntityType="Self.Structure" />
-          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" />
+          <EntitySet Name="StockMovements" EntityType="Self.StockMovement" />
+          <EntitySet Name="StockMovementTypes" EntityType="Self.StockMovementType" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Structures" EntityType="Self.Structure" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
           <AssociationSet Name="FK_AssemblyInstructions_References" Association="Self.FK_AssemblyInstructions_References">
             <End Role="References" EntitySet="References" />
             <End Role="AssemblyInstructions" EntitySet="AssemblyInstructions" />
           </AssociationSet>
           <AssociationSet Name="FK_AssemblyInstructionsDetail_AssemblyInstructions" Association="Self.FK_AssemblyInstructionsDetail_AssemblyInstructions">
             <End Role="AssemblyInstructions" EntitySet="AssemblyInstructions" />
-            <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetail" />
+            <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_OperationParts_AssemblyInstructionsDetail" Association="Self.FK_OperationParts_AssemblyInstructionsDetail">
-            <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetail" />
+            <End Role="AssemblyInstructionsDetail" EntitySet="AssemblyInstructionsDetails" />
             <End Role="OperationParts" EntitySet="OperationParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
           <AssociationSet Name="FK_FinalProduct_LOPDetails" Association="Self.FK_FinalProduct_LOPDetails">
             <End Role="LOPDetails" EntitySet="LOPDetails" />
-            <End Role="FinalProduct" EntitySet="FinalProduct" />
+            <End Role="FinalProduct" EntitySet="FinalProducts" />
           </AssociationSet>
           <AssociationSet Name="FK_FinalProduct_Status" Association="Self.FK_FinalProduct_Status">
             <End Role="Status" EntitySet="Status" />
-            <End Role="FinalProduct" EntitySet="FinalProduct" />
+            <End Role="FinalProduct" EntitySet="FinalProducts" />
           </AssociationSet>
           <AssociationSet Name="FK_FinalProductDetails_FinalProduct" Association="Self.FK_FinalProductDetails_FinalProduct">
-            <End Role="FinalProduct" EntitySet="FinalProduct" />
+            <End Role="FinalProduct" EntitySet="FinalProducts" />
             <End Role="FinalProductDetails" EntitySet="FinalProductDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_FinalProductDetails_IntermediateProduct" Association="Self.FK_FinalProductDetails_IntermediateProduct">
-            <End Role="IntermediateProduct" EntitySet="IntermediateProduct" />
+            <End Role="IntermediateProduct" EntitySet="IntermediateProducts" />
             <End Role="FinalProductDetails" EntitySet="FinalProductDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_IntermediateProduct_LOPDetails" Association="Self.FK_IntermediateProduct_LOPDetails">
             <End Role="LOPDetails" EntitySet="LOPDetails" />
-            <End Role="IntermediateProduct" EntitySet="IntermediateProduct" />
+            <End Role="IntermediateProduct" EntitySet="IntermediateProducts" />
           </AssociationSet>
           <AssociationSet Name="FK_IntermediateProduct_Status" Association="Self.FK_IntermediateProduct_Status">
             <End Role="Status" EntitySet="Status" />
-            <End Role="IntermediateProduct" EntitySet="IntermediateProduct" />
+            <End Role="IntermediateProduct" EntitySet="IntermediateProducts" />
           </AssociationSet>
           <AssociationSet Name="FK_LOP_Orders" Association="Self.FK_LOP_Orders">
             <End Role="Orders" EntitySet="Orders" />
-            <End Role="LOP" EntitySet="LOP" />
+            <End Role="LOP" EntitySet="LOPs" />
           </AssociationSet>
           <AssociationSet Name="FK_LOPDetails_LOP" Association="Self.FK_LOPDetails_LOP">
-            <End Role="LOP" EntitySet="LOP" />
+            <End Role="LOP" EntitySet="LOPs" />
             <End Role="LOPDetails" EntitySet="LOPDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_OperationParts_References" Association="Self.FK_OperationParts_References">
@@ -919,7 +1015,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_OrdersDetail_Orders" Association="Self.FK_OrdersDetail_Orders">
             <End Role="Orders" EntitySet="Orders" />
-            <End Role="OrdersDetail" EntitySet="OrdersDetail" />
+            <End Role="OrdersDetail" EntitySet="OrdersDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_References_ReferenceTypes" Association="Self.FK_References_ReferenceTypes">
             <End Role="ReferenceTypes" EntitySet="ReferenceTypes" />
@@ -927,11 +1023,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Structure_References" Association="Self.FK_Structure_References">
             <End Role="References" EntitySet="References" />
-            <End Role="Structure" EntitySet="Structure" />
+            <End Role="Structure" EntitySet="Structures" />
           </AssociationSet>
           <AssociationSet Name="FK_Structure_References1" Association="Self.FK_Structure_References1">
             <End Role="References" EntitySet="References" />
-            <End Role="Structure" EntitySet="Structure" />
+            <End Role="Structure" EntitySet="Structures" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -939,9 +1035,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="XWingsFactoryModelStoreContainer" CdmEntityContainer="XWingsFactoryEntities">
+        <EntityContainerMapping StorageEntityContainer="XWingsFactoryModelStoreContainer" CdmEntityContainer="XWingsFactoryEntities1">
           <EntitySetMapping Name="AssemblyInstructions">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.AssemblyInstructions">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.AssemblyInstruction">
               <MappingFragment StoreEntitySet="AssemblyInstructions">
                 <ScalarProperty Name="idAssemblyInstructions" ColumnName="idAssemblyInstructions" />
                 <ScalarProperty Name="idreference" ColumnName="idreference" />
@@ -949,7 +1045,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AssemblyInstructionsDetail">
+          <EntitySetMapping Name="AssemblyInstructionsDetails">
             <EntityTypeMapping TypeName="XWingsFactoryModel.AssemblyInstructionsDetail">
               <MappingFragment StoreEntitySet="AssemblyInstructionsDetail">
                 <ScalarProperty Name="idAssemblyInstructionsDetail" ColumnName="idAssemblyInstructionsDetail" />
@@ -961,8 +1057,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.Blog">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="documentoPDFs">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.documentoPDF">
+              <MappingFragment StoreEntitySet="documentoPDF">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="realName" ColumnName="realName" />
+                <ScalarProperty Name="archivo" ColumnName="archivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="FactoryUsers">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.FactoryUsers">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.FactoryUser">
               <MappingFragment StoreEntitySet="FactoryUsers">
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -970,7 +1085,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FinalProduct">
+          <EntitySetMapping Name="FinalProducts">
             <EntityTypeMapping TypeName="XWingsFactoryModel.FinalProduct">
               <MappingFragment StoreEntitySet="FinalProduct">
                 <ScalarProperty Name="idFinalProduct" ColumnName="idFinalProduct" />
@@ -982,7 +1097,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FinalProductDetails">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.FinalProductDetails">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.FinalProductDetail">
               <MappingFragment StoreEntitySet="FinalProductDetails">
                 <ScalarProperty Name="idFinalProductDetail" ColumnName="idFinalProductDetail" />
                 <ScalarProperty Name="idFinalProduct" ColumnName="idFinalProduct" />
@@ -990,7 +1105,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="IntermediateProduct">
+          <EntitySetMapping Name="IntermediateProducts">
             <EntityTypeMapping TypeName="XWingsFactoryModel.IntermediateProduct">
               <MappingFragment StoreEntitySet="IntermediateProduct">
                 <ScalarProperty Name="idIntermediateProduct" ColumnName="idIntermediateProduct" />
@@ -1002,7 +1117,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LOP">
+          <EntitySetMapping Name="LOPs">
             <EntityTypeMapping TypeName="XWingsFactoryModel.LOP">
               <MappingFragment StoreEntitySet="LOP">
                 <ScalarProperty Name="idLOP" ColumnName="idLOP" />
@@ -1011,7 +1126,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOPDetails">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.LOPDetails">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.LOPDetail">
               <MappingFragment StoreEntitySet="LOPDetails">
                 <ScalarProperty Name="idLOPDetail" ColumnName="idLOPDetail" />
                 <ScalarProperty Name="idLOP" ColumnName="idLOP" />
@@ -1021,7 +1136,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OperationParts">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.OperationParts">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.OperationPart">
               <MappingFragment StoreEntitySet="OperationParts">
                 <ScalarProperty Name="idOperationParts" ColumnName="idOperationParts" />
                 <ScalarProperty Name="idAssemblyInstructionsDetail" ColumnName="idAssemblyInstructionsDetail" />
@@ -1031,7 +1146,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.Orders">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.Order">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="idOrder" ColumnName="idOrder" />
                 <ScalarProperty Name="codeOrder" ColumnName="codeOrder" />
@@ -1039,7 +1154,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrdersDetail">
+          <EntitySetMapping Name="OrdersDetails">
             <EntityTypeMapping TypeName="XWingsFactoryModel.OrdersDetail">
               <MappingFragment StoreEntitySet="OrdersDetail">
                 <ScalarProperty Name="idOrderDetail" ColumnName="idOrderDetail" />
@@ -1051,8 +1166,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="References">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.References">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.Reference">
               <MappingFragment StoreEntitySet="References">
                 <ScalarProperty Name="idReference" ColumnName="idReference" />
                 <ScalarProperty Name="codeReference" ColumnName="codeReference" />
@@ -1064,7 +1189,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReferenceTypes">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.ReferenceTypes">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.ReferenceType">
               <MappingFragment StoreEntitySet="ReferenceTypes">
                 <ScalarProperty Name="idReferenceType" ColumnName="idReferenceType" />
                 <ScalarProperty Name="codeReferenceType" ColumnName="codeReferenceType" />
@@ -1082,7 +1207,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockMovements">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.StockMovements">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.StockMovement">
               <MappingFragment StoreEntitySet="StockMovements">
                 <ScalarProperty Name="idStockMovement" ColumnName="idStockMovement" />
                 <ScalarProperty Name="idStockMovementTypes" ColumnName="idStockMovementTypes" />
@@ -1092,7 +1217,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockMovementTypes">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.StockMovementTypes">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.StockMovementType">
               <MappingFragment StoreEntitySet="StockMovementTypes">
                 <ScalarProperty Name="idStockMovementTypes" ColumnName="idStockMovementTypes" />
                 <ScalarProperty Name="codeStockMovementTypes" ColumnName="codeStockMovementTypes" />
@@ -1101,15 +1226,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stocks">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.Stocks">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.Stock">
               <MappingFragment StoreEntitySet="Stocks">
                 <ScalarProperty Name="idStock" ColumnName="idStock" />
                 <ScalarProperty Name="idReference" ColumnName="idReference" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Stock1" ColumnName="Stock" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Structure">
+          <EntitySetMapping Name="Structures">
             <EntityTypeMapping TypeName="XWingsFactoryModel.Structure">
               <MappingFragment StoreEntitySet="Structure">
                 <ScalarProperty Name="idStructure" ColumnName="idStructure" />
@@ -1120,7 +1245,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserTypes">
-            <EntityTypeMapping TypeName="XWingsFactoryModel.UserTypes">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.UserType">
               <MappingFragment StoreEntitySet="UserTypes">
                 <ScalarProperty Name="idUserType" ColumnName="idUserType" />
                 <ScalarProperty Name="codeUserType" ColumnName="codeUserType" />
@@ -1142,7 +1267,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

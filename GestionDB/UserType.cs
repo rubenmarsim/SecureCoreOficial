@@ -12,10 +12,10 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class StockMovementTypes
+    public partial class UserType
     {
-        public short idStockMovementTypes { get; set; }
-        public string codeStockMovementTypes { get; set; }
-        public string descStockMovementTypes { get; set; }
+        public short idUserType { get; set; }
+        public string codeUserType { get; set; }
+        public string descUserType { get; set; }
     }
 }

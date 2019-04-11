@@ -17,14 +17,14 @@ namespace GestionDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOP()
         {
-            this.LOPDetails = new HashSet<LOPDetails>();
+            this.LOPDetails = new HashSet<LOPDetail>();
         }
     
         public short idLOP { get; set; }
         public short idOrder { get; set; }
     
-        public virtual Orders Orders { get; set; }
+        public virtual Order Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOPDetails> LOPDetails { get; set; }
+        public virtual ICollection<LOPDetail> LOPDetails { get; set; }
     }
 }
