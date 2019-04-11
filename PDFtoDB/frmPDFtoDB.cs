@@ -51,13 +51,14 @@ namespace PDFtoDB
             }
         }
 
+        /// <summary>
+        /// Cuando pulsamos el boton de guardar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(comboPart.Text.Trim()) || string.IsNullOrEmpty(textBox_Archivo.Text.Trim()))
-            {
-                MessageBox.Show("El nombre es obligatorio");
-            }
-            else
+            try
             {
                 byte[] file = null;
                 Stream myStream = openFileDialog1.OpenFile();
@@ -66,43 +67,25 @@ namespace PDFtoDB
                     myStream.CopyTo(ms);
                     file = ms.ToArray();
                 }
-                //using (XWingsFactoryEntities db = new XWingsFactoryEntities())
-                //{
+
                 var ref1 = (short)comboPart.SelectedValue;
-                //string ref1 = "Ala";
-                //AssemblyInstructions instructions;
-                //IQueryable<AssemblyInstructions> lst = from b in db.AssemblyInstructions
-                //          join d in db.References
-                //          on b.idreference equals d.idReference
-                //          where d.descReference == ref1
-                //          select b;
-                //var JoinAsemblyRefe = db.AssemblyInstructions.Join(db.References, asm=>asm.idreference, refe=>refe.idReference,(asm, refe)=>new { Assembly = asm, Referenc = refe });
-                //var lst = JoinAsemblyRefe.Where(x => x.Referenc.descReference.Equals(ref1)).Select(x=>x.Assembly.idreference).ToList();
 
                 var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
 
-                //AssemblyInstructions instructions = new AssemblyInstructions();
-
-                //instructions.idreference = sReferences;
-                //instructions.Instructions = file;
-
-                foreach(var tAssemblyIntruct in db.AssemblyInstructions)
+                var inser = new AssemblyInstructions
                 {
-                    tAssemblyIntruct.idreference = sReferences;
-                    //if (tAssemblyIntruct.idreference == sReferences)
-                    //{
-                        tAssemblyIntruct.Instructions = file;
-                    //}
-                }
-                db.AssemblyInstructions.Add(sReferences);
+                    idreference = sReferences,
+                    Instructions = file,
+                };
+                db.AssemblyInstructions.Add(inser);
 
-                    //db.AssemblyInstructions.Select(x => x.idreference) = sReferences;
-                    //db.AssemblyInstructions.Select(x => x.Instructions) = file;
-
-                    db.SaveChanges();
-                    MessageBox.Show("arxiu guardat");
-                //}
-            }            
+                db.SaveChanges();
+                MessageBox.Show("Arxiu guardat.");
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("El nombre es obligatorio");
+            }           
         }
 
         private void btn_Open_Click(object sender, EventArgs e)
