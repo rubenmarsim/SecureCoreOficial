@@ -68,31 +68,33 @@ namespace PDFtoDB
                 }
                 //using (XWingsFactoryEntities db = new XWingsFactoryEntities())
                 //{
-                    var ref1 = (short)comboPart.SelectedValue;
-                    //string ref1 = "Ala";
-                    //AssemblyInstructions instructions;
-                    //IQueryable<AssemblyInstructions> lst = from b in db.AssemblyInstructions
-                    //          join d in db.References
-                    //          on b.idreference equals d.idReference
-                    //          where d.descReference == ref1
-                    //          select b;
-                    //var JoinAsemblyRefe = db.AssemblyInstructions.Join(db.References, asm=>asm.idreference, refe=>refe.idReference,(asm, refe)=>new { Assembly = asm, Referenc = refe });
-                    //var lst = JoinAsemblyRefe.Where(x => x.Referenc.descReference.Equals(ref1)).Select(x=>x.Assembly.idreference).ToList();
+                var ref1 = (short)comboPart.SelectedValue;
+                //string ref1 = "Ala";
+                //AssemblyInstructions instructions;
+                //IQueryable<AssemblyInstructions> lst = from b in db.AssemblyInstructions
+                //          join d in db.References
+                //          on b.idreference equals d.idReference
+                //          where d.descReference == ref1
+                //          select b;
+                //var JoinAsemblyRefe = db.AssemblyInstructions.Join(db.References, asm=>asm.idreference, refe=>refe.idReference,(asm, refe)=>new { Assembly = asm, Referenc = refe });
+                //var lst = JoinAsemblyRefe.Where(x => x.Referenc.descReference.Equals(ref1)).Select(x=>x.Assembly.idreference).ToList();
 
-                    var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
+                var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
 
-                    //AssemblyInstructions instructions = new AssemblyInstructions();
+                //AssemblyInstructions instructions = new AssemblyInstructions();
 
-                    //instructions.idreference = sReferences;
-                    //instructions.Instructions = file;
+                //instructions.idreference = sReferences;
+                //instructions.Instructions = file;
 
-                    foreach(var tAssemblyIntruct in db.AssemblyInstructions)
-                    {
-                        if (tAssemblyIntruct.idreference == sReferences)
-                        {
-                            tAssemblyIntruct.Instructions = file;
-                        }
-                    }
+                foreach(var tAssemblyIntruct in db.AssemblyInstructions)
+                {
+                    tAssemblyIntruct.idreference = sReferences;
+                    //if (tAssemblyIntruct.idreference == sReferences)
+                    //{
+                        tAssemblyIntruct.Instructions = file;
+                    //}
+                }
+                db.AssemblyInstructions.Add(sReferences);
 
                     //db.AssemblyInstructions.Select(x => x.idreference) = sReferences;
                     //db.AssemblyInstructions.Select(x => x.Instructions) = file;
