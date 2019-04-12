@@ -135,10 +135,18 @@ namespace PDFtoDB
 
         private void RefreshGrid()
         {
-            var tAssemblyInstruct = db.AssemblyInstructions.ToList();
-            dgv_PDFtoDB.DataSource = tAssemblyInstruct;
-            dgv_PDFtoDB.Columns[0].Visible = false;
-            for(int i=3;i<=4;i++) dgv_PDFtoDB.Columns[i].Visible = false;
+            try
+            {
+                var tAssemblyInstruct = db.AssemblyInstructions.ToList();
+                dgv_PDFtoDB.DataSource = tAssemblyInstruct;
+                dgv_PDFtoDB.Columns[0].Visible = false;
+                for (int i = 3; i <= 4; i++) dgv_PDFtoDB.Columns[i].Visible = false;
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         #endregion Methods
