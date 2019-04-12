@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace PDFtoDB
@@ -92,29 +93,47 @@ namespace PDFtoDB
 
         private void btn_Open_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var SelectedIdReferenceValue = short.Parse(dgv_PDFtoDB.SelectedCells[1].Value.ToString());
+                var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
+
+                //var ArchivoPDF = System.Text.Encoding.UTF8.GetString(PDFbytes);
+                //var a = Convert.ToBase64String(PDFbytes);
+                //System.
+                //var aa = PDFbytes.ConvertByteToString();
+                //var a = Encoding.UTF8.GetString(PDFbytes, 0, PDFbytes.Length);
+                var a = Encoding.ASCII.GetString(PDFbytes);
+                var b = Encoding.UTF8.GetString(PDFbytes);
+                var c = Encoding.Unicode.GetString(PDFbytes);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             if (dgv_PDFtoDB.Rows.Count > 0)
             {
                 int id = int.Parse(dgv_PDFtoDB.Rows[dgv_PDFtoDB.CurrentRow.Index].Cells[0].Value.ToString());
 
-                using (XWingsFactoryEntities db = new XWingsFactoryEntities())
-                {
-                    var oDocument = db.AssemblyInstructions.Find(id);
+                var oDocument = db.AssemblyInstructions.Find(id);
 
-                    string path = AppDomain.CurrentDomain.BaseDirectory;
+                string path = AppDomain.CurrentDomain.BaseDirectory;
 
-                    string folder = path + "temp\\";
+                string folder = path + "temp\\";
 
-                    //string fullFilePath = folder + oDocument.realName;
+                //string fullFilePath = folder + oDocument.realName;
 
-                    if (!Directory.Exists(folder))
-                        Directory.CreateDirectory(folder);
+                if (!Directory.Exists(folder))
+                    Directory.CreateDirectory(folder);
 
-                    //if (File.Exists(fullFilePath))
-                    //    File.Delete(fullFilePath);
+                //if (File.Exists(fullFilePath))
+                //    File.Delete(fullFilePath);
 
-                    //File.WriteAllBytes(fullFilePath, oDocument.Instructions);
-                    //Process.Start(fullFilePath);
-                }
+                //File.WriteAllBytes(fullFilePath, oDocument.Instructions);
+                //Process.Start(fullFilePath);
+                
             }
         }
         #endregion Events
@@ -140,6 +159,9 @@ namespace PDFtoDB
                 var tAssemblyInstruct = db.AssemblyInstructions.ToList();
                 dgv_PDFtoDB.DataSource = tAssemblyInstruct;
                 dgv_PDFtoDB.Columns[0].Visible = false;
+
+                dgv_PDFtoDB.Columns[2].Visible = false;
+
                 for (int i = 3; i <= 4; i++) dgv_PDFtoDB.Columns[i].Visible = false;
             }
             catch (Exception)
