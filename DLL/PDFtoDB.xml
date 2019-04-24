@@ -4,6 +4,23 @@
         <name>PDFtoDB</name>
     </assembly>
     <members>
+        <member name="F:PDFtoDB.frmPDF.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="M:PDFtoDB.frm_PDFtoDB.frm_PDFtoDB_Load(System.Object,System.EventArgs)">
             <summary>
             Cuando carga el form

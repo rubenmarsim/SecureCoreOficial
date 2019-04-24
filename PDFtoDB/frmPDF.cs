@@ -1,26 +1,32 @@
 ﻿using GestionDB;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PDFtoDB
 {
-    public partial class frm_PDFtoDB : Form
+    /// <summary>
+    /// Formulario para guardar y abrir PDFs
+    /// </summary>
+    public partial class frmPDF : Form
     {
-        #region Variables globales
+        #region Variables Globales
         XWingsFactoryEntities db;
-        #endregion Variables globales
+        OpenFileDialog _oFD;
+        #endregion Variables Globales
 
         #region Constructores
-
-        public frm_PDFtoDB()
+        public frmPDF()
         {
             InitializeComponent();
         }
-
         #endregion Constructores
 
         #region Events
@@ -29,48 +35,47 @@ namespace PDFtoDB
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frm_PDFtoDB_Load(object sender, EventArgs e)
+        private void frmPDF_Load(object sender, EventArgs e)
         {
             db = new XWingsFactoryEntities();
-            cargarListaNombre();
+            CargarListaNombre();
             RefreshGrid();
         }
-
         /// <summary>
         /// Cuando pulsamos el boton browse
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_Browse_Click(object sender, EventArgs e)
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "PDFs (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
-            openFileDialog1.FilterIndex = 1;
-            openFileDialog1.RestoreDirectory = true;
+            _oFD = new OpenFileDialog();
+            _oFD.Filter = "PDFs (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
+            _oFD.FilterIndex = 1;
+            _oFD.RestoreDirectory = true;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (_oFD.ShowDialog() == DialogResult.OK)
             {
-                textBox_Archivo.Text = openFileDialog1.FileName;
+                txtBoxArchivo.Text = _oFD.FileName;
             }
         }
-
         /// <summary>
         /// Cuando pulsamos el boton de guardar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_Save_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 byte[] file = null;
-                Stream myStream = openFileDialog1.OpenFile();
+                Stream myStream = _oFD.OpenFile();
                 using (MemoryStream ms = new MemoryStream())
                 {
                     myStream.CopyTo(ms);
                     file = ms.ToArray();
                 }
 
-                var ref1 = (short)comboPart.SelectedValue;
+                var ref1 = (short)cmbBoxIdReference.SelectedValue;
 
                 var sReferences = db.References.Where(x => x.idReference.Equals(ref1)).Select(x => x.idReference).First();
 
@@ -88,14 +93,15 @@ namespace PDFtoDB
             catch (FileNotFoundException)
             {
                 MessageBox.Show("El nombre es obligatorio");
-            }           
+            }
         }
 
-        private void btn_Open_Click(object sender, EventArgs e)
+        private void btnOpen_Click(object sender, EventArgs e)
         {
             DecryptPDF();
             ShowPDF();
 
+            #region OLD
             //try
             //{
             //    var SelectedIdReferenceValue = short.Parse(dgv_PDFtoDB.SelectedCells[1].Value.ToString());
@@ -136,8 +142,9 @@ namespace PDFtoDB
 
             //    //File.WriteAllBytes(fullFilePath, oDocument.Instructions);
             //    //Process.Start(fullFilePath);
-                
+
             //}
+            #endregion OLD
         }
         #endregion Events
 
@@ -145,33 +152,35 @@ namespace PDFtoDB
         /// <summary>
         /// Carga el comboBox (Idreference --> comboPart) con las partes
         /// </summary>
-        private void cargarListaNombre()
+        private void CargarListaNombre()
         {
             var dt = db.References.Where(x => x.idReferenceType == 2).Select(x => x).ToList();
-            
-            comboPart.DataSource = dt;
-            comboPart.ValueMember = "idReference";
-            comboPart.DisplayMember = "descReference";
+
+            cmbBoxIdReference.DataSource = dt;
+            cmbBoxIdReference.ValueMember = "idReference";
+            cmbBoxIdReference.DisplayMember = "descReference";
 
         }
-
+        /// <summary>
+        /// Vuelve a cargar los datos en el grid
+        /// </summary>
         private void RefreshGrid()
         {
             try
             {
                 var tAssemblyInstruct = db.AssemblyInstructions.ToList();
-                dgv_PDFtoDB.DataSource = tAssemblyInstruct;
-                dgv_PDFtoDB.Columns[0].Visible = false;
+                dgvPDF.DataSource = tAssemblyInstruct;
+                dgvPDF.Columns[0].Visible = false;
 
-                dgv_PDFtoDB.Columns[2].Visible = false;
+                dgvPDF.Columns[2].Visible = false;
 
-                for (int i = 3; i <= 4; i++) dgv_PDFtoDB.Columns[i].Visible = false;
+                for (int i = 3; i <= 4; i++) dgvPDF.Columns[i].Visible = false;
             }
             catch (Exception)
             {
 
             }
-            
+
         }
 
         private void DecryptPDF()
@@ -192,13 +201,11 @@ namespace PDFtoDB
             oFD.FilterIndex = 1;
             oFD.RestoreDirectory = true;
 
-            if(oFD.ShowDialog() == DialogResult.OK)
+            if (oFD.ShowDialog() == DialogResult.OK)
             {
                 filepath = oFD.FileName;
             }
         }
-
         #endregion Methods
-        
     }
 }

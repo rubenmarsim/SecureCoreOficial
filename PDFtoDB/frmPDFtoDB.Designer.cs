@@ -66,7 +66,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgv_PDFtoDB);
-            this.splitContainer1.Size = new System.Drawing.Size(930, 450);
+            this.splitContainer1.Size = new System.Drawing.Size(1202, 450);
             this.splitContainer1.SplitterDistance = 169;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -142,7 +142,7 @@
             this.dgv_PDFtoDB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_PDFtoDB.Location = new System.Drawing.Point(0, 0);
             this.dgv_PDFtoDB.Name = "dgv_PDFtoDB";
-            this.dgv_PDFtoDB.Size = new System.Drawing.Size(930, 277);
+            this.dgv_PDFtoDB.Size = new System.Drawing.Size(1202, 277);
             this.dgv_PDFtoDB.TabIndex = 0;
             // 
             // openFileDialog1
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 450);
+            this.ClientSize = new System.Drawing.Size(1202, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frm_PDFtoDB";
             this.Text = "Form1";
