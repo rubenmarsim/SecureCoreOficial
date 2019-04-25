@@ -185,7 +185,19 @@ namespace PDFtoDB
 
         private void DecryptPDF()
         {
-
+            try
+            {
+                if (dgvPDF.Rows.Count > 0)
+                {
+                    var SelectedIdReferenceValue = short.Parse((dgvPDF.SelectedCells.Count > 1 ? dgvPDF.SelectedCells[1].Value : dgvPDF.SelectedCells[0].Value).ToString());
+                    var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecciona un campo del Grid!");
+            }
+            
         }
 
         private void ShowPDF()
