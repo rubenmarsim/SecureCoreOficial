@@ -31,12 +31,12 @@
             this.lblIdReference = new System.Windows.Forms.Label();
             this.lblArchivo = new System.Windows.Forms.Label();
             this.grpBoxPDF = new System.Windows.Forms.GroupBox();
+            this.dgvPDF = new System.Windows.Forms.DataGridView();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.txtBoxArchivo = new System.Windows.Forms.TextBox();
             this.cmbBoxIdReference = new System.Windows.Forms.ComboBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnOpen = new System.Windows.Forms.Button();
-            this.dgvPDF = new System.Windows.Forms.DataGridView();
             this.webBrowserPDF = new System.Windows.Forms.WebBrowser();
             this.grpBoxPDF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPDF)).BeginInit();
@@ -72,10 +72,49 @@
             this.grpBoxPDF.Controls.Add(this.lblArchivo);
             this.grpBoxPDF.Location = new System.Drawing.Point(12, 12);
             this.grpBoxPDF.Name = "grpBoxPDF";
-            this.grpBoxPDF.Size = new System.Drawing.Size(463, 266);
+            this.grpBoxPDF.Size = new System.Drawing.Size(463, 299);
             this.grpBoxPDF.TabIndex = 2;
             this.grpBoxPDF.TabStop = false;
             this.grpBoxPDF.Text = "Gestion PDF";
+            // 
+            // dgvPDF
+            // 
+            this.dgvPDF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPDF.Location = new System.Drawing.Point(9, 96);
+            this.dgvPDF.Name = "dgvPDF";
+            this.dgvPDF.Size = new System.Drawing.Size(441, 159);
+            this.dgvPDF.TabIndex = 3;
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(9, 261);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(210, 23);
+            this.btnOpen.TabIndex = 6;
+            this.btnOpen.Text = "Abrir";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(225, 261);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(225, 23);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Location = new System.Drawing.Point(421, 51);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(29, 23);
+            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.Text = "...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // txtBoxArchivo
             // 
@@ -93,61 +132,23 @@
             this.cmbBoxIdReference.Size = new System.Drawing.Size(121, 21);
             this.cmbBoxIdReference.TabIndex = 2;
             // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.Location = new System.Drawing.Point(421, 51);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(29, 23);
-            this.btnBrowse.TabIndex = 4;
-            this.btnBrowse.Text = "...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(375, 96);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Guardar";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Location = new System.Drawing.Point(294, 96);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 6;
-            this.btnOpen.Text = "Abrir";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
-            // dgvPDF
-            // 
-            this.dgvPDF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPDF.Location = new System.Drawing.Point(9, 96);
-            this.dgvPDF.Name = "dgvPDF";
-            this.dgvPDF.Size = new System.Drawing.Size(279, 155);
-            this.dgvPDF.TabIndex = 3;
-            // 
             // webBrowserPDF
             // 
             this.webBrowserPDF.Location = new System.Drawing.Point(481, 12);
             this.webBrowserPDF.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserPDF.Name = "webBrowserPDF";
-            this.webBrowserPDF.Size = new System.Drawing.Size(307, 426);
+            this.webBrowserPDF.Size = new System.Drawing.Size(656, 705);
             this.webBrowserPDF.TabIndex = 3;
             // 
             // frmPDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1148, 729);
             this.Controls.Add(this.webBrowserPDF);
             this.Controls.Add(this.grpBoxPDF);
             this.Name = "frmPDF";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPDF";
             this.Load += new System.EventHandler(this.frmPDF_Load);
             this.grpBoxPDF.ResumeLayout(false);

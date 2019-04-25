@@ -205,6 +205,8 @@ namespace PDFtoDB
             {
                 filepath = oFD.FileName;
             }
+
+            webBrowserPDF.Navigate(filepath);
         }
         #endregion Methods
     }
