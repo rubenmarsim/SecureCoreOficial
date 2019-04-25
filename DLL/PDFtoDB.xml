@@ -4,6 +4,42 @@
         <name>PDFtoDB</name>
     </assembly>
     <members>
+        <member name="T:PDFtoDB.frmPDF">
+            <summary>
+            Formulario para guardar y abrir PDFs
+            </summary>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.frmPDF_Load(System.Object,System.EventArgs)">
+            <summary>
+            Cuando carga el form
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.btnBrowse_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton browse
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.btnSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton de guardar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.CargarListaNombre">
+            <summary>
+            Carga el comboBox (Idreference --> comboPart) con las partes
+            </summary>
+        </member>
+        <member name="M:PDFtoDB.frmPDF.RefreshGrid">
+            <summary>
+            Vuelve a cargar los datos en el grid
+            </summary>
+        </member>
         <member name="F:PDFtoDB.frmPDF.components">
             <summary>
             Required designer variable.

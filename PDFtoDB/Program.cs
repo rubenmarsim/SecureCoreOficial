@@ -16,7 +16,7 @@ namespace PDFtoDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_PDFtoDB());
+            Application.Run(new frmPDF());
         }
     }
 }
