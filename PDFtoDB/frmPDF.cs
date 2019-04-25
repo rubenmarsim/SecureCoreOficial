@@ -99,7 +99,7 @@ namespace PDFtoDB
         private void btnOpen_Click(object sender, EventArgs e)
         {
             DecryptPDF();
-            ShowPDF();
+            //ShowPDF();
 
             #region OLD
             //try
@@ -187,15 +187,33 @@ namespace PDFtoDB
         {
             try
             {
+                //webBrowserPDF.Navigate("about:blank");
+                //webBrowserPDF.Stop();
                 if (dgvPDF.Rows.Count > 0)
                 {
                     var SelectedIdReferenceValue = short.Parse((dgvPDF.SelectedCells.Count > 1 ? dgvPDF.SelectedCells[1].Value : dgvPDF.SelectedCells[0].Value).ToString());
                     var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
+
+                    //var oDocument = db.AssemblyInstructions.Find(SelectedIdReferenceValue);
+                    //var a = oDocument.Instructions;
+
+                    var TempFolder = AppDomain.CurrentDomain.BaseDirectory + @"temp\";
+                    var FullFilePath = TempFolder + "AssemblyPDF.pdf";
+
+                    if (File.Exists(FullFilePath)) File.Delete(FullFilePath);
+
+                    File.WriteAllBytes(FullFilePath, PDFbytes);
+
+                    webBrowserPDF.Navigate(FullFilePath);
                 }
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Selecciona un campo del Grid!");
+            }
+            catch(IOException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             
         }
