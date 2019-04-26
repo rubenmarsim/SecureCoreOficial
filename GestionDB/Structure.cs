@@ -19,7 +19,7 @@ namespace GestionDB
         public Nullable<short> idReferencePart { get; set; }
         public Nullable<short> NumberOfParts { get; set; }
     
-        public virtual References References { get; set; }
-        public virtual References References1 { get; set; }
+        public virtual Reference Reference { get; set; }
+        public virtual Reference Reference1 { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace WookieCodeControls
         public string Image
         {
             get { return _Image; }
+
             set
             {
                 _Image = value;

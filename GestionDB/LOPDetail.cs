@@ -12,22 +12,24 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class Orders
+    public partial class LOPDetail
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Orders()
+        public LOPDetail()
         {
-            this.LOP = new HashSet<LOP>();
-            this.OrdersDetail = new HashSet<OrdersDetail>();
+            this.FinalProducts = new HashSet<FinalProduct>();
+            this.IntermediateProducts = new HashSet<IntermediateProduct>();
         }
     
-        public short idOrder { get; set; }
-        public string codeOrder { get; set; }
-        public Nullable<System.DateTime> dateOrder { get; set; }
+        public short idLOPDetail { get; set; }
+        public short idLOP { get; set; }
+        public short idReference { get; set; }
+        public Nullable<short> Quantity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOP> LOP { get; set; }
+        public virtual ICollection<FinalProduct> FinalProducts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrdersDetail> OrdersDetail { get; set; }
+        public virtual ICollection<IntermediateProduct> IntermediateProducts { get; set; }
+        public virtual LOP LOP { get; set; }
     }
 }

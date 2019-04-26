@@ -13,9 +13,9 @@ namespace MantenimientosXWings.Tablas
     public partial class References : Form
     {
         #region Variables Globales
-        GestionDB.XWingsFactoryEntities db;      
-        List<GestionDB.References> _TableReferences;
-        List<GestionDB.ReferenceTypes> _TableReferencesTypes;
+        GestionDB.XWingsFactoryEntities1 db;      
+        List<GestionDB.Reference> _TableReferences;
+        List<GestionDB.ReferenceType> _TableReferencesTypes;
         public bool _bEsNou = false;
         short _IdForania;
         enum CodeReferenceTypes
@@ -44,7 +44,7 @@ namespace MantenimientosXWings.Tablas
         {
             if (_bEsNou)
             {
-                var inser = new GestionDB.References
+                var inser = new GestionDB.Reference
                 {
                     codeReference = sdstxtcodeReference.Text,
                     descReference = sdstxtdescReference.Text
@@ -91,7 +91,7 @@ namespace MantenimientosXWings.Tablas
         #region Methods
         private void Inicializaciones()
         {
-            db = new GestionDB.XWingsFactoryEntities();
+            db = new GestionDB.XWingsFactoryEntities1();
             dGVReferences.AllowUserToAddRows = false;
         }
         private void FillGrid()

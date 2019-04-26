@@ -51,20 +51,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInstructions.cs">
+    <Compile Include="AssemblyInstruction.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AssemblyInstructionsDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Blog.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="FactoryUsers.cs">
+    <Compile Include="documentoPDF.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryUser.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="FinalProduct.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="FinalProductDetails.cs">
+    <Compile Include="FinalProductDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="IntermediateProduct.cs">
@@ -73,41 +79,44 @@
     <Compile Include="LOP.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="LOPDetails.cs">
+    <Compile Include="LOPDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="OperationParts.cs">
+    <Compile Include="OperationPart.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs">
+    <Compile Include="Order.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="OrdersDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="References.cs">
+    <Compile Include="Post.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReferenceTypes.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reference.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReferenceType.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="StockMovements.cs">
+    <Compile Include="Stock.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="StockMovementTypes.cs">
+    <Compile Include="StockMovement.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Stocks.cs">
+    <Compile Include="StockMovementType.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Structure.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserTypes.cs">
+    <Compile Include="UserType.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="XWingsFactoryEntities.Context.cs">
@@ -127,14 +136,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="XWingsFactoryEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>XWingsFactoryEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="XWingsFactoryEntities.edmx.diagram">
       <DependentUpon>XWingsFactoryEntities.edmx</DependentUpon>
     </None>
@@ -148,8 +155,8 @@
     </Content>
     <Content Include="XWingsFactoryEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>XWingsFactoryEntities.Context.cs</LastGenOutput>
       <DependentUpon>XWingsFactoryEntities.edmx</DependentUpon>
+      <LastGenOutput>XWingsFactoryEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="XWingsFactoryEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

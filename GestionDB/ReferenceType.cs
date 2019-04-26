@@ -12,23 +12,19 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class FinalProduct
+    public partial class ReferenceType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FinalProduct()
+        public ReferenceType()
         {
-            this.FinalProductDetails = new HashSet<FinalProductDetail>();
+            this.References = new HashSet<Reference>();
         }
     
-        public short idFinalProduct { get; set; }
-        public short idReference { get; set; }
-        public string codeProduct { get; set; }
-        public short idStatus { get; set; }
-        public short idLOPDetail { get; set; }
+        public short idReferenceType { get; set; }
+        public string codeReferenceType { get; set; }
+        public string descReferenceType { get; set; }
     
-        public virtual LOPDetail LOPDetail { get; set; }
-        public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FinalProductDetail> FinalProductDetails { get; set; }
+        public virtual ICollection<Reference> References { get; set; }
     }
 }

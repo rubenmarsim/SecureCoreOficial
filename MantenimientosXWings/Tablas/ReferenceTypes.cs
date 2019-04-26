@@ -13,9 +13,9 @@ namespace MantenimientosXWings
     public partial class ReferenceTypes : Form
     {
         #region Variables Globales
-        GestionDB.XWingsFactoryEntities db;
+        GestionDB.XWingsFactoryEntities1 db;
         SdsTexBox.SdsTexBox _CSDStxtBox;
-        List<GestionDB.ReferenceTypes> _TableReferenceTypes;
+        List<GestionDB.ReferenceType> _TableReferenceTypes;
         /// <summary>
         /// Boolean que nos indica si estamos haciendo un insert o no
         /// </summary>
@@ -39,7 +39,7 @@ namespace MantenimientosXWings
         {
             if (_bEsNou)
             {
-                var inser = new GestionDB.ReferenceTypes
+                var inser = new GestionDB.ReferenceType
                 {
                     codeReferenceType = sdsTexBoxcodeReference.Text,
                     descReferenceType = sdsTexBoxdescReference.Text
@@ -67,7 +67,7 @@ namespace MantenimientosXWings
         #region Methods
         private void Inicializaciones()
         {
-            db = new GestionDB.XWingsFactoryEntities();
+            db = new GestionDB.XWingsFactoryEntities1();
             _CSDStxtBox = new SdsTexBox.SdsTexBox();
             dGVReferenceTypes.AllowUserToAddRows = false;
         }
