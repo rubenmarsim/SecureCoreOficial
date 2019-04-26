@@ -57,49 +57,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="M:PDFtoDB.frm_PDFtoDB.frm_PDFtoDB_Load(System.Object,System.EventArgs)">
-            <summary>
-            Cuando carga el form
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:PDFtoDB.frm_PDFtoDB.btn_Browse_Click(System.Object,System.EventArgs)">
-            <summary>
-            Cuando pulsamos el boton browse
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:PDFtoDB.frm_PDFtoDB.btn_Save_Click(System.Object,System.EventArgs)">
-            <summary>
-            Cuando pulsamos el boton de guardar
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:PDFtoDB.frm_PDFtoDB.cargarListaNombre">
-            <summary>
-            Carga el comboBox (Idreference --> comboPart) con las partes
-            </summary>
-        </member>
-        <member name="F:PDFtoDB.frm_PDFtoDB.components">
-            <summary>
-            Variable del diseñador necesaria.
-            </summary>
-        </member>
-        <member name="M:PDFtoDB.frm_PDFtoDB.Dispose(System.Boolean)">
-            <summary>
-            Limpiar los recursos que se estén usando.
-            </summary>
-            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
-        </member>
-        <member name="M:PDFtoDB.frm_PDFtoDB.InitializeComponent">
-            <summary>
-            Método necesario para admitir el Diseñador. No se puede modificar
-            el contenido de este método con el editor de código.
-            </summary>
-        </member>
         <member name="M:PDFtoDB.Program.Main">
             <summary>
             Punto de entrada principal para la aplicación.
