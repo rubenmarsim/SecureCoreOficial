@@ -20,6 +20,7 @@ namespace PDFtoDB
         #region Variables Globales
         XWingsFactoryEntities db;
         OpenFileDialog _oFD;
+        //WebBrowser _webBrowserPDF;
         #endregion Variables Globales
 
         #region Constructores
@@ -194,6 +195,13 @@ namespace PDFtoDB
                     var SelectedIdReferenceValue = short.Parse((dgvPDF.SelectedCells.Count > 1 ? dgvPDF.SelectedCells[1].Value : dgvPDF.SelectedCells[0].Value).ToString());
                     var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
 
+                    var _webBrowserPDF = new WebBrowser();
+                    _webBrowserPDF.Location = new Point(481, 12);
+                    _webBrowserPDF.Margin = new Padding(3);
+                    _webBrowserPDF.Size = new Size(656, 705);
+                    this.Controls.Add(_webBrowserPDF);
+                    _webBrowserPDF.Show();
+
                     //var oDocument = db.AssemblyInstructions.Find(SelectedIdReferenceValue);
                     //var a = oDocument.Instructions;
 
@@ -204,7 +212,7 @@ namespace PDFtoDB
 
                     File.WriteAllBytes(FullFilePath, PDFbytes);
 
-                    webBrowserPDF.Navigate(FullFilePath);
+                    _webBrowserPDF.Navigate(FullFilePath);
                 }
             }
             catch (ArgumentOutOfRangeException)
@@ -236,7 +244,7 @@ namespace PDFtoDB
                 filepath = oFD.FileName;
             }
 
-            webBrowserPDF.Navigate(filepath);
+            //_webBrowserPDF.Navigate(filepath);
         }
         #endregion Methods
     }

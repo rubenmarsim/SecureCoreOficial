@@ -37,7 +37,6 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtBoxArchivo = new System.Windows.Forms.TextBox();
             this.cmbBoxIdReference = new System.Windows.Forms.ComboBox();
-            this.webBrowserPDF = new System.Windows.Forms.WebBrowser();
             this.grpBoxPDF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPDF)).BeginInit();
             this.SuspendLayout();
@@ -132,20 +131,11 @@
             this.cmbBoxIdReference.Size = new System.Drawing.Size(121, 21);
             this.cmbBoxIdReference.TabIndex = 2;
             // 
-            // webBrowserPDF
-            // 
-            this.webBrowserPDF.Location = new System.Drawing.Point(481, 12);
-            this.webBrowserPDF.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowserPDF.Name = "webBrowserPDF";
-            this.webBrowserPDF.Size = new System.Drawing.Size(656, 705);
-            this.webBrowserPDF.TabIndex = 3;
-            // 
             // frmPDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 729);
-            this.Controls.Add(this.webBrowserPDF);
             this.Controls.Add(this.grpBoxPDF);
             this.Name = "frmPDF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -169,6 +159,5 @@
         private System.Windows.Forms.DataGridView dgvPDF;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.WebBrowser webBrowserPDF;
     }
 }
