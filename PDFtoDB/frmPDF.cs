@@ -23,6 +23,7 @@ namespace PDFtoDB
         XWingsFactoryEntities db;
         OpenFileDialog _oFD;
         WebBrowser _webBrowserPDF;
+        List<References> _FilteredStructTable;
         #endregion Variables Globales
 
         #region Constructores
@@ -126,32 +127,25 @@ namespace PDFtoDB
         {
             try
             {
-                var tAssemblyInstruct = db.AssemblyInstructions.ToList();
-                dgvPDF.DataSource = tAssemblyInstruct;
-                dgvPDF.Columns[0].Visible = false;
+                var JoinAI_Struct = db.AssemblyInstructions.Join(db.References, AsInstruct => AsInstruct.idreference, strct => strct.idReference, (AsInstruct, strct) => new { AsemblyInstruction = AsInstruct, Structura = strct });
+                _FilteredStructTable = JoinAI_Struct.Select(x => x.Structura).ToList();
+                dgvPDF.DataSource = _FilteredStructTable;
 
-                dgvPDF.Columns[2].Visible = false;
-
-                for (int i = 3; i <= 4; i++) dgvPDF.Columns[i].Visible = false;
-
-                //var a = db.AssemblyInstructions.Join(db.References, AsInstruct => AsInstruct.idreference, strct => strct.idReference)
-
+                for (int i=0; i<=1;i++) dgvPDF.Columns[i].Visible = false;
+                for (int i = 3; i <= dgvPDF.Columns.Count; i++) dgvPDF.Columns[i].Visible = false;
             }
-            catch (Exception)
-            {
-
-            }
-
+            catch (Exception) { }
         }
 
         private void DecryptAndShowPDF()
         {
             try
-            {                
+            {
                 if (dgvPDF.Rows.Count > 0)
                 {
-                    var SelectedIdReferenceValue = short.Parse((dgvPDF.SelectedCells.Count > 1 ? dgvPDF.SelectedCells[1].Value : dgvPDF.SelectedCells[0].Value).ToString());
-                    var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
+                    var SelectedDesc = dgvPDF.SelectedCells[0].Value.ToString();
+                    var SelectedId = _FilteredStructTable.Where(x => x.descReference.Equals(SelectedDesc)).Select(x => x.idReference).First();
+                    var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedId).Select(x => x.Instructions).First();
                     
                     _webBrowserPDF.Dispose();
                     Thread.Sleep(1000);
@@ -178,8 +172,7 @@ namespace PDFtoDB
             catch(IOException ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }            
         }
 
         #endregion Methods
