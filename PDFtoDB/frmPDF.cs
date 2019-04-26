@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +22,7 @@ namespace PDFtoDB
         #region Variables Globales
         XWingsFactoryEntities db;
         OpenFileDialog _oFD;
-        //WebBrowser _webBrowserPDF;
+        WebBrowser _webBrowserPDF;
         #endregion Variables Globales
 
         #region Constructores
@@ -39,6 +41,7 @@ namespace PDFtoDB
         private void frmPDF_Load(object sender, EventArgs e)
         {
             db = new XWingsFactoryEntities();
+            _webBrowserPDF = new WebBrowser();
             CargarListaNombre();
             RefreshGrid();
         }
@@ -99,53 +102,7 @@ namespace PDFtoDB
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            DecryptPDF();
-            //ShowPDF();
-
-            #region OLD
-            //try
-            //{
-            //    var SelectedIdReferenceValue = short.Parse(dgv_PDFtoDB.SelectedCells[1].Value.ToString());
-            //    var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
-
-            //    //var ArchivoPDF = System.Text.Encoding.UTF8.GetString(PDFbytes);
-            //    //var a = Convert.ToBase64String(PDFbytes);
-            //    //System.
-            //    //var aa = PDFbytes.ConvertByteToString();
-            //    //var a = Encoding.UTF8.GetString(PDFbytes, 0, PDFbytes.Length);
-            //    var a = Encoding.ASCII.GetString(PDFbytes);
-            //    var b = Encoding.UTF8.GetString(PDFbytes);
-            //    var c = Encoding.Unicode.GetString(PDFbytes);
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-            //if (dgv_PDFtoDB.Rows.Count > 0)
-            //{
-            //    int id = int.Parse(dgv_PDFtoDB.Rows[dgv_PDFtoDB.CurrentRow.Index].Cells[0].Value.ToString());
-
-            //    var oDocument = db.AssemblyInstructions.Find(id);
-
-            //    string path = AppDomain.CurrentDomain.BaseDirectory;
-
-            //    string folder = path + "temp\\";
-
-            //    //string fullFilePath = folder + oDocument.realName;
-
-            //    if (!Directory.Exists(folder))
-            //        Directory.CreateDirectory(folder);
-
-            //    //if (File.Exists(fullFilePath))
-            //    //    File.Delete(fullFilePath);
-
-            //    //File.WriteAllBytes(fullFilePath, oDocument.Instructions);
-            //    //Process.Start(fullFilePath);
-
-            //}
-            #endregion OLD
+            DecryptAndShowPDF();            
         }
         #endregion Events
 
@@ -176,6 +133,9 @@ namespace PDFtoDB
                 dgvPDF.Columns[2].Visible = false;
 
                 for (int i = 3; i <= 4; i++) dgvPDF.Columns[i].Visible = false;
+
+                //var a = db.AssemblyInstructions.Join(db.References, AsInstruct => AsInstruct.idreference, strct => strct.idReference)
+
             }
             catch (Exception)
             {
@@ -184,33 +144,29 @@ namespace PDFtoDB
 
         }
 
-        private void DecryptPDF()
+        private void DecryptAndShowPDF()
         {
             try
-            {
-                //webBrowserPDF.Navigate("about:blank");
-                //webBrowserPDF.Stop();
+            {                
                 if (dgvPDF.Rows.Count > 0)
                 {
                     var SelectedIdReferenceValue = short.Parse((dgvPDF.SelectedCells.Count > 1 ? dgvPDF.SelectedCells[1].Value : dgvPDF.SelectedCells[0].Value).ToString());
                     var PDFbytes = db.AssemblyInstructions.Where(x => x.idreference == SelectedIdReferenceValue).Select(x => x.Instructions).First();
+                    
+                    _webBrowserPDF.Dispose();
+                    Thread.Sleep(1000);
 
-                    var _webBrowserPDF = new WebBrowser();
+                    var TempFolder = AppDomain.CurrentDomain.BaseDirectory + @"temp\";
+                    var FullFilePath = TempFolder + "AssemblyPDF.pdf";
+
+                    File.WriteAllBytes(FullFilePath, PDFbytes);
+
+                    _webBrowserPDF = new WebBrowser();
                     _webBrowserPDF.Location = new Point(481, 12);
                     _webBrowserPDF.Margin = new Padding(3);
                     _webBrowserPDF.Size = new Size(656, 705);
                     this.Controls.Add(_webBrowserPDF);
                     _webBrowserPDF.Show();
-
-                    //var oDocument = db.AssemblyInstructions.Find(SelectedIdReferenceValue);
-                    //var a = oDocument.Instructions;
-
-                    var TempFolder = AppDomain.CurrentDomain.BaseDirectory + @"temp\";
-                    var FullFilePath = TempFolder + "AssemblyPDF.pdf";
-
-                    if (File.Exists(FullFilePath)) File.Delete(FullFilePath);
-
-                    File.WriteAllBytes(FullFilePath, PDFbytes);
 
                     _webBrowserPDF.Navigate(FullFilePath);
                 }
@@ -226,26 +182,6 @@ namespace PDFtoDB
             
         }
 
-        private void ShowPDF()
-        {
-            string filepath = string.Empty;
-            var AppPath = AppDomain.CurrentDomain.BaseDirectory;
-            var TempFolder = AppPath + "temp\\";
-            //pdfacroviewer pdfacroviewer = new pdfacroviewer();
-            //AxAcroPDFLib.AxAcroPDF pdf = new AxAcroPDFLib.AxAcroPDF();
-
-            var oFD = new OpenFileDialog();
-            oFD.Filter = "PDFs (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
-            oFD.FilterIndex = 1;
-            oFD.RestoreDirectory = true;
-
-            if (oFD.ShowDialog() == DialogResult.OK)
-            {
-                filepath = oFD.FileName;
-            }
-
-            //_webBrowserPDF.Navigate(filepath);
-        }
         #endregion Methods
     }
 }
