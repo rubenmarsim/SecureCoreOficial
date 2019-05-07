@@ -17,7 +17,7 @@ namespace GestionDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AssemblyInstructionsDetail()
         {
-            this.OperationParts = new HashSet<OperationPart>();
+            this.OperationParts = new HashSet<OperationParts>();
         }
     
         public short idAssemblyInstructionsDetail { get; set; }
@@ -27,8 +27,8 @@ namespace GestionDB
         public Nullable<short> NumberOfUsers { get; set; }
         public Nullable<short> OperationOrder { get; set; }
     
-        public virtual AssemblyInstruction AssemblyInstruction { get; set; }
+        public virtual AssemblyInstructions AssemblyInstructions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OperationPart> OperationParts { get; set; }
+        public virtual ICollection<OperationParts> OperationParts { get; set; }
     }
 }

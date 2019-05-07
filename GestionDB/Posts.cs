@@ -12,10 +12,13 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class Stock
+    public partial class Posts
     {
-        public short idStock { get; set; }
-        public short idReference { get; set; }
-        public Nullable<short> Stock1 { get; set; }
+        public int PostId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+        public int BlogId { get; set; }
+    
+        public virtual Blogs Blogs { get; set; }
     }
 }

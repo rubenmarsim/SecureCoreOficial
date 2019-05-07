@@ -17,10 +17,10 @@ namespace Escandall
     public partial class frmEscandall : Form
     {
         #region Variables Globales
-        GestionDB.XWingsFactoryEntities1 db;
+        GestionDB.XWingsFactoryEntities db;
         List<string> _lstFinalProducts;
-        List<GestionDB.Reference> _lstMiddleProducts;
-        List<GestionDB.Reference> _lstRawMaterials;
+        List<GestionDB.References> _lstMiddleProducts;
+        List<GestionDB.References> _lstRawMaterials;
         List<string> _lstProductsAla;
         List<string> _lstProductsMotor;
         List<string> _lstProductsCabina;
@@ -63,7 +63,7 @@ namespace Escandall
         #region Events
         private void frmEscandall_Load(object sender, EventArgs e)
         {
-            db = new GestionDB.XWingsFactoryEntities1();
+            db = new GestionDB.XWingsFactoryEntities();
             GetData();
             LoadData();
         }
@@ -89,7 +89,7 @@ namespace Escandall
             _lstFinalProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.FinalProducts).Select(x => x.descReference).ToList();
             _lstMiddleProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.MiddleProducts).Select(x => x).ToList();
             _lstRawMaterials = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.RawMaterials).Select(x => x).ToList();
-            var JoinRefStruct = db.References.Join(db.Structures, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
+            var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
             _lstProductsAla = JoinRefStruct.Where(x=>x.Structura.idReferenceFinal== (short)eIdReference.Ala).Select(x=>x.Referencia.descReference).ToList();
             _lstProductsMotor = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Motor).Select(x => x.Referencia.descReference).ToList();
             _lstProductsCabina = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Cabina).Select(x => x.Referencia.descReference).ToList();

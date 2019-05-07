@@ -27,7 +27,7 @@ namespace ConnectionClass
         /// Metodo que coje el ConnectionString y lo guarda en la variable _ConnectionString
         /// </summary>
         public void  GetConnexionString(){
-           _ConnectionString = ConfigurationManager.ConnectionStrings["SecureCodeSplashScreen.Properties.Settings.SecureCoreConnectionString1"].ConnectionString;
+           _ConnectionString = ConfigurationManager.ConnectionStrings["GestionDB.Properties.Settings.SecureCoreConnectionString"].ConnectionString;
         }
         /// <summary>
         /// Abre la conexion con la Base de datos

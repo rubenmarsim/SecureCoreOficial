@@ -4,5 +4,450 @@
         <name>GestionDB</name>
     </assembly>
     <members>
+        <member name="T:GestionDB.SecureCoreDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.BlogsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.DefinedRoutesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.FiliationsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.LogUsersDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.MenuSecureCoreDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.MilitaryCampsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PlanetRoutesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PlanetsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PostsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RegionsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RoutesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RouteTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SectorsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipCategoriesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpeciesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UserCategoriesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UserRanksDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UsersDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.BlogsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.DefinedRoutesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.FiliationsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.LogUsersRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.MenuSecureCoreRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.MilitaryCampsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PlanetRoutesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PlanetsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PostsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RegionsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RoutesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RouteTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SectorsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipCategoriesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpeciesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UserCategoriesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UserRanksRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UsersRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.BlogsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.DefinedRoutesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.FiliationsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.LogUsersRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.MenuSecureCoreRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.MilitaryCampsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PlanetRoutesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PlanetsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.PostsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RegionsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RoutesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.RouteTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SectorsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipCategoriesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpaceShipTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.SpeciesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UserCategoriesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UserRanksRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSet.UsersRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.BlogsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.DefinedRoutesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.FiliationsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.LogUsersTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.MenuSecureCoreTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.MilitaryCampsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.PlanetRoutesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.PlanetsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.PostsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.RegionsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.RoutesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.RouteTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.SectorsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.SpaceShipCategoriesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.SpaceShipsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.SpaceShipTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.SpeciesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.UserCategoriesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.UserRanksTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.UsersTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(GestionDB.SecureCoreDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(GestionDB.SecureCoreDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(GestionDB.SecureCoreDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.UpdateAll(GestionDB.SecureCoreDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:GestionDB.SecureCoreDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
     </members>
 </doc>

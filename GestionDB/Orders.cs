@@ -12,19 +12,22 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class ReferenceType
+    public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ReferenceType()
+        public Orders()
         {
-            this.References = new HashSet<Reference>();
+            this.LOP = new HashSet<LOP>();
+            this.OrdersDetail = new HashSet<OrdersDetail>();
         }
     
-        public short idReferenceType { get; set; }
-        public string codeReferenceType { get; set; }
-        public string descReferenceType { get; set; }
+        public short idOrder { get; set; }
+        public string codeOrder { get; set; }
+        public Nullable<System.DateTime> dateOrder { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reference> References { get; set; }
+        public virtual ICollection<LOP> LOP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrdersDetail> OrdersDetail { get; set; }
     }
 }

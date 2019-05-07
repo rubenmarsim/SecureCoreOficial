@@ -51,26 +51,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInstruction.cs">
+    <Compile Include="AssemblyInstructions.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AssemblyInstructionsDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Blog.cs">
+    <Compile Include="Blogs.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="documentoPDF.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="FactoryUser.cs">
+    <Compile Include="FactoryUsers.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="FinalProduct.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="FinalProductDetail.cs">
+    <Compile Include="FinalProductDetails.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="IntermediateProduct.cs">
@@ -79,44 +79,54 @@
     <Compile Include="LOP.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="LOPDetail.cs">
+    <Compile Include="LOPDetails.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="OperationPart.cs">
+    <Compile Include="OperationParts.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs">
+    <Compile Include="Orders.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="OrdersDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Post.cs">
+    <Compile Include="Posts.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reference.cs">
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="References.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReferenceType.cs">
+    <Compile Include="ReferenceTypes.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecureCoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SecureCoreDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Stock.cs">
+    <Compile Include="StockMovements.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="StockMovement.cs">
+    <Compile Include="StockMovementTypes.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="StockMovementType.cs">
+    <Compile Include="Stocks.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Structure.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserType.cs">
+    <Compile Include="UserTypes.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="XWingsFactoryEntities.Context.cs">
@@ -138,6 +148,21 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SecureCoreDataSet.xsc">
+      <DependentUpon>SecureCoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SecureCoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SecureCoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SecureCoreDataSet.xss">
+      <DependentUpon>SecureCoreDataSet.xsd</DependentUpon>
+    </None>
     <EntityDeploy Include="XWingsFactoryEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>XWingsFactoryEntities.Designer.cs</LastGenOutput>

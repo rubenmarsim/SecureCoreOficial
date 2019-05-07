@@ -12,7 +12,7 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class OperationPart
+    public partial class OperationParts
     {
         public short idOperationParts { get; set; }
         public Nullable<short> idAssemblyInstructionsDetail { get; set; }
@@ -20,6 +20,6 @@ namespace GestionDB
         public Nullable<short> NumberOfPieces { get; set; }
     
         public virtual AssemblyInstructionsDetail AssemblyInstructionsDetail { get; set; }
-        public virtual Reference Reference { get; set; }
+        public virtual References References { get; set; }
     }
 }

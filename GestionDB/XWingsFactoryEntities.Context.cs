@@ -13,10 +13,10 @@ namespace GestionDB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class XWingsFactoryEntities1 : DbContext
+    public partial class XWingsFactoryEntities : DbContext
     {
-        public XWingsFactoryEntities1()
-            : base("name=XWingsFactoryEntities1")
+        public XWingsFactoryEntities()
+            : base("name=XWingsFactoryEntities")
         {
         }
     
@@ -25,27 +25,27 @@ namespace GestionDB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AssemblyInstruction> AssemblyInstructions { get; set; }
-        public virtual DbSet<AssemblyInstructionsDetail> AssemblyInstructionsDetails { get; set; }
-        public virtual DbSet<Blog> Blogs { get; set; }
-        public virtual DbSet<documentoPDF> documentoPDFs { get; set; }
-        public virtual DbSet<FactoryUser> FactoryUsers { get; set; }
-        public virtual DbSet<FinalProduct> FinalProducts { get; set; }
-        public virtual DbSet<FinalProductDetail> FinalProductDetails { get; set; }
-        public virtual DbSet<IntermediateProduct> IntermediateProducts { get; set; }
-        public virtual DbSet<LOP> LOPs { get; set; }
-        public virtual DbSet<LOPDetail> LOPDetails { get; set; }
-        public virtual DbSet<OperationPart> OperationParts { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrdersDetail> OrdersDetails { get; set; }
-        public virtual DbSet<Post> Posts { get; set; }
-        public virtual DbSet<Reference> References { get; set; }
-        public virtual DbSet<ReferenceType> ReferenceTypes { get; set; }
+        public virtual DbSet<AssemblyInstructions> AssemblyInstructions { get; set; }
+        public virtual DbSet<AssemblyInstructionsDetail> AssemblyInstructionsDetail { get; set; }
+        public virtual DbSet<Blogs> Blogs { get; set; }
+        public virtual DbSet<documentoPDF> documentoPDF { get; set; }
+        public virtual DbSet<FactoryUsers> FactoryUsers { get; set; }
+        public virtual DbSet<FinalProduct> FinalProduct { get; set; }
+        public virtual DbSet<FinalProductDetails> FinalProductDetails { get; set; }
+        public virtual DbSet<IntermediateProduct> IntermediateProduct { get; set; }
+        public virtual DbSet<LOP> LOP { get; set; }
+        public virtual DbSet<LOPDetails> LOPDetails { get; set; }
+        public virtual DbSet<OperationParts> OperationParts { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<OrdersDetail> OrdersDetail { get; set; }
+        public virtual DbSet<Posts> Posts { get; set; }
+        public virtual DbSet<References> References { get; set; }
+        public virtual DbSet<ReferenceTypes> ReferenceTypes { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<StockMovement> StockMovements { get; set; }
-        public virtual DbSet<StockMovementType> StockMovementTypes { get; set; }
-        public virtual DbSet<Stock> Stocks { get; set; }
-        public virtual DbSet<Structure> Structures { get; set; }
-        public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<StockMovements> StockMovements { get; set; }
+        public virtual DbSet<StockMovementTypes> StockMovementTypes { get; set; }
+        public virtual DbSet<Stocks> Stocks { get; set; }
+        public virtual DbSet<Structure> Structure { get; set; }
+        public virtual DbSet<UserTypes> UserTypes { get; set; }
     }
 }

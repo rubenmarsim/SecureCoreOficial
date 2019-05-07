@@ -83,5 +83,490 @@
             <param name="contra">contraseña del usuario</param>
             <returns>Devuelve un Dataset</returns>
         </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.AssemblyInstructionsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.AssemblyInstructionsDetailDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.BlogsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.documentoPDFDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FactoryUsersDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FinalProductDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FinalProductDetailsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.IntermediateProductDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.LOPDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.LOPDetailsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OperationPartsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OrdersDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OrdersDetailDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.PostsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.ReferencesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.ReferenceTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StatusDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StockMovementsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StockMovementTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StocksDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StructureDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.UserTypesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.AssemblyInstructionsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.AssemblyInstructionsDetailRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.BlogsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.documentoPDFRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FactoryUsersRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FinalProductRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FinalProductDetailsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.IntermediateProductRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.LOPRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.LOPDetailsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OperationPartsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OrdersRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OrdersDetailRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.PostsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.ReferencesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.ReferenceTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StatusRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StockMovementsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StockMovementTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StocksRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StructureRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.UserTypesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.AssemblyInstructionsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.AssemblyInstructionsDetailRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.BlogsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.documentoPDFRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FactoryUsersRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FinalProductRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.FinalProductDetailsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.IntermediateProductRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.LOPRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.LOPDetailsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OperationPartsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OrdersRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.OrdersDetailRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.PostsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.ReferencesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.ReferenceTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StatusRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StockMovementsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StockMovementTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StocksRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.StructureRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSet.UserTypesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.AssemblyInstructionsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.AssemblyInstructionsDetailTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.BlogsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.documentoPDFTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.FactoryUsersTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.FinalProductTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.FinalProductDetailsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.IntermediateProductTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.LOPTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.LOPDetailsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.OperationPartsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.OrdersTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.OrdersDetailTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.PostsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.ReferencesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.ReferenceTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.StatusTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.StockMovementsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.StockMovementTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.StocksTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.StructureTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.UserTypesTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(ConnectionClass.XWingsFactoryDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(ConnectionClass.XWingsFactoryDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(ConnectionClass.XWingsFactoryDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateAll(ConnectionClass.XWingsFactoryDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:ConnectionClass.XWingsFactoryDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
     </members>
 </doc>

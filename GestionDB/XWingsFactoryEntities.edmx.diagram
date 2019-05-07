@@ -4,29 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fc4bfc12433c45598646e8eb89a83fbb" Name="Diagram1">
-        <EntityTypeShape EntityType="XWingsFactoryModel.AssemblyInstruction" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+      <Diagram DiagramId="0f197a2bb0f342e59bb14f8641906429" Name="Diagram1">
+        <EntityTypeShape EntityType="XWingsFactoryModel.AssemblyInstructions" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.AssemblyInstructionsDetail" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.Blog" Width="1.5" PointX="7.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.Blogs" Width="1.5" PointX="7.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.documentoPDF" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.FactoryUser" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.FactoryUsers" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.FinalProduct" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.FinalProductDetail" Width="1.5" PointX="12.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.FinalProductDetails" Width="1.5" PointX="12.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.IntermediateProduct" Width="1.5" PointX="10.5" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.LOP" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.LOPDetail" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.OperationPart" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.Order" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.LOPDetails" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.OperationParts" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.Orders" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.OrdersDetail" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.Post" Width="1.5" PointX="10" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.Reference" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.ReferenceType" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.Posts" Width="1.5" PointX="10" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.References" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.ReferenceTypes" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.Status" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.StockMovement" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.StockMovementType" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.Stock" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.StockMovements" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.StockMovementTypes" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.Stocks" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="XWingsFactoryModel.Structure" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XWingsFactoryModel.UserType" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.UserTypes" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="XWingsFactoryModel.FK_AssemblyInstructions_References" ManuallyRouted="false" />
         <AssociationConnector Association="XWingsFactoryModel.FK_AssemblyInstructionsDetail_AssemblyInstructions" ManuallyRouted="false" />
         <AssociationConnector Association="XWingsFactoryModel.FK_OperationParts_AssemblyInstructionsDetail" ManuallyRouted="false" />

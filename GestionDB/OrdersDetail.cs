@@ -21,6 +21,6 @@ namespace GestionDB
         public Nullable<short> Quantity { get; set; }
         public Nullable<System.DateTime> DeliveryDate { get; set; }
     
-        public virtual Order Order { get; set; }
+        public virtual Orders Orders { get; set; }
     }
 }

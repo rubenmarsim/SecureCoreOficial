@@ -17,7 +17,7 @@ namespace GestionDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FinalProduct()
         {
-            this.FinalProductDetails = new HashSet<FinalProductDetail>();
+            this.FinalProductDetails = new HashSet<FinalProductDetails>();
         }
     
         public short idFinalProduct { get; set; }
@@ -26,9 +26,9 @@ namespace GestionDB
         public short idStatus { get; set; }
         public short idLOPDetail { get; set; }
     
-        public virtual LOPDetail LOPDetail { get; set; }
+        public virtual LOPDetails LOPDetails { get; set; }
         public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FinalProductDetail> FinalProductDetails { get; set; }
+        public virtual ICollection<FinalProductDetails> FinalProductDetails { get; set; }
     }
 }

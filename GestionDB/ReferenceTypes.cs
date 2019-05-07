@@ -12,19 +12,19 @@ namespace GestionDB
     using System;
     using System.Collections.Generic;
     
-    public partial class Blog
+    public partial class ReferenceTypes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Blog()
+        public ReferenceTypes()
         {
-            this.Posts = new HashSet<Post>();
+            this.References = new HashSet<References>();
         }
     
-        public int BlogId { get; set; }
-        public string Name { get; set; }
-        public string Url { get; set; }
+        public short idReferenceType { get; set; }
+        public string codeReferenceType { get; set; }
+        public string descReferenceType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<References> References { get; set; }
     }
 }
