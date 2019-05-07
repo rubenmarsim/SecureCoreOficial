@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.IO;
+
 namespace WookieCodeControls
 {
     public partial class MainMenu : UserControl
@@ -59,13 +61,25 @@ namespace WookieCodeControls
 
         private void ObreForm(object sender, EventArgs e)
         {
-            Assembly ensamblat = Assembly.LoadFrom(NameClass);
-            Object dllBD;
-            Type tipus;
-            tipus = ensamblat.GetType(NameForm);
-            dllBD = Activator.CreateInstance(tipus);
-            ((Form)dllBD).Show();
-            lblControl.Text = LblText;
+            try
+            {
+                Assembly ensamblat = Assembly.LoadFrom(NameClass);
+                Object dllBD;
+                Type tipus;
+                tipus = ensamblat.GetType(NameForm);
+                dllBD = Activator.CreateInstance(tipus);
+                ((Form)dllBD).Show();
+                lblControl.Text = LblText;
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Estamos desarrollando esta opcion, prueba mas adelante ;)");
+            }
+            catch (FileNotFoundException FNFE)
+            {
+                MessageBox.Show(FNFE.Message);
+            }
+            
         }
         
     }
