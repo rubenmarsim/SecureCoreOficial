@@ -75,9 +75,9 @@ namespace WookieCodeControls
             {
                 MessageBox.Show("Estamos desarrollando esta opcion, prueba mas adelante ;)");
             }
-            catch (FileNotFoundException FNFE)
+            catch (FileNotFoundException)
             {
-                MessageBox.Show(FNFE.Message);
+                MessageBox.Show("Estamos desarrollando esta opcion, prueba mas adelante ;)");
             }
             
         }
