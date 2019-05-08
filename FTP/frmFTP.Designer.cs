@@ -28,19 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gBoxPush = new System.Windows.Forms.GroupBox();
+            this.lblDescPush = new System.Windows.Forms.Label();
+            this.txtBoxDescPush = new System.Windows.Forms.TextBox();
+            this.btnBrowsePush = new System.Windows.Forms.Button();
+            this.btnPush = new System.Windows.Forms.Button();
+            this.gBoxPull = new System.Windows.Forms.GroupBox();
+            this.btnPull = new System.Windows.Forms.Button();
+            this.gBoxPush.SuspendLayout();
+            this.gBoxPull.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // gBoxPush
+            // 
+            this.gBoxPush.Controls.Add(this.btnPush);
+            this.gBoxPush.Controls.Add(this.btnBrowsePush);
+            this.gBoxPush.Controls.Add(this.txtBoxDescPush);
+            this.gBoxPush.Controls.Add(this.lblDescPush);
+            this.gBoxPush.Location = new System.Drawing.Point(12, 12);
+            this.gBoxPush.Name = "gBoxPush";
+            this.gBoxPush.Size = new System.Drawing.Size(776, 96);
+            this.gBoxPush.TabIndex = 0;
+            this.gBoxPush.TabStop = false;
+            this.gBoxPush.Text = "Subir Archivo";
+            // 
+            // lblDescPush
+            // 
+            this.lblDescPush.AutoSize = true;
+            this.lblDescPush.Location = new System.Drawing.Point(6, 28);
+            this.lblDescPush.Name = "lblDescPush";
+            this.lblDescPush.Size = new System.Drawing.Size(49, 13);
+            this.lblDescPush.TabIndex = 0;
+            this.lblDescPush.Text = "Archivo: ";
+            // 
+            // txtBoxDescPush
+            // 
+            this.txtBoxDescPush.Location = new System.Drawing.Point(62, 28);
+            this.txtBoxDescPush.Name = "txtBoxDescPush";
+            this.txtBoxDescPush.Size = new System.Drawing.Size(669, 20);
+            this.txtBoxDescPush.TabIndex = 1;
+            // 
+            // btnBrowsePush
+            // 
+            this.btnBrowsePush.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowsePush.Location = new System.Drawing.Point(738, 28);
+            this.btnBrowsePush.Name = "btnBrowsePush";
+            this.btnBrowsePush.Size = new System.Drawing.Size(32, 23);
+            this.btnBrowsePush.TabIndex = 2;
+            this.btnBrowsePush.Text = "...";
+            this.btnBrowsePush.UseVisualStyleBackColor = true;
+            this.btnBrowsePush.Click += new System.EventHandler(this.btnBrowsePush_Click);
+            // 
+            // btnPush
+            // 
+            this.btnPush.Location = new System.Drawing.Point(695, 57);
+            this.btnPush.Name = "btnPush";
+            this.btnPush.Size = new System.Drawing.Size(75, 23);
+            this.btnPush.TabIndex = 3;
+            this.btnPush.Text = "PUSH ^";
+            this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
+            // 
+            // gBoxPull
+            // 
+            this.gBoxPull.Controls.Add(this.btnPull);
+            this.gBoxPull.Location = new System.Drawing.Point(12, 127);
+            this.gBoxPull.Name = "gBoxPull";
+            this.gBoxPull.Size = new System.Drawing.Size(776, 204);
+            this.gBoxPull.TabIndex = 1;
+            this.gBoxPull.TabStop = false;
+            this.gBoxPull.Text = "Bajar Archivos";
+            // 
+            // btnPull
+            // 
+            this.btnPull.Location = new System.Drawing.Point(352, 88);
+            this.btnPull.Name = "btnPull";
+            this.btnPull.Size = new System.Drawing.Size(75, 23);
+            this.btnPull.TabIndex = 0;
+            this.btnPull.Text = "PULL ";
+            this.btnPull.UseVisualStyleBackColor = true;
             // 
             // frmFTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.gBoxPull);
+            this.Controls.Add(this.gBoxPush);
             this.Name = "frmFTP";
             this.Text = "GestionFTP";
+            this.Load += new System.EventHandler(this.frmFTP_Load);
+            this.gBoxPush.ResumeLayout(false);
+            this.gBoxPush.PerformLayout();
+            this.gBoxPull.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox gBoxPush;
+        private System.Windows.Forms.Button btnBrowsePush;
+        private System.Windows.Forms.TextBox txtBoxDescPush;
+        private System.Windows.Forms.Label lblDescPush;
+        private System.Windows.Forms.Button btnPush;
+        private System.Windows.Forms.GroupBox gBoxPull;
+        private System.Windows.Forms.Button btnPull;
     }
 }
