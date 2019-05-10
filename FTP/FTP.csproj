@@ -44,17 +44,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBajarFTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajarFTP.Designer.cs">
+      <DependentUpon>frmBajarFTP.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFTP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFTP.Designer.cs">
       <DependentUpon>frmFTP.cs</DependentUpon>
     </Compile>
+    <Compile Include="mainFTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainFTP.Designer.cs">
+      <DependentUpon>mainFTP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmFTP.resx">
       <DependentUpon>frmFTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainFTP.resx">
+      <DependentUpon>mainFTP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,6 +4,23 @@
         <name>FTP</name>
     </assembly>
     <members>
+        <member name="F:FTP.frmBajarFTP.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FTP.frmBajarFTP.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FTP.frmBajarFTP.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:FTP.frmFTP">
             <summary>
             Formulario para subir y bajar archivos mediante FTP
@@ -52,6 +69,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:FTP.frmFTP.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FTP.mainFTP.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FTP.mainFTP.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FTP.mainFTP.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.

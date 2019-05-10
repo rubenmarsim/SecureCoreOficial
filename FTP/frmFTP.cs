@@ -48,7 +48,7 @@ namespace FTP
         /// <param name="e"></param>
         private void frmFTP_Load(object sender, EventArgs e)
         {
-            
+            btnPush.Enabled = false;
         }
         /// <summary>
         /// Cuando pulsamos el boton de navegar
@@ -86,6 +86,7 @@ namespace FTP
             if (_oFD.ShowDialog() == DialogResult.OK)
             {
                 txtBoxDescPush.Text = _oFD.FileName;
+                btnPush.Enabled = true;
                 _FileName = _oFD.FileName;
             }
         }        
