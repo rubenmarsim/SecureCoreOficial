@@ -107,11 +107,9 @@ namespace FTP
 
                 FtpWebResponse response = (FtpWebResponse)_Request.GetResponse();
 
-                Console.WriteLine("Upload File Complete, status {0}", response.StatusDescription);
-
-                response.Close();
-
                 MessageBox.Show("Archivo subido correctamente.");
+
+                response.Close();                
             }
             catch (Exception ex)
             {
