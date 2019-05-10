@@ -9,6 +9,20 @@
             Formulario para bajar archivos del ftp
             </summary>
         </member>
+        <member name="M:FTP.frmBajarFTP.frmBajarFTP_Load(System.Object,System.EventArgs)">
+            <summary>
+            Cuando carga el form
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FTP.frmBajarFTP.btnDownload_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton de descargar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:FTP.frmBajarFTP.DownloadDoc">
             <summary>
             Descargamos el documento .edi con el que vamos a operar
