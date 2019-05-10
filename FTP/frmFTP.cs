@@ -78,7 +78,7 @@ namespace FTP
         private void GetDocument()
         {
             _oFD = new OpenFileDialog();
-            _oFD.Filter = "Todos los archivos (*.*)|*.*";
+            _oFD.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
             _oFD.FilterIndex = 1;
             _oFD.RestoreDirectory = true;
 
