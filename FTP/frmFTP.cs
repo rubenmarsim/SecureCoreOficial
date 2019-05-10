@@ -25,6 +25,7 @@ namespace FTP
         const string _cstrDomain = "ftp://172.17.6.0";
         const string _cstrUserName = "wookiecode";
         const string _cstrPassword = "12345aA";
+        string _FileName = string.Empty;
 
         #endregion Variables Globales
 
@@ -85,6 +86,7 @@ namespace FTP
             if (_oFD.ShowDialog() == DialogResult.OK)
             {
                 txtBoxDescPush.Text = _oFD.FileName;
+                _FileName = _oFD.FileName;
             }
         }        
 
@@ -96,7 +98,7 @@ namespace FTP
                 _Request.Credentials = new NetworkCredential(_cstrUserName, _cstrPassword);
                 _Request.Method = WebRequestMethods.Ftp.UploadFile;
 
-                StreamReader sourceStream = new StreamReader("Recursos/testfile.txt");
+                StreamReader sourceStream = new StreamReader(_FileName);
                 byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
                 sourceStream.Close();
                 _Request.ContentLength = fileContents.Length;
