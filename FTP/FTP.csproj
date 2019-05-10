@@ -65,6 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmBajarFTP.resx">
+      <DependentUpon>frmBajarFTP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFTP.resx">
       <DependentUpon>frmFTP.cs</DependentUpon>
     </EmbeddedResource>

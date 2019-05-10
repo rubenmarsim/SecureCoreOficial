@@ -4,6 +4,21 @@
         <name>FTP</name>
     </assembly>
     <members>
+        <member name="T:FTP.frmBajarFTP">
+            <summary>
+            Formulario para bajar archivos del ftp
+            </summary>
+        </member>
+        <member name="M:FTP.frmBajarFTP.DownloadDoc">
+            <summary>
+            Descargamos el documento .edi con el que vamos a operar
+            </summary>
+        </member>
+        <member name="M:FTP.frmBajarFTP.CloseConnections">
+            <summary>
+            Close all connects
+            </summary>
+        </member>
         <member name="F:FTP.frmBajarFTP.components">
             <summary>
             Required designer variable.
