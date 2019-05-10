@@ -4,6 +4,37 @@
         <name>FTP</name>
     </assembly>
     <members>
+        <member name="T:FTP.frmFTP">
+            <summary>
+            Formulario para subir y bajar archivos mediante FTP
+            </summary>
+        </member>
+        <member name="M:FTP.frmFTP.#ctor">
+            <summary>
+            Constructor por defecto
+            </summary>
+        </member>
+        <member name="M:FTP.frmFTP.frmFTP_Load(System.Object,System.EventArgs)">
+            <summary>
+            Cuando carga el form
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FTP.frmFTP.btnBrowsePush_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton de navegar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FTP.frmFTP.btnPush_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cuando pulsamos el boton de subir archivo
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:FTP.frmFTP.components">
             <summary>
             Required designer variable.

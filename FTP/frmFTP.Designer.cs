@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.gBoxPush = new System.Windows.Forms.GroupBox();
-            this.lblDescPush = new System.Windows.Forms.Label();
-            this.txtBoxDescPush = new System.Windows.Forms.TextBox();
-            this.btnBrowsePush = new System.Windows.Forms.Button();
             this.btnPush = new System.Windows.Forms.Button();
+            this.btnBrowsePush = new System.Windows.Forms.Button();
+            this.txtBoxDescPush = new System.Windows.Forms.TextBox();
+            this.lblDescPush = new System.Windows.Forms.Label();
             this.gBoxPull = new System.Windows.Forms.GroupBox();
             this.btnPull = new System.Windows.Forms.Button();
             this.gBoxPush.SuspendLayout();
@@ -52,21 +52,15 @@
             this.gBoxPush.TabStop = false;
             this.gBoxPush.Text = "Subir Archivo";
             // 
-            // lblDescPush
+            // btnPush
             // 
-            this.lblDescPush.AutoSize = true;
-            this.lblDescPush.Location = new System.Drawing.Point(6, 28);
-            this.lblDescPush.Name = "lblDescPush";
-            this.lblDescPush.Size = new System.Drawing.Size(49, 13);
-            this.lblDescPush.TabIndex = 0;
-            this.lblDescPush.Text = "Archivo: ";
-            // 
-            // txtBoxDescPush
-            // 
-            this.txtBoxDescPush.Location = new System.Drawing.Point(62, 28);
-            this.txtBoxDescPush.Name = "txtBoxDescPush";
-            this.txtBoxDescPush.Size = new System.Drawing.Size(669, 20);
-            this.txtBoxDescPush.TabIndex = 1;
+            this.btnPush.Location = new System.Drawing.Point(695, 57);
+            this.btnPush.Name = "btnPush";
+            this.btnPush.Size = new System.Drawing.Size(75, 23);
+            this.btnPush.TabIndex = 3;
+            this.btnPush.Text = "PUSH ^";
+            this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
             // btnBrowsePush
             // 
@@ -79,15 +73,22 @@
             this.btnBrowsePush.UseVisualStyleBackColor = true;
             this.btnBrowsePush.Click += new System.EventHandler(this.btnBrowsePush_Click);
             // 
-            // btnPush
+            // txtBoxDescPush
             // 
-            this.btnPush.Location = new System.Drawing.Point(695, 57);
-            this.btnPush.Name = "btnPush";
-            this.btnPush.Size = new System.Drawing.Size(75, 23);
-            this.btnPush.TabIndex = 3;
-            this.btnPush.Text = "PUSH ^";
-            this.btnPush.UseVisualStyleBackColor = true;
-            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
+            this.txtBoxDescPush.Location = new System.Drawing.Point(62, 28);
+            this.txtBoxDescPush.Name = "txtBoxDescPush";
+            this.txtBoxDescPush.ReadOnly = true;
+            this.txtBoxDescPush.Size = new System.Drawing.Size(669, 20);
+            this.txtBoxDescPush.TabIndex = 1;
+            // 
+            // lblDescPush
+            // 
+            this.lblDescPush.AutoSize = true;
+            this.lblDescPush.Location = new System.Drawing.Point(6, 28);
+            this.lblDescPush.Name = "lblDescPush";
+            this.lblDescPush.Size = new System.Drawing.Size(49, 13);
+            this.lblDescPush.TabIndex = 0;
+            this.lblDescPush.Text = "Archivo: ";
             // 
             // gBoxPull
             // 
