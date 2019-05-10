@@ -48,7 +48,7 @@ namespace FTP
         {
             DownloadDoc();
 
-            var a = _Reader.ReadToEnd();
+            var oDoc = _Reader.ReadToEnd();
 
             CloseConnections();
         }
