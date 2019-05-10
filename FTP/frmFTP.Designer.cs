@@ -33,10 +33,7 @@
             this.btnBrowsePush = new System.Windows.Forms.Button();
             this.txtBoxDescPush = new System.Windows.Forms.TextBox();
             this.lblDescPush = new System.Windows.Forms.Label();
-            this.gBoxPull = new System.Windows.Forms.GroupBox();
-            this.btnPull = new System.Windows.Forms.Button();
             this.gBoxPush.SuspendLayout();
-            this.gBoxPull.SuspendLayout();
             this.SuspendLayout();
             // 
             // gBoxPush
@@ -58,7 +55,7 @@
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(75, 23);
             this.btnPush.TabIndex = 3;
-            this.btnPush.Text = "PUSH ^";
+            this.btnPush.Text = "PUSH";
             this.btnPush.UseVisualStyleBackColor = true;
             this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
@@ -90,39 +87,17 @@
             this.lblDescPush.TabIndex = 0;
             this.lblDescPush.Text = "Archivo: ";
             // 
-            // gBoxPull
-            // 
-            this.gBoxPull.Controls.Add(this.btnPull);
-            this.gBoxPull.Location = new System.Drawing.Point(12, 127);
-            this.gBoxPull.Name = "gBoxPull";
-            this.gBoxPull.Size = new System.Drawing.Size(776, 204);
-            this.gBoxPull.TabIndex = 1;
-            this.gBoxPull.TabStop = false;
-            this.gBoxPull.Text = "Bajar Archivos";
-            // 
-            // btnPull
-            // 
-            this.btnPull.Location = new System.Drawing.Point(352, 88);
-            this.btnPull.Name = "btnPull";
-            this.btnPull.Size = new System.Drawing.Size(75, 23);
-            this.btnPull.TabIndex = 0;
-            this.btnPull.Text = "PULL ";
-            this.btnPull.UseVisualStyleBackColor = true;
-            this.btnPull.Click += new System.EventHandler(this.btnPull_Click);
-            // 
             // frmFTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.gBoxPull);
             this.Controls.Add(this.gBoxPush);
             this.Name = "frmFTP";
             this.Text = "GestionFTP";
             this.Load += new System.EventHandler(this.frmFTP_Load);
             this.gBoxPush.ResumeLayout(false);
             this.gBoxPush.PerformLayout();
-            this.gBoxPull.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -134,7 +109,5 @@
         private System.Windows.Forms.TextBox txtBoxDescPush;
         private System.Windows.Forms.Label lblDescPush;
         private System.Windows.Forms.Button btnPush;
-        private System.Windows.Forms.GroupBox gBoxPull;
-        private System.Windows.Forms.Button btnPull;
     }
 }

@@ -40,11 +40,6 @@
             Abre un OpenFileDialog para seleccionar el archivo que queremos subir
             </summary>
         </member>
-        <member name="M:FTP.frmFTP.ConnectFTP">
-            <summary>
-            Abrimos la conexion con el server FTP
-            </summary>
-        </member>
         <member name="F:FTP.frmFTP.components">
             <summary>
             Required designer variable.

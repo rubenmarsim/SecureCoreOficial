@@ -22,7 +22,7 @@ namespace FTP
         #region Variables Globales
         OpenFileDialog _oFD;
         FtpWebRequest _Request;
-        const string _cstrDomain = "ftp://172.16.6.0";
+        const string _cstrDomain = "ftp://172.17.6.0";
         const string _cstrUserName = "wookiecode";
         const string _cstrPassword = "12345aA";
 
@@ -47,7 +47,6 @@ namespace FTP
         /// <param name="e"></param>
         private void frmFTP_Load(object sender, EventArgs e)
         {
-            ConnectFTP();
             
         }
         /// <summary>
@@ -66,17 +65,13 @@ namespace FTP
         /// <param name="e"></param>
         private void btnPush_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnPull_Click(object sender, EventArgs e)
-        {
-            BajarArchivo();
+            SubirArchivo();
         }
 
         #endregion Events
 
         #region Methods
+
         /// <summary>
         /// Abre un OpenFileDialog para seleccionar el archivo que queremos subir
         /// </summary>
@@ -91,41 +86,21 @@ namespace FTP
             {
                 txtBoxDescPush.Text = _oFD.FileName;
             }
-        }
-
-        /// <summary>
-        /// Abrimos la conexion con el server FTP
-        /// </summary>
-        private void ConnectFTP()
-        {
-            try
-            {
-                _Request = (FtpWebRequest)WebRequest.Create(_cstrDomain);
-                _Request.Credentials = new NetworkCredential(_cstrUserName, _cstrPassword);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }            
-        }
+        }        
 
         private void SubirArchivo()
         {
             try
             {
-
-
-                //request.Method = WebRequestMethods.Ftp.UploadFile;
-                _Request.Method = WebRequestMethods.Ftp.ListDirectory;
-
-
+                _Request = (FtpWebRequest)WebRequest.Create(_cstrDomain + "/ArchivoSubidoFTP.txt");
+                _Request.Credentials = new NetworkCredential(_cstrUserName, _cstrPassword);
+                _Request.Method = WebRequestMethods.Ftp.UploadFile;
 
                 StreamReader sourceStream = new StreamReader("Recursos/testfile.txt");
                 byte[] fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
                 sourceStream.Close();
                 _Request.ContentLength = fileContents.Length;
 
-                //Stream stream = new MemoryStream();
                 Stream requestStream = _Request.GetRequestStream();
                 requestStream.Write(fileContents, 0, fileContents.Length);
                 requestStream.Close();
@@ -135,30 +110,13 @@ namespace FTP
                 Console.WriteLine("Upload File Complete, status {0}", response.StatusDescription);
 
                 response.Close();
+
+                MessageBox.Show("Archivo subido correctamente.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void BajarArchivo()
-        {
-
-            _Request.Method = WebRequestMethods.Ftp.DownloadFile;
-
-            FtpWebResponse resp = (FtpWebResponse)_Request.GetResponse();
-
-
-
-            //try
-            //{
-
-            //}
-            //catch ()
-            //{
-
-            //}
         }
 
         #endregion Methods
