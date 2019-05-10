@@ -20,6 +20,7 @@ namespace FTP
     public partial class frmBajarFTP : Form
     {
         #region Variables Globales
+
         FtpWebRequest _Request;
         FtpWebResponse _Response;
         Stream _ResponseStream;
@@ -28,6 +29,7 @@ namespace FTP
         const string _cstrUserName = "wookiecode";
         const string _cstrPassword = "12345aA";
         string _FileName = string.Empty;
+
         #endregion Variables Globales
 
         #region Constructors
@@ -39,11 +41,21 @@ namespace FTP
 
         #region Events
 
+        /// <summary>
+        /// Cuando carga el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmBajarFTP_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Cuando pulsamos el boton de descargar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDownload_Click(object sender, EventArgs e)
         {
             DownloadDoc();
@@ -51,11 +63,14 @@ namespace FTP
             var oDoc = _Reader.ReadToEnd();
 
             CloseConnections();
+
+            GestionarArchivo(oDoc);
         }
 
         #endregion Events
 
         #region Methods
+
         /// <summary>
         /// Descargamos el documento .edi con el que vamos a operar
         /// </summary>
@@ -75,6 +90,12 @@ namespace FTP
         /// Close all connects
         /// </summary>
         private void CloseConnections() { _Reader.Close(); _Response.Close(); }
+
+        private void GestionarArchivo(string oDoc)
+        {
+
+        }
+
         #endregion Methods
     }
 }
