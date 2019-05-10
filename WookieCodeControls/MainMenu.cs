@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Net;
 
 namespace WookieCodeControls
 {
@@ -79,7 +80,10 @@ namespace WookieCodeControls
             {
                 MessageBox.Show("Estamos desarrollando esta opcion, prueba mas adelante ;)");
             }
-            
+            catch(WebException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         
     }

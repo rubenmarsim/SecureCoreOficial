@@ -108,6 +108,7 @@
             this.btnPull.TabIndex = 0;
             this.btnPull.Text = "PULL ";
             this.btnPull.UseVisualStyleBackColor = true;
+            this.btnPull.Click += new System.EventHandler(this.btnPull_Click);
             // 
             // frmFTP
             // 
