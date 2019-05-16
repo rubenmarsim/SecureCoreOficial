@@ -31,6 +31,7 @@ namespace FTP
         const string _cstrPassword = "12345aA";
         string _FileName = string.Empty;
         GestionDB.XWingsFactoryEntities db;
+        int _count = 0;
 
         #endregion Variables Globales
 
@@ -110,6 +111,12 @@ namespace FTP
                 string strDia = string.Empty;
                 string strMes = string.Empty;
                 string strAño = string.Empty;
+                List<string> lCant = new List<string>();
+                List<System.DateTime> lsisTimeDeliveryDate = new List<DateTime>();
+                List<string> lPlanets = new List<string>();
+                string strDiaDD = string.Empty;
+                string strMesDD = string.Empty;
+                string strAñoDD = string.Empty;
                 #endregion Variables
 
                 #region Get Info
@@ -128,30 +135,53 @@ namespace FTP
                         strB = Line.Substring(6, 1);
                         strCCC = Line.Substring(12, 3);
                     }
+                    if (Line.Contains("LIN|"))
+                    {
+                        lPlanets.Add(Line.Substring(11,4));
+                    }
+                    if (Line.Contains("QTYLIN|")&&Line.Substring(7,2).Equals("21"))
+                    {
+                        _count++;
+                        lCant.Add(Line.Substring(10, 2));
+                    }
+                    if (Line.Contains("DTMLIN|"))
+                    {
+                        strDia = Line.Substring(13, 2);
+                        strMes = Line.Substring(11, 2);
+                        strAño = Line.Substring(7, 4);
+                        lsisTimeDeliveryDate.Add(new DateTime(int.Parse(strAñoDD), int.Parse(strMesDD), int.Parse(strDiaDD)));
+                    }
                 }
                 strCodeOrder = strYYMMDD + strAA + strB + strCCC;
                 sisTimeOrder = new DateTime(int.Parse(strAño), int.Parse(strMes), int.Parse(strDia));
-                #endregion Get Info
 
-                #region Fill Classes
+                #endregion Get Info
+                
                 var inserOrders = new GestionDB.Orders
                 {
                     codeOrder = strCodeOrder,
                     dateOrder = sisTimeOrder,
                 };
 
-                var inserOrdersDetail = new GestionDB.OrdersDetail
-                {
-                    idPlanet = sIdPlanet,
-                    idReference = sIdReference,
-                };
-                #endregion Fill Classes
-
-                #region Insert to DB
                 db.Orders.Add(inserOrders);
-                //db.OrdersDetail.Add(inserOrdersDetail);
+
+                for (int i = 0; i < lCant.Count; i++)
+                {
+                    var inserOrdersDetail = new GestionDB.OrdersDetail
+                    {
+                        idOrder = db.Orders.Where(x => x.codeOrder.Equals(strCodeOrder)).Select(x => x.idOrder).First(),
+                        //idPlanet = db.p,
+                        idReference = sIdReference,
+                        Quantity = short.Parse(lCant[i]),
+                        DeliveryDate = lsisTimeDeliveryDate[i],
+                    };
+
+                    //db.OrdersDetail.Add(inserOrdersDetail);
+                }
+
                 db.SaveChanges();
-                #endregion Insert to DB
+                _count = 0;
+                MessageBox.Show("Datos actualizados en la DB.");
             }
             catch (DbUpdateException ex)
             {
