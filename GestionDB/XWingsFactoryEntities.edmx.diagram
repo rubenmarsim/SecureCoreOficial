@@ -44,6 +44,7 @@
         <AssociationConnector Association="XWingsFactoryModel.FK_References_ReferenceTypes" ManuallyRouted="false" />
         <AssociationConnector Association="XWingsFactoryModel.FK_Structure_References" ManuallyRouted="false" />
         <AssociationConnector Association="XWingsFactoryModel.FK_Structure_References1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="XWingsFactoryModel.Planets" Width="1.5" PointX="7.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

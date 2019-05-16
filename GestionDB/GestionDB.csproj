@@ -91,6 +91,9 @@
     <Compile Include="OrdersDetail.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Planets.cs">
+      <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Posts.cs">
       <DependentUpon>XWingsFactoryEntities.tt</DependentUpon>
     </Compile>

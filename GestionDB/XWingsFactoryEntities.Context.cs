@@ -47,5 +47,6 @@ namespace GestionDB
         public virtual DbSet<Stocks> Stocks { get; set; }
         public virtual DbSet<Structure> Structure { get; set; }
         public virtual DbSet<UserTypes> UserTypes { get; set; }
+        public virtual DbSet<Planets> Planets { get; set; }
     }
 }

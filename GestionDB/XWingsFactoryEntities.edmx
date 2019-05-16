@@ -122,6 +122,25 @@
           <Property Name="Quantity" Type="smallint" />
           <Property Name="DeliveryDate" Type="smalldatetime" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'XWingsFactory.dbo.Planets' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Planets">
+          <Key>
+            <PropertyRef Name="idPlanet" />
+          </Key>
+          <Property Name="idPlanet" Type="int" Nullable="false" />
+          <Property Name="CodePlanet" Type="nvarchar" MaxLength="4" />
+          <Property Name="DescPlanet" Type="nvarchar" MaxLength="50" />
+          <Property Name="idSector" Type="int" />
+          <Property Name="long" Type="nvarchar" MaxLength="12" />
+          <Property Name="lat" Type="nvarchar" MaxLength="12" />
+          <Property Name="parsecs" Type="nvarchar" MaxLength="12" />
+          <Property Name="idNatives" Type="int" />
+          <Property Name="idFiliation" Type="int" />
+          <Property Name="PlanetPicture" Type="nvarchar" MaxLength="200" />
+          <Property Name="IPPlanet" Type="nvarchar" MaxLength="15" />
+          <Property Name="PortPlanet" Type="nvarchar" MaxLength="4" />
+        </EntityType>
         <EntityType Name="Posts">
           <Key>
             <PropertyRef Name="PostId" />
@@ -136,7 +155,7 @@
             <PropertyRef Name="idReference" />
           </Key>
           <Property Name="idReference" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="codeReference" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="codeReference" Type="nvarchar" MaxLength="13" Nullable="false" />
           <Property Name="descReference" Type="nvarchar" MaxLength="200" />
           <Property Name="Photo" Type="nvarchar" MaxLength="200" />
           <Property Name="VideoExplode" Type="nvarchar" MaxLength="200" />
@@ -430,6 +449,22 @@
           <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Structure" EntityType="Self.Structure" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planets" EntityType="Self.Planets" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Planets].[idPlanet] AS [idPlanet], 
+    [Planets].[CodePlanet] AS [CodePlanet], 
+    [Planets].[DescPlanet] AS [DescPlanet], 
+    [Planets].[idSector] AS [idSector], 
+    [Planets].[long] AS [long], 
+    [Planets].[lat] AS [lat], 
+    [Planets].[parsecs] AS [parsecs], 
+    [Planets].[idNatives] AS [idNatives], 
+    [Planets].[idFiliation] AS [idFiliation], 
+    [Planets].[PlanetPicture] AS [PlanetPicture], 
+    [Planets].[IPPlanet] AS [IPPlanet], 
+    [Planets].[PortPlanet] AS [PortPlanet]
+    FROM [dbo].[Planets] AS [Planets]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_AssemblyInstructions_References" Association="Self.FK_AssemblyInstructions_References">
             <End Role="References" EntitySet="References" />
             <End Role="AssemblyInstructions" EntitySet="AssemblyInstructions" />
@@ -658,7 +693,7 @@
             <PropertyRef Name="idReference" />
           </Key>
           <Property Name="idReference" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codeReference" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codeReference" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="descReference" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="VideoExplode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -1030,7 +1065,25 @@
             <End Role="References" EntitySet="References" />
             <End Role="Structure" EntitySet="Structure" />
           </AssociationSet>
+          <EntitySet Name="Planets" EntityType="XWingsFactoryModel.Planets" />
         </EntityContainer>
+        <EntityType Name="Planets">
+          <Key>
+            <PropertyRef Name="idPlanet" />
+          </Key>
+          <Property Name="idPlanet" Type="Int32" Nullable="false" />
+          <Property Name="CodePlanet" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="DescPlanet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idSector" Type="Int32" />
+          <Property Name="long" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="parsecs" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="idNatives" Type="Int32" />
+          <Property Name="idFiliation" Type="Int32" />
+          <Property Name="PlanetPicture" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IPPlanet" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PortPlanet" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1252,6 +1305,24 @@
                 <ScalarProperty Name="idUserType" ColumnName="idUserType" />
                 <ScalarProperty Name="codeUserType" ColumnName="codeUserType" />
                 <ScalarProperty Name="descUserType" ColumnName="descUserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planets">
+            <EntityTypeMapping TypeName="XWingsFactoryModel.Planets">
+              <MappingFragment StoreEntitySet="Planets">
+                <ScalarProperty Name="PortPlanet" ColumnName="PortPlanet" />
+                <ScalarProperty Name="IPPlanet" ColumnName="IPPlanet" />
+                <ScalarProperty Name="PlanetPicture" ColumnName="PlanetPicture" />
+                <ScalarProperty Name="idFiliation" ColumnName="idFiliation" />
+                <ScalarProperty Name="idNatives" ColumnName="idNatives" />
+                <ScalarProperty Name="parsecs" ColumnName="parsecs" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="idSector" ColumnName="idSector" />
+                <ScalarProperty Name="DescPlanet" ColumnName="DescPlanet" />
+                <ScalarProperty Name="CodePlanet" ColumnName="CodePlanet" />
+                <ScalarProperty Name="idPlanet" ColumnName="idPlanet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
