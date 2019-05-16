@@ -31,7 +31,6 @@ namespace FTP
         const string _cstrPassword = "12345aA";
         string _FileName = string.Empty;
         GestionDB.XWingsFactoryEntities db;
-        int _count = 0;
 
         #endregion Variables Globales
 
@@ -114,6 +113,7 @@ namespace FTP
                 List<string> lCant = new List<string>();
                 List<System.DateTime> lsisTimeDeliveryDate = new List<DateTime>();
                 List<string> lPlanets = new List<string>();
+                List<string> lReferences = new List<string>();
                 string strDiaDD = string.Empty;
                 string strMesDD = string.Empty;
                 string strAñoDD = string.Empty;
@@ -135,28 +135,25 @@ namespace FTP
                         strB = Line.Substring(6, 1);
                         strCCC = Line.Substring(12, 3);
                     }
-                    if (Line.Contains("LIN|"))
+                    if (Line.Length>3 && Line.Substring(0,3).Equals("LIN"))
                     {
                         lPlanets.Add(Line.Substring(11,4));
+                        lReferences.Add(Line.Substring(16, 12));
                     }
                     if (Line.Contains("QTYLIN|")&&Line.Substring(7,2).Equals("21"))
-                    {
-                        _count++;
                         lCant.Add(Line.Substring(10, 2));
-                    }
                     if (Line.Contains("DTMLIN|"))
                     {
-                        strDia = Line.Substring(13, 2);
-                        strMes = Line.Substring(11, 2);
-                        strAño = Line.Substring(7, 4);
+                        strDiaDD = Line.Substring(13, 2);
+                        strMesDD = Line.Substring(11, 2);
+                        strAñoDD = Line.Substring(7, 4);
                         lsisTimeDeliveryDate.Add(new DateTime(int.Parse(strAñoDD), int.Parse(strMesDD), int.Parse(strDiaDD)));
                     }
                 }
                 strCodeOrder = strYYMMDD + strAA + strB + strCCC;
                 sisTimeOrder = new DateTime(int.Parse(strAño), int.Parse(strMes), int.Parse(strDia));
-
                 #endregion Get Info
-                
+
                 var inserOrders = new GestionDB.Orders
                 {
                     codeOrder = strCodeOrder,
@@ -170,24 +167,36 @@ namespace FTP
                     var inserOrdersDetail = new GestionDB.OrdersDetail
                     {
                         idOrder = db.Orders.Where(x => x.codeOrder.Equals(strCodeOrder)).Select(x => x.idOrder).First(),
-                        //idPlanet = db.p,
-                        idReference = sIdReference,
+                        idPlanet=1,
+                        idReference=2,
+                        //idPlanet = (short)db.Planets.Where(x=>x.CodePlanet.Equals(lPlanets[i])).Select(x=>x.idPlanet).First(),
+                        //idReference = (short)db.References.Where(x=>x.codeReference.Equals(lReferences[i])).Select(x=>x.idReference).First(),
                         Quantity = short.Parse(lCant[i]),
                         DeliveryDate = lsisTimeDeliveryDate[i],
                     };
 
-                    //db.OrdersDetail.Add(inserOrdersDetail);
+                    db.OrdersDetail.Add(inserOrdersDetail);
                 }
 
                 db.SaveChanges();
-                _count = 0;
                 MessageBox.Show("Datos actualizados en la DB.");
             }
             catch (DbUpdateException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+            catch (ArgumentOutOfRangeException ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+            catch(FormatException fe)
+            {
+                MessageBox.Show(fe.Message);
+            }
+            catch (NotSupportedException nse)
+            {
+                MessageBox.Show(nse.Message);
+            }
         }
 
         #endregion Methods
