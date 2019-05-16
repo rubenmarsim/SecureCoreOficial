@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net;
+using System.Data.Entity.Infrastructure;
 #endregion Usings
 
 namespace FTP
@@ -94,30 +95,69 @@ namespace FTP
 
         private void GestionarArchivo(string oDoc)
         {
-            var a = oDoc.ToArray();
-
-            System.DateTime sisTimeOrder = new DateTime();
-            string strCodeOrder = string.Empty;
-            short? sIdPlanet = 0;
-            short? sIdReference = 0;
-
-
-
-            var inserOrders = new GestionDB.Orders
+            try
             {
-                codeOrder = strCodeOrder,
-                dateOrder = sisTimeOrder,                
-            };
+                #region Variables
+                var DocSplit = oDoc.Split();
+                System.DateTime sisTimeOrder;
+                string strCodeOrder = string.Empty;
+                short? sIdPlanet = 0;
+                short? sIdReference = 0;
+                string strYYMMDD = string.Empty;
+                string strAA = string.Empty;
+                string strB = string.Empty;
+                string strCCC = string.Empty;
+                string strDia = string.Empty;
+                string strMes = string.Empty;
+                string strAño = string.Empty;
+                #endregion Variables
 
-            var inserOrdersDetail = new GestionDB.OrdersDetail
+                #region Get Info
+                foreach (var Line in DocSplit)
+                {
+                    if (Line.Contains("DTM|"))
+                    {
+                        strYYMMDD = Line.Substring(6, 6);
+                        strDia = Line.Substring(10,2);
+                        strMes = Line.Substring(8, 2);
+                        strAño = Line.Substring(4, 4);
+                    }
+                    if (Line.Contains("ORD|")) strAA = Line.Substring(18, 2);
+                    if (Line.Contains("NADMS|"))
+                    {
+                        strB = Line.Substring(6, 1);
+                        strCCC = Line.Substring(12, 3);
+                    }
+                }
+                strCodeOrder = strYYMMDD + strAA + strB + strCCC;
+                sisTimeOrder = new DateTime(int.Parse(strAño), int.Parse(strMes), int.Parse(strDia));
+                #endregion Get Info
+
+                #region Fill Classes
+                var inserOrders = new GestionDB.Orders
+                {
+                    codeOrder = strCodeOrder,
+                    dateOrder = sisTimeOrder,
+                };
+
+                var inserOrdersDetail = new GestionDB.OrdersDetail
+                {
+                    idPlanet = sIdPlanet,
+                    idReference = sIdReference,
+                };
+                #endregion Fill Classes
+
+                #region Insert to DB
+                db.Orders.Add(inserOrders);
+                //db.OrdersDetail.Add(inserOrdersDetail);
+                db.SaveChanges();
+                #endregion Insert to DB
+            }
+            catch (DbUpdateException ex)
             {
-                idPlanet = sIdPlanet,
-                idReference = sIdReference,
-            };
-
-            db.Orders.Add(inserOrders);
-            //db.OrdersDetail.Add(inserOrdersDetail);
-            db.SaveChanges();
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         #endregion Methods
