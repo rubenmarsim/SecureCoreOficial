@@ -29,6 +29,7 @@ namespace FTP
         const string _cstrUserName = "wookiecode";
         const string _cstrPassword = "12345aA";
         string _FileName = string.Empty;
+        GestionDB.XWingsFactoryEntities db;
 
         #endregion Variables Globales
 
@@ -48,7 +49,7 @@ namespace FTP
         /// <param name="e"></param>
         private void frmBajarFTP_Load(object sender, EventArgs e)
         {
-
+            db = new GestionDB.XWingsFactoryEntities();
         }
 
         /// <summary>
@@ -93,7 +94,30 @@ namespace FTP
 
         private void GestionarArchivo(string oDoc)
         {
+            var a = oDoc.ToArray();
 
+            System.DateTime sisTimeOrder = new DateTime();
+            string strCodeOrder = string.Empty;
+            short? sIdPlanet = 0;
+            short? sIdReference = 0;
+
+
+
+            var inserOrders = new GestionDB.Orders
+            {
+                codeOrder = strCodeOrder,
+                dateOrder = sisTimeOrder,                
+            };
+
+            var inserOrdersDetail = new GestionDB.OrdersDetail
+            {
+                idPlanet = sIdPlanet,
+                idReference = sIdReference,
+            };
+
+            db.Orders.Add(inserOrders);
+            //db.OrdersDetail.Add(inserOrdersDetail);
+            db.SaveChanges();
         }
 
         #endregion Methods

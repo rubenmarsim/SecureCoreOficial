@@ -13,7 +13,7 @@ namespace MantenimientosXWings.Tablas
     public partial class References : Form
     {
         #region Variables Globales
-        GestionDB.XWingsFactoryEntities db;      
+        GestionDB.XWingsFactoryEntities db;
         List<GestionDB.References> _TableReferences;
         List<GestionDB.ReferenceTypes> _TableReferencesTypes;
         public bool _bEsNou = false;
