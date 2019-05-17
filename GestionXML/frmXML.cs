@@ -44,6 +44,7 @@ namespace GestionXML
         #region Methods
         private void GetTablas()
         {
+            var a = db;
             lTables = new List<object>();
             lTables.Add(db.Routes.ToList());
             lTables.Add(db.DefinedRoutes.ToList());
