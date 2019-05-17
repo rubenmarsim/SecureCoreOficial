@@ -78,14 +78,22 @@ namespace FTP
         /// </summary>
         private void DownloadDoc()
         {
-            _Request = (FtpWebRequest)WebRequest.Create(_cstrDomain + "/comandes.edi");
-            _Request.Credentials = new NetworkCredential(_cstrUserName, _cstrPassword);
-            _Request.Method = WebRequestMethods.Ftp.DownloadFile;
+            try
+            {
+                _Request = (FtpWebRequest)WebRequest.Create(_cstrDomain + "/comandes.edi");
+                _Request.Credentials = new NetworkCredential(_cstrUserName, _cstrPassword);
+                _Request.Method = WebRequestMethods.Ftp.DownloadFile;
 
-            _Response = (FtpWebResponse)_Request.GetResponse();
+                _Response = (FtpWebResponse)_Request.GetResponse();
 
-            _ResponseStream = _Response.GetResponseStream();
-            _Reader = new StreamReader(_ResponseStream);
+                _ResponseStream = _Response.GetResponseStream();
+                _Reader = new StreamReader(_ResponseStream);
+            }
+            catch(WebException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
         }
 
         /// <summary>
@@ -101,8 +109,6 @@ namespace FTP
                 var DocSplit = oDoc.Split();
                 System.DateTime sisTimeOrder;
                 string strCodeOrder = string.Empty;
-                short? sIdPlanet = 0;
-                short? sIdReference = 0;
                 string strYYMMDD = string.Empty;
                 string strAA = string.Empty;
                 string strB = string.Empty;
@@ -138,7 +144,7 @@ namespace FTP
                     if (Line.Length>3 && Line.Substring(0,3).Equals("LIN"))
                     {
                         lPlanets.Add(Line.Substring(11,4));
-                        lReferences.Add(Line.Substring(16, 12));
+                        lReferences.Add(Line.Substring(16, 13));
                     }
                     if (Line.Contains("QTYLIN|")&&Line.Substring(7,2).Equals("21"))
                         lCant.Add(Line.Substring(10, 2));
@@ -164,13 +170,16 @@ namespace FTP
 
                 for (int i = 0; i < lCant.Count; i++)
                 {
+                    var lTablePlanets = db.Planets.ToList();
+                    var iIdPlanet = lTablePlanets.Where(x => x.CodePlanet.Equals(lPlanets[i])).Select(x => x.idPlanet).First();
+                    var sIdPlanet = (short)iIdPlanet;
+                    var lTableReferences = db.References.ToList();
+                    var sIdReference = lTableReferences.Where(x => x.codeReference.Equals(lReferences[i])).Select(x => x.idReference).First();
                     var inserOrdersDetail = new GestionDB.OrdersDetail
                     {
                         idOrder = db.Orders.Where(x => x.codeOrder.Equals(strCodeOrder)).Select(x => x.idOrder).First(),
-                        idPlanet=1,
-                        idReference=2,
-                        //idPlanet = (short)db.Planets.Where(x=>x.CodePlanet.Equals(lPlanets[i])).Select(x=>x.idPlanet).First(),
-                        //idReference = (short)db.References.Where(x=>x.codeReference.Equals(lReferences[i])).Select(x=>x.idReference).First(),
+                        idPlanet = sIdPlanet,
+                        idReference = sIdReference,
                         Quantity = short.Parse(lCant[i]),
                         DeliveryDate = lsisTimeDeliveryDate[i],
                     };
@@ -181,21 +190,25 @@ namespace FTP
                 db.SaveChanges();
                 MessageBox.Show("Datos actualizados en la DB.");
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException DBUe)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(DBUe.Message);
             }
-            catch (ArgumentOutOfRangeException ee)
+            catch (ArgumentOutOfRangeException AOoRe)
             {
-                MessageBox.Show(ee.Message);
+                MessageBox.Show(AOoRe.Message);
             }
-            catch(FormatException fe)
+            catch(FormatException Fe)
             {
-                MessageBox.Show(fe.Message);
+                MessageBox.Show(Fe.Message);
             }
-            catch (NotSupportedException nse)
+            catch (NotSupportedException NSe)
             {
-                MessageBox.Show(nse.Message);
+                MessageBox.Show(NSe.Message);
+            }
+            catch (InvalidOperationException IOe)
+            {
+                MessageBox.Show(IOe.Message);
             }
         }
 
