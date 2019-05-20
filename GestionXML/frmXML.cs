@@ -61,8 +61,7 @@ namespace GestionXML
             adapter.TableMappings.Add("Regions", "Region");
             adapter.TableMappings.Add("Planets", "Planet");
             adapter.Fill(dts);
-            dts.DataSetName = "hyperSpacedata";
-            
+            dts.DataSetName = "hyperSpacedata";            
         }
 
         private void WriteXML()
