@@ -64,7 +64,7 @@ namespace GestionXML
 
             dts.DataSetName = "hyperSpacedata";
             for(int i=0;i<=4;i++)
-                dts.Tables[i].TableName = adapter.TableMappings[i].SourceTable;
+                dts.Tables[i].TableName = adapter.TableMappings[i].DataSetTable;
         }
 
         private void WriteXML()
