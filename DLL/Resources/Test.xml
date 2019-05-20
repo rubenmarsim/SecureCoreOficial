@@ -1,129 +1,129 @@
 <?xml version="1.0" standalone="yes"?>
-<NewDataSet>
-  <Route>
+<hyperSpacedata xmlns="hyperspaceRoutes">
+  <Table>
     <idRoute>1</idRoute>
     <CodeRoute>CORU</CodeRoute>
     <DescRoute>Corellian Run</DescRoute>
     <idPlanetOr>1</idPlanetOr>
     <idPlanetDest>2</idPlanetDest>
     <idRouteType>1</idRouteType>
-  </Route>
-  <Route>
+  </Table>
+  <Table>
     <idRoute>4</idRoute>
     <CodeRoute>hola</CodeRoute>
     <DescRoute>hola</DescRoute>
     <idPlanetOr>2</idPlanetOr>
     <idPlanetDest>3</idPlanetDest>
     <idRouteType>9</idRouteType>
-  </Route>
-  <Route>
+  </Table>
+  <Table>
     <idRoute>5</idRoute>
     <CodeRoute>aaa</CodeRoute>
     <DescRoute>aaa</DescRoute>
     <idPlanetDest>1</idPlanetDest>
     <idRouteType>9</idRouteType>
-  </Route>
-  <DefinedRoute>
+  </Table>
+  <Table1>
     <idDefinedRoute>1</idDefinedRoute>
     <idPlanetOri>1</idPlanetOri>
     <idPlanetDest>1</idPlanetDest>
     <idRoute>1</idRoute>
     <RouteMap>1</RouteMap>
-  </DefinedRoute>
-  <DefinedRoute>
+  </Table1>
+  <Table1>
     <idDefinedRoute>2</idDefinedRoute>
     <idPlanetOri>2</idPlanetOri>
     <idPlanetDest>2</idPlanetDest>
     <idRoute>1</idRoute>
     <RouteMap>2</RouteMap>
-  </DefinedRoute>
-  <DefinedRoute>
+  </Table1>
+  <Table1>
     <idDefinedRoute>3</idDefinedRoute>
     <idPlanetOri>3</idPlanetOri>
     <idPlanetDest>3</idPlanetDest>
     <idRoute>1</idRoute>
     <RouteMap>3</RouteMap>
-  </DefinedRoute>
-  <Filiation>
+  </Table1>
+  <Table2>
     <idFiliation>1</idFiliation>
     <CodeFiliation>REPU</CodeFiliation>
     <DescFiliations>Republican</DescFiliations>
-  </Filiation>
-  <Filiation>
+  </Table2>
+  <Table2>
     <idFiliation>2</idFiliation>
     <CodeFiliation>FIOR</CodeFiliation>
     <DescFiliations>First Order</DescFiliations>
-  </Filiation>
-  <Filiation>
+  </Table2>
+  <Table2>
     <idFiliation>3</idFiliation>
     <CodeFiliation>NEUT</CodeFiliation>
     <DescFiliations>Neutral</DescFiliations>
-  </Filiation>
-  <Filiation>
+  </Table2>
+  <Table2>
     <idFiliation>4</idFiliation>
     <CodeFiliation>UNKN</CodeFiliation>
     <DescFiliations>Unknown</DescFiliations>
-  </Filiation>
-  <Region>
+  </Table2>
+  <Table3>
     <idRegion>1</idRegion>
     <CodeRegion>DECO</CodeRegion>
     <DescRegion>Deep Core</DescRegion>
     <Remarks>At the very heart of the galaxy, the Deep Core was a region that spanned seven thousand light years, and contained roughly 30 billion stars. Due to the gravitational pull of the vast number of stars, as well as a massive black hole at the center, local space-time was severely warped, making hyperspace travel difficult at best.It's dangerous to navigate, and few travellers venture this far coreward</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>2</idRegion>
     <CodeRegion>COWO</CodeRegion>
     <DescRegion>Core Worlds</DescRegion>
     <Remarks>The Core Worlds was an ancient region bordering the outlying areas of the Deep Core, and included some of the most prestigious, well-developed, well-known, and heavily populated planets in the galaxy. The Galactic Republic and subsequently all galaxywide governments were born in the Core Worlds and spread out over the galaxy. During both the time of the Republic and Empire, Coruscant, a major core world, was the Galactic Capital. The region of the Core Worlds known as the Tetrahedron became the cradle of the early Republic, and simultaneously scouts discovered the Perlemian Trade Route and the Corellian Run emanating from Coruscant, creating a region known as the Arrowhead containing the ancient worlds of Alsakan, Anaxes, Basilisk and Ixtlar</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>3</idRegion>
     <CodeRegion>COLO</CodeRegion>
     <DescRegion>Colonies</DescRegion>
     <Remarks>The Colonies, so named because it was among the first areas outside the Core to be colonized, contained many of the galaxy's wealthiest worlds and prided itself on being the galaxy's economic engine. Worlds here were typically heavily populated, industrialized, and cultured, and the region was considered the meeting point of Core wealth and Rim raw materials. The Colonies, forming the tip of the Slice, came to include many of the galaxy's oldest manufacturing worlds, including Balmorra, Commenor and Neimoidia</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>4</idRegion>
     <CodeRegion>INRI</CodeRegion>
     <DescRegion>Inner Rim</DescRegion>
     <Remarks>The Inner Rim was a region of the galaxy between the Colonies and the Expansion Region. It was originally just called "The Rim", as it was expected to be the farthest extent of the known galaxy for centuries.The region had minimal cultural influence and had few truly notable planets beyond the ecumenopolis of Denon and the medical worlds of Manaan and Thyferra. As the bridge between the Core and the Rim, the Inner Rim held great strategic value, and during both the Clone Wars and the Galactic Civil War, brutal battles were fought over the region</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>5</idRegion>
     <CodeRegion>EXRE</CodeRegion>
     <DescRegion>Expansion Region</DescRegion>
     <Remarks>The Expansion Region began as an experiment in corporate-controlled worlds, known as the Exploitation Region, with powerful corporations exploiting and profiting heavily from the planets for their raw materials, metals and ores. Inhabitants were oppressed while the corporations stripped entire stellar systems along the Corellian Run of all their resources. Expansion Region worlds continued to be producers of raw materials and ores. However, most natural resources were exhausted by the Imperial Period, with Gyndine, Bacrana and Cyrillia being among the few remaining viable ports</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>6</idRegion>
     <CodeRegion>MIRI</CodeRegion>
     <DescRegion>Mid-Rim</DescRegion>
     <Remarks>With fewer natural resources (and therefore a smaller population) than many neighboring regions, the Mid Rim was a territory where residents worked hard for everything they had.  Consequently, the Mid Rim built up a successful economy based on low-cost manufacturing and agriculture</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>7</idRegion>
     <CodeRegion>OURI</CodeRegion>
     <DescRegion>Outer Rim</DescRegion>
     <Remarks>The Outer Rim Territories was the largest region of the galaxy, and the last widely settled expanse before Wild Space and the Unknown Regions. It was strewn with obscure worlds, and rugged, primitive frontier planets. Due to its distance from the Core, government control was historically the weakest in the Outer Rim Territories, and it was the traditional refuge for dissidents, pilgrims and freedom-seekers, but it was also beset by lawlessness, oppression and violence.  Worlds closest to the major super-hyperroutes tended to be the most civilized, but far from these trade links, they tended to be dominated by the Hutts. Mass settlement of large portions of the Outer Rim did not begin until after 5500 BBY, when colonists took advantage of the new trade routes of the Hydian, the Rimma, and the Corellian Trade Spine. Settlement in the southern quadrant was rapid, but expansion in the northern quadrant was hampered by the Great Galactic War. In 124 BBY, the Senate declared the whole region a Free Trade Zone in an effort to jump-start economic development, but this was exploited by the Trade Federation, and the Senate re-imposing taxation in 33 BBY was the trigger for the Invasion of Naboo and the Separatist Crisis. The Galactic Empire oppressed much of the Outer Rim, leading to greater sympathy for the Alliance to Restore the Republic in the region, but the New Republic and the Galactic Alliance both failed to impose central control in the area, leaving the Outer Rim much as it had been for centuries</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>8</idRegion>
     <CodeRegion>WISP</CodeRegion>
     <DescRegion>Wild Space</DescRegion>
     <Remarks>Wild Space was the frontier of galactic society, separating the known parts of the galaxy from the Unknown Regions. It was not a formal label, but was applied to the unsettled galactic fringe and other parts of the galaxy with negligible colonization or development.  Wild Space differed from the Unknown Regions in that some of Wild Space had been explored, though not extensively, and the findings recorded in official logs. The worlds of Wild Space largely ignored the central government, and were generally peaceful, but many acted as criminal hideaways</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>9</idRegion>
     <CodeRegion>UNRE</CodeRegion>
     <DescRegion>Unknown Regions</DescRegion>
     <Remarks>The term "Unknown Regions" referred to those areas that had not been directly surveyed by Republic or Imperial scouts. It was most commonly applied to the less-known parts of the galaxy's western disk, a quadrant stretching roughly between Bakura and the Imperial Remnant</Remarks>
-  </Region>
-  <Region>
+  </Table3>
+  <Table3>
     <idRegion>10</idRegion>
     <CodeRegion>hola</CodeRegion>
     <DescRegion>holas</DescRegion>
-  </Region>
-  <Planet>
+  </Table3>
+  <Table4>
     <idPlanet>1</idPlanet>
     <CodePlanet>TAKO</CodePlanet>
     <DescPlanet>Takodana</DescPlanet>
@@ -133,8 +133,8 @@
     <parsecs>123212</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>2</idPlanet>
     <CodePlanet>NABO</CodePlanet>
     <DescPlanet>Naboo</DescPlanet>
@@ -144,8 +144,8 @@
     <parsecs>78654</parsecs>
     <idNatives>4</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>3</idPlanet>
     <CodePlanet>DATH</CodePlanet>
     <DescPlanet>Dathomir</DescPlanet>
@@ -155,8 +155,8 @@
     <parsecs>67546</parsecs>
     <idNatives>5</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>4</idPlanet>
     <CodePlanet>KASH</CodePlanet>
     <DescPlanet>Kashyyyk</DescPlanet>
@@ -166,8 +166,8 @@
     <parsecs>98634</parsecs>
     <idNatives>2</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>5</idPlanet>
     <CodePlanet>MANA</CodePlanet>
     <DescPlanet>Manaan</DescPlanet>
@@ -177,8 +177,8 @@
     <parsecs>62865</parsecs>
     <idNatives>6</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>6</idPlanet>
     <CodePlanet>DANT</CodePlanet>
     <DescPlanet>Dantooine</DescPlanet>
@@ -188,8 +188,8 @@
     <parsecs>75432</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>7</idPlanet>
     <CodePlanet>TATO</CodePlanet>
     <DescPlanet>Tatooine</DescPlanet>
@@ -199,8 +199,8 @@
     <parsecs>15634</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>8</idPlanet>
     <CodePlanet>MUST</CodePlanet>
     <DescPlanet>Mustafar</DescPlanet>
@@ -210,8 +210,8 @@
     <parsecs>97643</parsecs>
     <idNatives>7</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>9</idPlanet>
     <CodePlanet>ENDO</CodePlanet>
     <DescPlanet>Endor</DescPlanet>
@@ -221,8 +221,8 @@
     <parsecs>89473</parsecs>
     <idNatives>8</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>10</idPlanet>
     <CodePlanet>CORU</CodePlanet>
     <DescPlanet>Coruscant</DescPlanet>
@@ -232,8 +232,8 @@
     <parsecs>87432</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>11</idPlanet>
     <CodePlanet>DAGO</CodePlanet>
     <DescPlanet>Dagobah</DescPlanet>
@@ -243,8 +243,8 @@
     <parsecs>75364</parsecs>
     <idNatives>9</idNatives>
     <idFiliation>4</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>12</idPlanet>
     <CodePlanet>JAKK</CodePlanet>
     <DescPlanet>Jakku</DescPlanet>
@@ -254,8 +254,8 @@
     <parsecs>43256</parsecs>
     <idNatives>10</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>13</idPlanet>
     <CodePlanet>MAND</CodePlanet>
     <DescPlanet>Mandalore</DescPlanet>
@@ -265,8 +265,8 @@
     <parsecs>63425</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>14</idPlanet>
     <CodePlanet>KUAT</CodePlanet>
     <DescPlanet>Kuat</DescPlanet>
@@ -276,8 +276,8 @@
     <parsecs>34517</parsecs>
     <idNatives>11</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>15</idPlanet>
     <CodePlanet>CORE</CodePlanet>
     <DescPlanet>Corellia</DescPlanet>
@@ -287,8 +287,8 @@
     <parsecs>73541</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>16</idPlanet>
     <CodePlanet>HOTH</CodePlanet>
     <DescPlanet>Hoth</DescPlanet>
@@ -298,8 +298,8 @@
     <parsecs>34519</parsecs>
     <idNatives>9</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>17</idPlanet>
     <CodePlanet>TETH</CodePlanet>
     <DescPlanet>Teth</DescPlanet>
@@ -309,8 +309,8 @@
     <parsecs>42581</parsecs>
     <idNatives>12</idNatives>
     <idFiliation>3</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>18</idPlanet>
     <CodePlanet>DQAR</CodePlanet>
     <DescPlanet>D'Qar</DescPlanet>
@@ -320,8 +320,8 @@
     <parsecs>72892</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>19</idPlanet>
     <CodePlanet>DEVA</CodePlanet>
     <DescPlanet>Devaron</DescPlanet>
@@ -331,8 +331,8 @@
     <parsecs>63428</parsecs>
     <idNatives>13</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>20</idPlanet>
     <CodePlanet>KESS</CodePlanet>
     <DescPlanet>Kessel</DescPlanet>
@@ -342,8 +342,8 @@
     <parsecs>64738</parsecs>
     <idNatives>14</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>21</idPlanet>
     <CodePlanet>SHIL</CodePlanet>
     <DescPlanet>Shili</DescPlanet>
@@ -353,8 +353,8 @@
     <parsecs>23761</parsecs>
     <idNatives>15</idNatives>
     <idFiliation>1</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>22</idPlanet>
     <CodePlanet>JELU</CodePlanet>
     <DescPlanet>Jelucan</DescPlanet>
@@ -364,8 +364,8 @@
     <parsecs>34651</parsecs>
     <idNatives>16</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>23</idPlanet>
     <CodePlanet>BYSS</CodePlanet>
     <DescPlanet>Byss</DescPlanet>
@@ -375,8 +375,8 @@
     <parsecs>76534</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>2</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>24</idPlanet>
     <CodePlanet>GYND</CodePlanet>
     <DescPlanet>Gyndine</DescPlanet>
@@ -386,8 +386,8 @@
     <parsecs>51723</parsecs>
     <idNatives>1</idNatives>
     <idFiliation>3</idFiliation>
-  </Planet>
-  <Planet>
+  </Table4>
+  <Table4>
     <idPlanet>25</idPlanet>
     <CodePlanet>RAKA</CodePlanet>
     <DescPlanet>Rakata Prime</DescPlanet>
@@ -397,5 +397,5 @@
     <parsecs>43524</parsecs>
     <idNatives>17</idNatives>
     <idFiliation>4</idFiliation>
-  </Planet>
-</NewDataSet>
+  </Table4>
+</hyperSpacedata>
