@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace GestionXML
 {
@@ -45,6 +46,8 @@ namespace GestionXML
         {
             GetTablas();
             WriteXML();
+
+            MessageBox.Show("XML generat correctament.");
         }
         #endregion Events
 
@@ -71,13 +74,17 @@ namespace GestionXML
         {
             try
             {
-                dts.WriteXml(_sResourcesPath + "Test.xml");
-                MessageBox.Show("XML generat correctament.");
+                dts.WriteXml(_sResourcesPath + "DBTables.xml");
             }
             catch (Exception Ge)
             {
                 MessageBox.Show(Ge.Message);
             }            
+        }
+
+        private void FormatXML()
+        {
+            
         }
         #endregion Methods
     }
