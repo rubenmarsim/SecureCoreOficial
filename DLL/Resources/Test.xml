@@ -1,50 +1,50 @@
 <?xml version="1.0" standalone="yes"?>
-<NewDataSet>
-  <Table>
+<hyperSpacedata>
+  <Routes>
     <idRoute>1</idRoute>
     <CodeRoute>CORU</CodeRoute>
     <DescRoute>Corellian Run</DescRoute>
     <idPlanetOr>1</idPlanetOr>
     <idPlanetDest>2</idPlanetDest>
     <idRouteType>1</idRouteType>
-  </Table>
-  <Table>
+  </Routes>
+  <Routes>
     <idRoute>4</idRoute>
     <CodeRoute>hola</CodeRoute>
     <DescRoute>hola</DescRoute>
     <idPlanetOr>2</idPlanetOr>
     <idPlanetDest>3</idPlanetDest>
     <idRouteType>9</idRouteType>
-  </Table>
-  <Table>
+  </Routes>
+  <Routes>
     <idRoute>5</idRoute>
     <CodeRoute>aaa</CodeRoute>
     <DescRoute>aaa</DescRoute>
     <idPlanetDest>1</idPlanetDest>
     <idRouteType>9</idRouteType>
-  </Table>
-  <Table1>
+  </Routes>
+  <DefinedRoutes>
     <idDefinedRoute>1</idDefinedRoute>
     <idPlanetOri>1</idPlanetOri>
     <idPlanetDest>1</idPlanetDest>
     <idRoute>1</idRoute>
     <RouteMap>1</RouteMap>
-  </Table1>
-  <Table1>
+  </DefinedRoutes>
+  <DefinedRoutes>
     <idDefinedRoute>2</idDefinedRoute>
     <idPlanetOri>2</idPlanetOri>
     <idPlanetDest>2</idPlanetDest>
     <idRoute>1</idRoute>
     <RouteMap>2</RouteMap>
-  </Table1>
-  <Table1>
+  </DefinedRoutes>
+  <DefinedRoutes>
     <idDefinedRoute>3</idDefinedRoute>
     <idPlanetOri>3</idPlanetOri>
     <idPlanetDest>3</idPlanetDest>
     <idRoute>1</idRoute>
     <RouteMap>3</RouteMap>
-  </Table1>
-  <Table2>
+  </DefinedRoutes>
+  <Filiations>
     <idFiliation>1</idFiliation>
     <CodeFiliation>REPU</CodeFiliation>
     <DescFiliations>Republican</DescFiliations>
@@ -397,5 +397,5 @@
     <parsecs>43524</parsecs>
     <idNatives>17</idNatives>
     <idFiliation>4</idFiliation>
-  </Table4>
-</NewDataSet>
+  </Planets>
+</hyperSpacedata>
