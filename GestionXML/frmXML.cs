@@ -57,16 +57,16 @@ namespace GestionXML
             SqlDataAdapter adapter = new SqlDataAdapter("select * from Routes; select * from DefinedRoutes; select * from Filiations; select * from Regions; select * from Planets", con);
             adapter.TableMappings.Add("Table", "Route");
             adapter.TableMappings.Add("Table1", "DefinedRoute");
-            adapter.TableMappings.Add("Table2", "Filiations");
-            adapter.TableMappings.Add("Table3", "Regions");
-            adapter.TableMappings.Add("Table4", "Planets");
+            adapter.TableMappings.Add("Table2", "Filiation");
+            adapter.TableMappings.Add("Table3", "Region");
+            adapter.TableMappings.Add("Table4", "Planet");
             adapter.Fill(dts);
         }
 
         private void WriteXML()
         {
             try
-            {                
+            {
                 dts.WriteXml(_sResourcesPath + "Test.xml");
                 MessageBox.Show("XML generat correctament.");
             }
