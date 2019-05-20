@@ -55,11 +55,11 @@ namespace GestionXML
             dts = new DataSet();
 
             SqlDataAdapter adapter = new SqlDataAdapter("select * from Routes; select * from DefinedRoutes; select * from Filiations; select * from Regions; select * from Planets", con);
-            adapter.TableMappings.Add("Table", "Route");
-            adapter.TableMappings.Add("Table1", "DefinedRoute");
-            adapter.TableMappings.Add("Table2", "Filiations");
-            adapter.TableMappings.Add("Table3", "Regions");
-            adapter.TableMappings.Add("Table4", "Planets");
+            adapter.TableMappings.Add("Routes", "Route");
+            adapter.TableMappings.Add("DefinedRoutes", "DefinedRoute");
+            adapter.TableMappings.Add("Filiations", "Filiation");
+            adapter.TableMappings.Add("Regions", "Region");
+            adapter.TableMappings.Add("Planets", "Planet");
             adapter.Fill(dts);
         }
 
