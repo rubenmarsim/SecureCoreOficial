@@ -66,5 +66,11 @@
       <DependentUpon>frmXML.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectionClass\ConnectionClass.csproj">
+      <Project>{bbbee6f8-abb3-428e-9b39-574546f407b0}</Project>
+      <Name>ConnectionClass</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
