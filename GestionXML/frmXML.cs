@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace GestionXML
 {
@@ -19,10 +20,29 @@ namespace GestionXML
     public partial class frmXML : Form
     {
         #region Variables Globales        
-        GestionDB.SecureCoreDataSet db;
-        ConnectionClass.ClassBDD BDD;
+        ConnectionClass.ClassBDD db;
         DataSet dts;
         string _sResourcesPath;
+        enum eTablas
+        {
+            Routes,
+            DefinedRoutes,
+            Filiations,
+            Regions,
+            Planets
+        }
+        const string _cHyperSpaceData = "hyperSpacedata";
+        const string _cHyperSpaceRoutes = "hyperspaceRoutes";
+        const string _cTableNameRoute = "Route";
+        const string _cTableNameDefinedRoute = "DefinedRoute";
+        const string _cTableNameFiliation = "Filiation";
+        const string _cTableNameRegion = "Region";
+        const string _cTableNamePlanet = "Planet";
+        const string _cTableNameRoutes = "Routes";
+        const string _cTableNameDefinedRoutes = "DefinedRoutes";
+        const string _cTableNameFiliations = "Filiations";
+        const string _cTableNameRegions = "Regions";
+        const string _cTableNamePlanets = "Planets";
         #endregion Variables Globales
 
         #region Constructores
@@ -36,41 +56,63 @@ namespace GestionXML
         #endregion Constructores
 
         #region Events
+        /// <summary>
+        /// Se ejecuta cuando carga el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmXML_Load(object sender, EventArgs e)
         {
-            BDD = new ConnectionClass.ClassBDD();
-            db = new GestionDB.SecureCoreDataSet();
+            db = new ConnectionClass.ClassBDD();
             _sResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
         }
+        /// <summary>
+        /// Se ejecuta cuando pulsamos el boton de crear el XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreateXML_Click(object sender, EventArgs e)
         {
-            GetTablas();
-            WriteXML();
+            try
+            {
+                GetTablas();
+                GetInfo();
+                WriteXML();
 
-            MessageBox.Show("XML generat correctament.");
+                MessageBox.Show("XML generat correctament.");
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         #endregion Events
 
         #region Methods
+        /// <summary>
+        /// Cogemos todas las tablas necesarias de la DB
+        /// </summary>
         private void GetTablas()
         {
-            SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA"); //"GestionDB.Properties.Settings.SecureCoreConnectionString"
+            SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
             dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Routes; select * from DefinedRoutes; select * from Filiations; select * from Regions; select * from Planets", con);
-            adapter.TableMappings.Add("Routes", "Route");
-            adapter.TableMappings.Add("DefinedRoutes", "DefinedRoute");
-            adapter.TableMappings.Add("Filiations", "Filiation");
-            adapter.TableMappings.Add("Regions", "Region");
-            adapter.TableMappings.Add("Planets", "Planet");
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from "+_cTableNameRoutes+ "; select * from " + _cTableNameDefinedRoutes + "; select * from " + _cTableNameFiliations + "; select * from " + _cTableNameRegions + "; select * from " + _cTableNamePlanets, con);
+            adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
+            adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
+            adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
+            adapter.TableMappings.Add(_cTableNameRegions, _cTableNameRegion);
+            adapter.TableMappings.Add(_cTableNamePlanets, _cTableNamePlanet);
             adapter.Fill(dts);
 
-            dts.DataSetName = "hyperSpacedata";
-            for(int i=0;i<=4;i++)
+            dts.DataSetName = _cHyperSpaceData;
+            for(int i = 0; i <= 4; i++)
                 dts.Tables[i].TableName = adapter.TableMappings[i].DataSetTable;
         }
-
-        private void WriteXML()
+        /// <summary>
+        /// Metodo antiguo usado para escribir el dataset a pelo en el XML
+        /// </summary>
+        private void WriteXML_OLD()
         {
             try
             {
@@ -81,10 +123,28 @@ namespace GestionXML
                 MessageBox.Show(Ge.Message);
             }            
         }
-
-        private void FormatXML()
+        /// <summary>
+        /// Hace los joins y demas para recoger toda la info como queremos
+        /// </summary>
+        private void GetInfo()
         {
-            
+
+        }
+        /// <summary>
+        /// Escribe el XML estructurado y formateado
+        /// </summary>
+        private void WriteXML()
+        {
+            XElement xmlTree = new XElement(dts.DataSetName, 
+                                    new XElement(_cHyperSpaceRoutes, dts.Tables[0].AsEnumerable().Select(t=>
+                                        new XElement(_cTableNameRoute,
+                                            new XElement(dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName]),
+                                            new XElement(dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])                        
+                                        )
+                                    ))
+                                );
+
+            xmlTree.Save(_sResourcesPath + "Test.xml");
         }
         #endregion Methods
     }
