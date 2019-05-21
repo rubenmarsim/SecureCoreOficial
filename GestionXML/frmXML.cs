@@ -33,7 +33,7 @@ namespace GestionXML
             Regions,
             Planets
         }
-        object oRoutes;
+        object _oRoutes;
         #region Constantes        
         const string _cHyperSpaceData = "hyperSpacedata";
         const string _cHyperSpaceRoutes = "hyperspaceRoutes";
@@ -143,7 +143,9 @@ namespace GestionXML
         /// </summary>
         private void GetInfo()
         {
+            _oRoutes = new object();
 
+            //_oRoutes = 
         }
         /// <summary>
         /// Escribe el XML estructurado y formateado
