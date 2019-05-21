@@ -31,18 +31,24 @@ namespace GestionXML
             Regions,
             Planets
         }
+        #region Constantes        
         const string _cHyperSpaceData = "hyperSpacedata";
         const string _cHyperSpaceRoutes = "hyperspaceRoutes";
+        #region Singulares
         const string _cTableNameRoute = "Route";
         const string _cTableNameDefinedRoute = "DefinedRoute";
         const string _cTableNameFiliation = "Filiation";
         const string _cTableNameRegion = "Region";
         const string _cTableNamePlanet = "Planet";
+        #endregion Singulares
+        #region Plurales
         const string _cTableNameRoutes = "Routes";
         const string _cTableNameDefinedRoutes = "DefinedRoutes";
         const string _cTableNameFiliations = "Filiations";
         const string _cTableNameRegions = "Regions";
         const string _cTableNamePlanets = "Planets";
+        #endregion Plurales
+        #endregion Constantes
         #endregion Variables Globales
 
         #region Constructores
