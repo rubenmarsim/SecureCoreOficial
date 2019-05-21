@@ -27,16 +27,21 @@ namespace GestionXML
         {
             Routes,
             DefinedRoutes,
+            PlanetRoutes,
+            RouteTypes,
             Filiations,
             Regions,
             Planets
         }
+        object oRoutes;
         #region Constantes        
         const string _cHyperSpaceData = "hyperSpacedata";
         const string _cHyperSpaceRoutes = "hyperspaceRoutes";
         #region Singulares
         const string _cTableNameRoute = "Route";
         const string _cTableNameDefinedRoute = "DefinedRoute";
+        const string _cTableNamePlanetRoutes = "PlanetRoutes";
+        const string _cTableNameRouteTypes = "RouteTypes";
         const string _cTableNameFiliation = "Filiation";
         const string _cTableNameRegion = "Region";
         const string _cTableNamePlanet = "Planet";
@@ -44,6 +49,8 @@ namespace GestionXML
         #region Plurales
         const string _cTableNameRoutes = "Routes";
         const string _cTableNameDefinedRoutes = "DefinedRoutes";
+        const string _cTableNamePlanetRoute = "PlanetRoute";
+        const string _cTableNameRouteType = "RouteType";
         const string _cTableNameFiliations = "Filiations";
         const string _cTableNameRegions = "Regions";
         const string _cTableNamePlanets = "Planets";
@@ -103,9 +110,11 @@ namespace GestionXML
             SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
             dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from "+_cTableNameRoutes+ "; select * from " + _cTableNameDefinedRoutes + "; select * from " + _cTableNameFiliations + "; select * from " + _cTableNameRegions + "; select * from " + _cTableNamePlanets, con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from " + _cTableNameRoutes + "; select * from " + _cTableNameDefinedRoutes + "; select * from " + _cTableNamePlanetRoutes + "; select * from " + _cTableNameRouteTypes + "; select * from " + _cTableNameFiliations + "; select * from " + _cTableNameRegions + "; select * from " + _cTableNamePlanets, con);
             adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
             adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
+            adapter.TableMappings.Add(_cTableNamePlanetRoutes, _cTableNamePlanetRoute);
+            adapter.TableMappings.Add(_cTableNameRouteTypes, _cTableNameRouteType);
             adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
             adapter.TableMappings.Add(_cTableNameRegions, _cTableNameRegion);
             adapter.TableMappings.Add(_cTableNamePlanets, _cTableNamePlanet);
@@ -145,7 +154,7 @@ namespace GestionXML
                                     new XElement(_cHyperSpaceRoutes, dts.Tables[0].AsEnumerable().Select(t=>
                                         new XElement(_cTableNameRoute,
                                             new XElement(dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName]),
-                                            new XElement(dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])                        
+                                            new XElement(dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])
                                         )
                                     ))
                                 );
