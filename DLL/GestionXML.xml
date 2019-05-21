@@ -14,6 +14,40 @@
             Constructor predeterminado
             </summary>
         </member>
+        <member name="M:GestionXML.frmXML.frmXML_Load(System.Object,System.EventArgs)">
+            <summary>
+            Se ejecuta cuando carga el formulario
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestionXML.frmXML.btnCreateXML_Click(System.Object,System.EventArgs)">
+            <summary>
+            Se ejecuta cuando pulsamos el boton de crear el XML
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GestionXML.frmXML.GetTablas">
+            <summary>
+            Cogemos todas las tablas necesarias de la DB
+            </summary>
+        </member>
+        <member name="M:GestionXML.frmXML.WriteXML_OLD">
+            <summary>
+            Metodo antiguo usado para escribir el dataset a pelo en el XML
+            </summary>
+        </member>
+        <member name="M:GestionXML.frmXML.GetInfo">
+            <summary>
+            Hace los joins y demas para recoger toda la info como queremos
+            </summary>
+        </member>
+        <member name="M:GestionXML.frmXML.WriteXML">
+            <summary>
+            Escribe el XML estructurado y formateado
+            </summary>
+        </member>
         <member name="F:GestionXML.frmXML.components">
             <summary>
             Required designer variable.

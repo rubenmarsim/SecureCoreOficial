@@ -112,7 +112,7 @@ namespace GestionXML
             adapter.Fill(dts);
 
             dts.DataSetName = _cHyperSpaceData;
-            for(int i = 0; i <= 4; i++)
+            for(int i = 0; i < dts.Tables.Count; i++)
                 dts.Tables[i].TableName = adapter.TableMappings[i].DataSetTable;
         }
         /// <summary>
