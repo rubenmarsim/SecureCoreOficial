@@ -2,16 +2,19 @@
 <hyperSpacedata>
   <hyperspaceRoutes>
     <Route>
-      <CodeRoute>CORU</CodeRoute>
-      <DescRoute>Corellian Run</DescRoute>
+      <type>Major hyperspace route</type>
+      <nameRoute>Corellian Run</nameRoute>
+      <start>Takodana</start>
     </Route>
     <Route>
-      <CodeRoute>hola</CodeRoute>
-      <DescRoute>hola</DescRoute>
+      <type>a</type>
+      <nameRoute>hola</nameRoute>
+      <start>Naboo</start>
     </Route>
     <Route>
-      <CodeRoute>aaa</CodeRoute>
-      <DescRoute>aaa</DescRoute>
+      <type>a</type>
+      <nameRoute>aaa</nameRoute>
+      <start>Dathomir</start>
     </Route>
   </hyperspaceRoutes>
 </hyperSpacedata>

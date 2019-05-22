@@ -19,19 +19,14 @@ namespace GestionXML
     /// </summary>
     public partial class frmXML : Form
     {
-        #region Variables Globales        
+        #region Variables Globales
         ConnectionClass.ClassBDD db;
         DataSet dts;
         string _sResourcesPath;
         enum eTablas
         {
             Routes,
-            DefinedRoutes,
-            PlanetRoutes,
-            RouteTypes,
-            Filiations,
-            Regions,
-            Planets
+            
         }
         object _oRoutes;
         #region Constantes        
@@ -89,7 +84,7 @@ namespace GestionXML
             try
             {
                 GetTablas();
-                GetInfo();
+                //GetInfo();
                 WriteXML();
 
                 MessageBox.Show("XML generat correctament.");
@@ -110,14 +105,8 @@ namespace GestionXML
             SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
             dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from " + _cTableNameRoutes + "; select * from " + _cTableNameDefinedRoutes + "; select * from " + _cTableNamePlanetRoutes + "; select * from " + _cTableNameRouteTypes + "; select * from " + _cTableNameFiliations + "; select * from " + _cTableNameRegions + "; select * from " + _cTableNamePlanets, con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutes", con);
             adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
-            adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
-            adapter.TableMappings.Add(_cTableNamePlanetRoutes, _cTableNamePlanetRoute);
-            adapter.TableMappings.Add(_cTableNameRouteTypes, _cTableNameRouteType);
-            adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
-            adapter.TableMappings.Add(_cTableNameRegions, _cTableNameRegion);
-            adapter.TableMappings.Add(_cTableNamePlanets, _cTableNamePlanet);
             adapter.Fill(dts);
 
             dts.DataSetName = _cHyperSpaceData;
@@ -125,40 +114,16 @@ namespace GestionXML
                 dts.Tables[i].TableName = adapter.TableMappings[i].DataSetTable;
         }
         /// <summary>
-        /// Metodo antiguo usado para escribir el dataset a pelo en el XML
-        /// </summary>
-        private void WriteXML_OLD()
-        {
-            try
-            {
-                dts.WriteXml(_sResourcesPath + "DBTables.xml");
-            }
-            catch (Exception Ge)
-            {
-                MessageBox.Show(Ge.Message);
-            }            
-        }
-        /// <summary>
-        /// Hace los joins y demas para recoger toda la info como queremos
-        /// </summary>
-        private void GetInfo()
-        {
-            var tRoutes = dts.Tables[(int)eTablas.Routes].AsEnumerable();
-            var tRouteTypes = dts.Tables[(int)eTablas.RouteTypes].AsEnumerable();
-            _oRoutes = new object();
-
-            _oRoutes = tRoutes.Join(tRouteTypes, rout => rout.Table.Columns[5], rt => rt.Table.Columns[0], (rout, rt)=> new { Route = rout, RouteType=rt});
-        }
-        /// <summary>
         /// Escribe el XML estructurado y formateado
         /// </summary>
         private void WriteXML()
         {
-            XElement xmlTree = new XElement(dts.DataSetName, 
-                                    new XElement(_cHyperSpaceRoutes, dts.Tables[0].AsEnumerable().Select(t=>
+            XElement xmlTree = new XElement(dts.DataSetName,
+                                    new XElement(_cHyperSpaceRoutes, dts.Tables[0].AsEnumerable().Select(t =>
                                         new XElement(_cTableNameRoute,
-                                            new XElement(dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName]),
-                                            new XElement(dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName, t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])
+                                            new XElement("type", t[dts.Tables[(int)eTablas.Routes].Columns[0].ColumnName]),
+                                            new XElement("nameRoute", t[dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName]),
+                                            new XElement("start", t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])
                                         )
                                     ))
                                 );

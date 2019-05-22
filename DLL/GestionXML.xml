@@ -33,16 +33,6 @@
             Cogemos todas las tablas necesarias de la DB
             </summary>
         </member>
-        <member name="M:GestionXML.frmXML.WriteXML_OLD">
-            <summary>
-            Metodo antiguo usado para escribir el dataset a pelo en el XML
-            </summary>
-        </member>
-        <member name="M:GestionXML.frmXML.GetInfo">
-            <summary>
-            Hace los joins y demas para recoger toda la info como queremos
-            </summary>
-        </member>
         <member name="M:GestionXML.frmXML.WriteXML">
             <summary>
             Escribe el XML estructurado y formateado
