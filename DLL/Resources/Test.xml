@@ -16,5 +16,6 @@
       <nameRoute>aaa</nameRoute>
       <start>Dathomir</start>
     </Route>
+    <DefinedRoute>a</DefinedRoute>
   </hyperspaceRoutes>
 </hyperSpacedata>

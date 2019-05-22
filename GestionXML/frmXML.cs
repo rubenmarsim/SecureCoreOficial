@@ -119,13 +119,16 @@ namespace GestionXML
         private void WriteXML()
         {
             XElement xmlTree = new XElement(dts.DataSetName,
-                                    new XElement(_cHyperSpaceRoutes, dts.Tables[0].AsEnumerable().Select(t =>
+                                    new XElement(_cHyperSpaceRoutes, dts.Tables[(int)eTablas.Routes].AsEnumerable().Select(t =>
                                         new XElement(_cTableNameRoute,
                                             new XElement("type", t[dts.Tables[(int)eTablas.Routes].Columns[0].ColumnName]),
                                             new XElement("nameRoute", t[dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName]),
                                             new XElement("start", t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])
                                         )
-                                    ))
+                                        ), 
+                                        new XElement(_cTableNameDefinedRoute,
+                                            "a")
+                                    )
                                 );
 
             xmlTree.Save(_sResourcesPath + "Test.xml");
