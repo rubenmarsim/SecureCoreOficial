@@ -143,9 +143,11 @@ namespace GestionXML
         /// </summary>
         private void GetInfo()
         {
+            var tRoutes = dts.Tables[(int)eTablas.Routes].AsEnumerable();
+            var tRouteTypes = dts.Tables[(int)eTablas.RouteTypes].AsEnumerable();
             _oRoutes = new object();
 
-            //_oRoutes = 
+            _oRoutes = tRoutes.Join(tRouteTypes, rout => rout.Table.Columns[5], rt => rt.Table.Columns[0], (rout, rt)=> new { Route = rout, RouteType=rt});
         }
         /// <summary>
         /// Escribe el XML estructurado y formateado
