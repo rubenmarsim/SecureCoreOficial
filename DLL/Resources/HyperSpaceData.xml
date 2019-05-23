@@ -95,6 +95,9 @@
         <lat>37542</lat>
         <parsecs>123212</parsecs>
       </situation>
+      <hyperspaceRoute>
+        <route>Corellian Run</route>
+      </hyperspaceRoute>
       <natives>Human</natives>
     </Planet>
     <Planet>
@@ -106,6 +109,9 @@
         <lat>54321</lat>
         <parsecs>78654</parsecs>
       </situation>
+      <hyperspaceRoute>
+        <route>hola</route>
+      </hyperspaceRoute>
       <natives>Gungan</natives>
     </Planet>
     <Planet>
@@ -117,249 +123,10 @@
         <lat>98536</lat>
         <parsecs>67546</parsecs>
       </situation>
+      <hyperspaceRoute>
+        <route>aaa</route>
+      </hyperspaceRoute>
       <natives>Dathomirians</natives>
-    </Planet>
-    <Planet>
-      <name>Kashyyyk</name>
-      <sector>Mytaranor</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>66559</long>
-        <lat>43841</lat>
-        <parsecs>98634</parsecs>
-      </situation>
-      <natives>Wookiee</natives>
-    </Planet>
-    <Planet>
-      <name>Manaan</name>
-      <sector>Pyrshak</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>54821</long>
-        <lat>39348</lat>
-        <parsecs>62865</parsecs>
-      </situation>
-      <natives>Selkath</natives>
-    </Planet>
-    <Planet>
-      <name>Dantooine</name>
-      <sector>Raioballo</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>99722</long>
-        <lat>54762</lat>
-        <parsecs>75432</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Tatooine</name>
-      <sector>Arkanis</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>32732</long>
-        <lat>64321</lat>
-        <parsecs>15634</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Mustafar</name>
-      <sector>Atravis</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>88554</long>
-        <lat>23158</lat>
-        <parsecs>97643</parsecs>
-      </situation>
-      <natives>Mustafarian</natives>
-    </Planet>
-    <Planet>
-      <name>Endor</name>
-      <sector>Moddell</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>68942</long>
-        <lat>45457</lat>
-        <parsecs>89473</parsecs>
-      </situation>
-      <natives>Ewoks</natives>
-    </Planet>
-    <Planet>
-      <name>Coruscant</name>
-      <sector>Corusca</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>77328</long>
-        <lat>61113</lat>
-        <parsecs>87432</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Dagobah</name>
-      <sector>Sluis</sector>
-      <filiation>Unknown</filiation>
-      <situation>
-        <long>39824</long>
-        <lat>41522</lat>
-        <parsecs>75364</parsecs>
-      </situation>
-      <natives>Unknown</natives>
-    </Planet>
-    <Planet>
-      <name>Jakku</name>
-      <sector>Jakku</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>77213</long>
-        <lat>87456</lat>
-        <parsecs>43256</parsecs>
-      </situation>
-      <natives>Teedo</natives>
-    </Planet>
-    <Planet>
-      <name>Mandalore</name>
-      <sector>Mandalore</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>36177</long>
-        <lat>49989</lat>
-        <parsecs>63425</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Kuat</name>
-      <sector>Kuat</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>88688</long>
-        <lat>12367</lat>
-        <parsecs>34517</parsecs>
-      </situation>
-      <natives>Kuati</natives>
-    </Planet>
-    <Planet>
-      <name>Corellia</name>
-      <sector>Corellia</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>71923</long>
-        <lat>66231</lat>
-        <parsecs>73541</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Hoth</name>
-      <sector>Anoat</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>55339</long>
-        <lat>69126</lat>
-        <parsecs>34519</parsecs>
-      </situation>
-      <natives>Unknown</natives>
-    </Planet>
-    <Planet>
-      <name>Teth</name>
-      <sector>Baxel</sector>
-      <filiation>Neutral</filiation>
-      <situation>
-        <long>99129</long>
-        <lat>78177</lat>
-        <parsecs>42581</parsecs>
-      </situation>
-      <natives>Hutt</natives>
-    </Planet>
-    <Planet>
-      <name>D'Qar</name>
-      <sector>Ileenium</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>89445</long>
-        <lat>65213</lat>
-        <parsecs>72892</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Devaron</name>
-      <sector>Duluur</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>83389</long>
-        <lat>82112</lat>
-        <parsecs>63428</parsecs>
-      </situation>
-      <natives>Devaronian</natives>
-    </Planet>
-    <Planet>
-      <name>Kessel</name>
-      <sector>Kessel</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>57579</long>
-        <lat>43893</lat>
-        <parsecs>64738</parsecs>
-      </situation>
-      <natives>Pyke</natives>
-    </Planet>
-    <Planet>
-      <name>Shili</name>
-      <sector>Shili</sector>
-      <filiation>Republican</filiation>
-      <situation>
-        <long>91872</long>
-        <lat>83451</lat>
-        <parsecs>23761</parsecs>
-      </situation>
-      <natives>Togruta</natives>
-    </Planet>
-    <Planet>
-      <name>Jelucan</name>
-      <sector>Jelucan</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>88558</long>
-        <lat>91234</lat>
-        <parsecs>34651</parsecs>
-      </situation>
-      <natives>Twi'lek</natives>
-    </Planet>
-    <Planet>
-      <name>Byss</name>
-      <sector>Beshqek</sector>
-      <filiation>First Order</filiation>
-      <situation>
-        <long>13452</long>
-        <lat>27453</lat>
-        <parsecs>76534</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Gyndine</name>
-      <sector>Gyndine</sector>
-      <filiation>Neutral</filiation>
-      <situation>
-        <long>22981</long>
-        <lat>34175</lat>
-        <parsecs>51723</parsecs>
-      </situation>
-      <natives>Human</natives>
-    </Planet>
-    <Planet>
-      <name>Rakata Prime</name>
-      <sector>Rakata</sector>
-      <filiation>Unknown</filiation>
-      <situation>
-        <long>99111</long>
-        <lat>28998</lat>
-        <parsecs>43524</parsecs>
-      </situation>
-      <natives>Rakata</natives>
     </Planet>
   </Planets>
 </hyperSpacedata>

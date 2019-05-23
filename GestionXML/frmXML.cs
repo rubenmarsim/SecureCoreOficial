@@ -103,7 +103,7 @@ namespace GestionXML
             SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
             dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutesV2; select * from ViewJoinDefinedRoutesV2; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanets", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutesV2; select * from ViewJoinDefinedRoutesV2; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanetsV2", con);
             adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
             adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
             adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
@@ -156,7 +156,10 @@ namespace GestionXML
                                                         new XElement("lat", t[dts.Tables[(int)eTablas.Planets].Columns[4].ColumnName]),
                                                         new XElement("parsecs", t[dts.Tables[(int)eTablas.Planets].Columns[5].ColumnName])
                                                     ),
-                                                    new XElement("natives", t[dts.Tables[(int)eTablas.Planets].Columns[6].ColumnName])
+                                                    new XElement("hyperspaceRoute",
+                                                        new XElement("route", t[dts.Tables[(int)eTablas.Planets].Columns[6].ColumnName])
+                                                    ),
+                                                    new XElement("natives", t[dts.Tables[(int)eTablas.Planets].Columns[7].ColumnName])
                                             )
                                     ))
                                 );
