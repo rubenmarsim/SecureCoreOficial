@@ -137,10 +137,29 @@ namespace GestionXML
                                     ),
                                     new XElement(_cTableNameFiliations, dts.Tables[(int)eTablas.Filiations].AsEnumerable().Select(t =>
                                             new XElement("description", t[dts.Tables[(int)eTablas.Filiations].Columns[0].ColumnName])                                        
+                                    )),
+                                    new XElement(_cTableNameRegions, dts.Tables[(int)eTablas.Regions].AsEnumerable().Select(t =>
+                                            new XElement(_cTableNameRegion,
+                                                    new XElement("nameRegion", t[dts.Tables[(int)eTablas.Regions].Columns[0].ColumnName]),
+                                                    new XElement("descriptionRegion", t[dts.Tables[(int)eTablas.Regions].Columns[1].ColumnName])
+                                            )
+                                    )),
+                                    new XElement(_cTableNamePlanets, dts.Tables[(int)eTablas.Planets].AsEnumerable().Select(t =>
+                                            new XElement(_cTableNamePlanet,
+                                                    new XElement("name", t[dts.Tables[(int)eTablas.Planets].Columns[0].ColumnName]),
+                                                    new XElement("sector", t[dts.Tables[(int)eTablas.Planets].Columns[1].ColumnName]),
+                                                    new XElement("filiation", t[dts.Tables[(int)eTablas.Planets].Columns[2].ColumnName]),
+                                                    new XElement("situation",
+                                                        new XElement("long", t[dts.Tables[(int)eTablas.Planets].Columns[3].ColumnName]),
+                                                        new XElement("lat", t[dts.Tables[(int)eTablas.Planets].Columns[4].ColumnName]),
+                                                        new XElement("parsecs", t[dts.Tables[(int)eTablas.Planets].Columns[5].ColumnName])
+                                                    ),
+                                                    new XElement("natives", t[dts.Tables[(int)eTablas.Planets].Columns[6].ColumnName])
+                                            )
                                     ))
                                 );
 
-            xmlTree.Save(_sResourcesPath + "Test.xml");
+            xmlTree.Save(_sResourcesPath + "HyperSpaceData.xml");
         }
         #endregion Methods
     }
