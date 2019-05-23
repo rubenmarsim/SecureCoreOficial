@@ -103,7 +103,7 @@ namespace GestionXML
             SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
             dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutes; select * from ViewJoinDefinedRoutes; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanets", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutesV2; select * from ViewJoinDefinedRoutesV2; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanets", con);
             adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
             adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
             adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
@@ -125,13 +125,15 @@ namespace GestionXML
                                         new XElement(_cTableNameRoute,
                                             new XElement("type", t[dts.Tables[(int)eTablas.Routes].Columns[0].ColumnName]),
                                             new XElement("nameRoute", t[dts.Tables[(int)eTablas.Routes].Columns[1].ColumnName]),
-                                            new XElement("start", t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])
+                                            new XElement("start", t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName]),
+                                            new XElement("end", t[dts.Tables[(int)eTablas.Routes].Columns[3].ColumnName])
                                         )
                                         ), 
                                         new XElement(_cTableNameDefinedRoutes, dts.Tables[(int)eTablas.DefinedRoutes].AsEnumerable().Select(t =>
                                             new XElement(_cTableNameDefinedRoute,
-                                                    new XElement("selectedRoute", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[0].ColumnName]),
-                                                    new XElement("map", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[1].ColumnName])
+                                                    new XElement("OrDes", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[0].ColumnName]),
+                                                    new XElement("selectedRoute", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[1].ColumnName]),
+                                                    new XElement("map", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[2].ColumnName])
                                             )
                                         ))
                                     ),

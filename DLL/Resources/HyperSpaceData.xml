@@ -5,27 +5,33 @@
       <type>Major hyperspace route</type>
       <nameRoute>Corellian Run</nameRoute>
       <start>Takodana</start>
+      <end>Naboo</end>
     </Route>
     <Route>
       <type>a</type>
       <nameRoute>hola</nameRoute>
       <start>Naboo</start>
+      <end>Dathomir</end>
     </Route>
     <Route>
       <type>a</type>
       <nameRoute>aaa</nameRoute>
       <start>Dathomir</start>
+      <end>Takodana</end>
     </Route>
     <DefinedRoutes>
       <DefinedRoute>
+        <OrDes>Takodana-Naboo</OrDes>
         <selectedRoute>Corellian Run</selectedRoute>
         <map>1</map>
       </DefinedRoute>
       <DefinedRoute>
+        <OrDes>Takodana-Naboo</OrDes>
         <selectedRoute>Corellian Run</selectedRoute>
         <map>2</map>
       </DefinedRoute>
       <DefinedRoute>
+        <OrDes>Takodana-Naboo</OrDes>
         <selectedRoute>Corellian Run</selectedRoute>
         <map>3</map>
       </DefinedRoute>
