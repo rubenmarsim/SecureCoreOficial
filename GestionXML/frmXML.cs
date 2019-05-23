@@ -26,17 +26,18 @@ namespace GestionXML
         enum eTablas
         {
             Routes,
+            DefinedRoutes,
+            Filiations,
+            Regions,
+            Planets
             
         }
-        object _oRoutes;
         #region Constantes        
         const string _cHyperSpaceData = "hyperSpacedata";
         const string _cHyperSpaceRoutes = "hyperspaceRoutes";
         #region Singulares
         const string _cTableNameRoute = "Route";
         const string _cTableNameDefinedRoute = "DefinedRoute";
-        const string _cTableNamePlanetRoutes = "PlanetRoutes";
-        const string _cTableNameRouteTypes = "RouteTypes";
         const string _cTableNameFiliation = "Filiation";
         const string _cTableNameRegion = "Region";
         const string _cTableNamePlanet = "Planet";
@@ -44,8 +45,6 @@ namespace GestionXML
         #region Plurales
         const string _cTableNameRoutes = "Routes";
         const string _cTableNameDefinedRoutes = "DefinedRoutes";
-        const string _cTableNamePlanetRoute = "PlanetRoute";
-        const string _cTableNameRouteType = "RouteType";
         const string _cTableNameFiliations = "Filiations";
         const string _cTableNameRegions = "Regions";
         const string _cTableNamePlanets = "Planets";
@@ -84,7 +83,6 @@ namespace GestionXML
             try
             {
                 GetTablas();
-                //GetInfo();
                 WriteXML();
 
                 MessageBox.Show("XML generat correctament.");
@@ -105,8 +103,12 @@ namespace GestionXML
             SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
             dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutes", con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutes; select * from ViewJoinDefinedRoutes; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanets", con);
             adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
+            adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
+            adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
+            adapter.TableMappings.Add(_cTableNameRegions, _cTableNameRegion);
+            adapter.TableMappings.Add(_cTableNamePlanets, _cTableNamePlanet);
             adapter.Fill(dts);
 
             dts.DataSetName = _cHyperSpaceData;
@@ -126,9 +128,16 @@ namespace GestionXML
                                             new XElement("start", t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName])
                                         )
                                         ), 
-                                        new XElement(_cTableNameDefinedRoute,
-                                            "a")
-                                    )
+                                        new XElement(_cTableNameDefinedRoutes, dts.Tables[(int)eTablas.DefinedRoutes].AsEnumerable().Select(t =>
+                                            new XElement(_cTableNameDefinedRoute,
+                                                    new XElement("selectedRoute", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[0].ColumnName]),
+                                                    new XElement("map", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[1].ColumnName])
+                                            )
+                                        ))
+                                    ),
+                                    new XElement(_cTableNameFiliations, dts.Tables[(int)eTablas.Filiations].AsEnumerable().Select(t =>
+                                            new XElement("description", t[dts.Tables[(int)eTablas.Filiations].Columns[0].ColumnName])                                        
+                                    ))
                                 );
 
             xmlTree.Save(_sResourcesPath + "Test.xml");
