@@ -99,6 +99,10 @@ namespace PDFtoDB
             {
                 MessageBox.Show("El nombre es obligatorio");
             }
+            catch (Exception GE)
+            {
+                MessageBox.Show(GE.Message);
+            }
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -172,7 +176,11 @@ namespace PDFtoDB
             catch(IOException ex)
             {
                 MessageBox.Show(ex.Message);
-            }            
+            }
+            catch (Exception GE)
+            {
+                MessageBox.Show(GE.Message);
+            }
         }
 
         #endregion Methods
