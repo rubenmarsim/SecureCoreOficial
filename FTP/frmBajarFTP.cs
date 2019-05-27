@@ -210,6 +210,10 @@ namespace FTP
             {
                 MessageBox.Show(IOe.Message);
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
         }
 
         #endregion Methods

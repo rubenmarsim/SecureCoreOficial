@@ -87,7 +87,10 @@ namespace LogonScreen
                 ButtonEntrar.Enabled = true;
                 ErrorLabel.Visible = true;
                 ErrorLabel.Text = "¡No sea podido saltar al hyperspace!";
-
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
             }
         }
         void Timer_Tick(object sender, EventArgs e)

@@ -42,22 +42,30 @@ namespace MantenimientosXWings.Tablas
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (_bEsNou)
+            try
             {
-                var inser = new GestionDB.References
+                if (_bEsNou)
                 {
-                    codeReference = sdstxtcodeReference.Text,
-                    descReference = sdstxtdescReference.Text
-                };
-                db.References.Add(inser);
-                db.SaveChanges();
-                FillGrid();
-                _bEsNou = false;
+                    var inser = new GestionDB.References
+                    {
+                        codeReference = sdstxtcodeReference.Text,
+                        descReference = sdstxtdescReference.Text
+                    };
+                    db.References.Add(inser);
+                    db.SaveChanges();
+                    FillGrid();
+                    _bEsNou = false;
+                }
+                else
+                {
+                    db.SaveChanges();
+                }
             }
-            else
+            catch (Exception Ge)
             {
-                db.SaveChanges();
+                MessageBox.Show(Ge.Message);
             }
+            
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -72,77 +80,133 @@ namespace MantenimientosXWings.Tablas
         }
         private void cmbBoxIdReferenceType_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cmbBoxIdReferenceType.SelectedValue != null)
+            if (cmbBoxIdReferenceType.SelectedValue != null)
             {
                 Forania();
             }
         }
         private void dGVReferences_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (sdstxBoxIdReferenceType.Text.Equals("1"))
-                cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Producte_Final;
-            else if (sdstxBoxIdReferenceType.Text.Equals("2"))
-                cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Producte_Intermig;
-            else if (sdstxBoxIdReferenceType.Text.Equals("3"))
-                cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Materia_Prima;
+            try
+            {
+                if (sdstxBoxIdReferenceType.Text.Equals("1"))
+                    cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Producte_Final;
+                else if (sdstxBoxIdReferenceType.Text.Equals("2"))
+                    cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Producte_Intermig;
+                else if (sdstxBoxIdReferenceType.Text.Equals("3"))
+                    cmbBoxIdReferenceType.SelectedIndex = (int)CodeReferenceTypes.Materia_Prima;
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         #endregion Events
 
         #region Methods
         private void Inicializaciones()
         {
-            db = new GestionDB.XWingsFactoryEntities();
-            dGVReferences.AllowUserToAddRows = false;
+            try
+            {
+                db = new GestionDB.XWingsFactoryEntities();
+                dGVReferences.AllowUserToAddRows = false;
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         private void FillGrid()
         {
-            _TableReferences = db.References.Select(x => x).ToList();
-            _TableReferencesTypes = db.ReferenceTypes.Select(x => x).ToList();
-            var a = _TableReferencesTypes.Select(x => x.codeReferenceType);
-            cmbBoxIdReferenceType.DataSource = _TableReferencesTypes.Select(x => x.codeReferenceType).ToList();
-            dGVReferences.DataSource = _TableReferences; 
-            var iTotalColumns = dGVReferences.Columns.Count;
-            dGVReferences.Columns[0].Visible = false;
-
-            for (int i = 5; i < iTotalColumns; i++)
+            try
             {
-                dGVReferences.Columns[i].Visible = false;
+                _TableReferences = db.References.Select(x => x).ToList();
+                _TableReferencesTypes = db.ReferenceTypes.Select(x => x).ToList();
+                var a = _TableReferencesTypes.Select(x => x.codeReferenceType);
+                cmbBoxIdReferenceType.DataSource = _TableReferencesTypes.Select(x => x.codeReferenceType).ToList();
+                dGVReferences.DataSource = _TableReferences;
+                var iTotalColumns = dGVReferences.Columns.Count;
+                dGVReferences.Columns[0].Visible = false;
+
+                for (int i = 5; i < iTotalColumns; i++)
+                {
+                    dGVReferences.Columns[i].Visible = false;
+                }
+                BindDades();
             }
-            BindDades();
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         private void Forania()
         {
-            sdstxBoxIdReferenceType.Text = _TableReferencesTypes.Where(x=>x.codeReferenceType.Equals(cmbBoxIdReferenceType.SelectedValue.ToString())).Select(x => x.idReferenceType).First().ToString();
+            try
+            {
+                sdstxBoxIdReferenceType.Text = _TableReferencesTypes.Where(x => x.codeReferenceType.Equals(cmbBoxIdReferenceType.SelectedValue.ToString())).Select(x => x.idReferenceType).First().ToString();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         private void BindDades()
         {
-            foreach (Control sdsControl in this.Controls)
+            try
             {
-                if (sdsControl is SdsTexBox.SdsTexBox)
+                foreach (Control sdsControl in this.Controls)
                 {
-                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
-                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Add("Text", _TableReferences, ((SdsTexBox.SdsTexBox)sdsControl).ColumnName.ToString());
-                    ((SdsTexBox.SdsTexBox)sdsControl).Validated += new EventHandler(Validar);
-                }               
+                    if (sdsControl is SdsTexBox.SdsTexBox)
+                    {
+                        ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
+                        ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Add("Text", _TableReferences, ((SdsTexBox.SdsTexBox)sdsControl).ColumnName.ToString());
+                        ((SdsTexBox.SdsTexBox)sdsControl).Validated += new EventHandler(Validar);
+                    }
+                }
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }       
         private void QuitarBindDades()
         {
-            foreach (Control sdsControl in this.Controls)
+            try
             {
-                if (sdsControl is SdsTexBox.SdsTexBox)
+                foreach (Control sdsControl in this.Controls)
                 {
-                    ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
-                    sdsControl.Text = "";
+                    if (sdsControl is SdsTexBox.SdsTexBox)
+                    {
+                        ((SdsTexBox.SdsTexBox)sdsControl).DataBindings.Clear();
+                        sdsControl.Text = "";
+                    }
                 }
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         public void Validar(object sender, EventArgs e)
         {
-            if (!_bEsNou)
+            try
             {
-                ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+                if (!_bEsNou)
+                {
+                    ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+                }
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
 
         #endregion Methods

@@ -265,14 +265,21 @@ namespace GestioEscandall
         /// Carga el comboBox de las partes principales e intermedias
         /// </summary>
         private void CargarComboPart()
-        {            
-            var FilteredtReferenceTypes = from r in db.ReferenceTypes
-                     where r.idReferenceType == 1 || r.idReferenceType == 2
-                     select r;
+        {
+            try
+            {
+                var FilteredtReferenceTypes = from r in db.ReferenceTypes
+                                              where r.idReferenceType == 1 || r.idReferenceType == 2
+                                              select r;
 
-            comboPart.DataSource = FilteredtReferenceTypes.ToList();
-            comboPart.ValueMember = "idReferenceType";
-            comboPart.DisplayMember = "descReferenceType";
+                comboPart.DataSource = FilteredtReferenceTypes.ToList();
+                comboPart.ValueMember = "idReferenceType";
+                comboPart.DisplayMember = "descReferenceType";
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
 
         /// <summary>
@@ -281,16 +288,23 @@ namespace GestioEscandall
         /// <param name="valor"></param>
         private void CargarComboObject(string valor)
         {
-            int num = Convert.ToInt32(valor);
-            var dt = from r in db.References// outer sequence
-                     join rt in db.ReferenceTypes //inner sequence 
-                     on r.idReferenceType equals rt.idReferenceType // key selector 
-                     where r.idReferenceType == num
-                     select r;
+            try
+            {
+                int num = Convert.ToInt32(valor);
+                var dt = from r in db.References// outer sequence
+                         join rt in db.ReferenceTypes //inner sequence 
+                         on r.idReferenceType equals rt.idReferenceType // key selector 
+                         where r.idReferenceType == num
+                         select r;
 
-            comboObject.DataSource = dt.ToList();
-            comboObject.ValueMember = "idReference";
-            comboObject.DisplayMember = "descReference";
+                comboObject.DataSource = dt.ToList();
+                comboObject.ValueMember = "idReference";
+                comboObject.DisplayMember = "descReference";
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }        
 
         /// <summary>
@@ -299,18 +313,25 @@ namespace GestioEscandall
         /// <param name="valor"></param>
         private void CargarListBoxs()
         {
-            LimpiarListBoxs();
-            var num = short.Parse(_valComboObject);
-            
-            var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
+            try
+            {
+                LimpiarListBoxs();
+                var num = short.Parse(_valComboObject);
 
-            _lSubElementos = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num).Select(x=>x.Referencia);
+                var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
 
-            var lSubElemNoUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == false).Select(x => x.Referencia.descReference)).ToList();
-            var lSubElemUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == true).Select(x => x.Referencia.descReference)).ToList();
+                _lSubElementos = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num).Select(x => x.Referencia);
 
-            foreach(var subElem in lSubElemNoUsados) listNoUsat.Items.Add(subElem);
-            foreach(var subElem in lSubElemUsados) listUsats.Items.Add(subElem);  
+                var lSubElemNoUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == false).Select(x => x.Referencia.descReference)).ToList();
+                var lSubElemUsados = (JoinRefStruct.Where(x => x.Structura.idReferenceFinal == num && x.Referencia.IsUsed == true).Select(x => x.Referencia.descReference)).ToList();
+
+                foreach (var subElem in lSubElemNoUsados) listNoUsat.Items.Add(subElem);
+                foreach (var subElem in lSubElemUsados) listUsats.Items.Add(subElem);
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         /// <summary>
         /// Comprueba los cambios de los listbox y los sube a la base de datos.
@@ -344,8 +365,15 @@ namespace GestioEscandall
         /// </summary>
         private void LimpiarListBoxs()
         {
-            listUsats.Items.Clear();
-            listNoUsat.Items.Clear();
+            try
+            {
+                listUsats.Items.Clear();
+                listNoUsat.Items.Clear();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
 
         #endregion Methods        

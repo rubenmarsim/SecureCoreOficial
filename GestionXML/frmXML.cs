@@ -70,8 +70,15 @@ namespace GestionXML
         /// <param name="e"></param>
         private void frmXML_Load(object sender, EventArgs e)
         {
-            db = new ConnectionClass.ClassBDD();
-            _sResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
+            try
+            {
+                db = new ConnectionClass.ClassBDD();
+                _sResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         /// <summary>
         /// Se ejecuta cuando pulsamos el boton de crear el XML
@@ -90,7 +97,7 @@ namespace GestionXML
             catch (Exception Ge)
             {
                 MessageBox.Show(Ge.Message);
-            }            
+            }
         }
         #endregion Events
 
@@ -100,27 +107,36 @@ namespace GestionXML
         /// </summary>
         private void GetTablas()
         {
-            SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
-            dts = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection("Data Source=wookie-code.database.windows.net;Initial Catalog=SecureCore;User ID=Wookie;Password=123456789aA");
+                dts = new DataSet();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutesV2; select * from ViewJoinDefinedRoutesV2; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanetsV2", con);
-            adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
-            adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
-            adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
-            adapter.TableMappings.Add(_cTableNameRegions, _cTableNameRegion);
-            adapter.TableMappings.Add(_cTableNamePlanets, _cTableNamePlanet);
-            adapter.Fill(dts);
+                SqlDataAdapter adapter = new SqlDataAdapter("select * from ViewJoinRoutesV2; select * from ViewJoinDefinedRoutesV2; select DescFiliations from Filiations; select DescRegion, Remarks from Regions; select * from ViewJoinPlanetsV2", con);
+                adapter.TableMappings.Add(_cTableNameRoutes, _cTableNameRoute);
+                adapter.TableMappings.Add(_cTableNameDefinedRoutes, _cTableNameDefinedRoute);
+                adapter.TableMappings.Add(_cTableNameFiliations, _cTableNameFiliation);
+                adapter.TableMappings.Add(_cTableNameRegions, _cTableNameRegion);
+                adapter.TableMappings.Add(_cTableNamePlanets, _cTableNamePlanet);
+                adapter.Fill(dts);
 
-            dts.DataSetName = _cHyperSpaceData;
-            for(int i = 0; i < dts.Tables.Count; i++)
-                dts.Tables[i].TableName = adapter.TableMappings[i].DataSetTable;
+                dts.DataSetName = _cHyperSpaceData;
+                for (int i = 0; i < dts.Tables.Count; i++)
+                    dts.Tables[i].TableName = adapter.TableMappings[i].DataSetTable;
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         /// <summary>
         /// Escribe el XML estructurado y formateado
         /// </summary>
         private void WriteXML()
         {
-            XElement xmlTree = new XElement(dts.DataSetName,
+            try
+            {
+                XElement xmlTree = new XElement(dts.DataSetName,
                                     new XElement(_cHyperSpaceRoutes, dts.Tables[(int)eTablas.Routes].AsEnumerable().Select(t =>
                                         new XElement(_cTableNameRoute,
                                             new XElement("type", t[dts.Tables[(int)eTablas.Routes].Columns[0].ColumnName]),
@@ -128,7 +144,7 @@ namespace GestionXML
                                             new XElement("start", t[dts.Tables[(int)eTablas.Routes].Columns[2].ColumnName]),
                                             new XElement("end", t[dts.Tables[(int)eTablas.Routes].Columns[3].ColumnName])
                                         )
-                                        ), 
+                                        ),
                                         new XElement(_cTableNameDefinedRoutes, dts.Tables[(int)eTablas.DefinedRoutes].AsEnumerable().Select(t =>
                                             new XElement(_cTableNameDefinedRoute,
                                                     new XElement("OrDes", t[dts.Tables[(int)eTablas.DefinedRoutes].Columns[0].ColumnName]),
@@ -138,7 +154,7 @@ namespace GestionXML
                                         ))
                                     ),
                                     new XElement(_cTableNameFiliations, dts.Tables[(int)eTablas.Filiations].AsEnumerable().Select(t =>
-                                            new XElement("description", t[dts.Tables[(int)eTablas.Filiations].Columns[0].ColumnName])                                        
+                                            new XElement("description", t[dts.Tables[(int)eTablas.Filiations].Columns[0].ColumnName])
                                     )),
                                     new XElement(_cTableNameRegions, dts.Tables[(int)eTablas.Regions].AsEnumerable().Select(t =>
                                             new XElement(_cTableNameRegion,
@@ -164,7 +180,12 @@ namespace GestionXML
                                     ))
                                 );
 
-            xmlTree.Save(_sResourcesPath + "HyperSpaceData.xml");
+                xmlTree.Save(_sResourcesPath + "HyperSpaceData.xml");
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         #endregion Methods
     }

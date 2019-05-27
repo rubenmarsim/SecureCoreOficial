@@ -78,17 +78,24 @@ namespace FTP
         /// </summary>
         private void GetDocument()
         {
-            _oFD = new OpenFileDialog();
-            _oFD.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            _oFD.FilterIndex = 1;
-            _oFD.RestoreDirectory = true;
-
-            if (_oFD.ShowDialog() == DialogResult.OK)
+            try
             {
-                txtBoxDescPush.Text = _oFD.FileName;
-                btnPush.Enabled = true;
-                _FileName = _oFD.FileName;
+                _oFD = new OpenFileDialog();
+                _oFD.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+                _oFD.FilterIndex = 1;
+                _oFD.RestoreDirectory = true;
+
+                if (_oFD.ShowDialog() == DialogResult.OK)
+                {
+                    txtBoxDescPush.Text = _oFD.FileName;
+                    btnPush.Enabled = true;
+                    _FileName = _oFD.FileName;
+                }
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }        
 
         private void SubirArchivo()

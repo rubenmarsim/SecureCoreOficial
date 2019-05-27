@@ -19,14 +19,28 @@ namespace FTP
 
         private void btnSubir_Click(object sender, EventArgs e)
         {
-            frmFTP frm = new frmFTP();
-            frm.Show();
+            try
+            {
+                frmFTP frm = new frmFTP();
+                frm.Show();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
 
         private void btnBajar_Click(object sender, EventArgs e)
         {
-            frmBajarFTP frm = new frmBajarFTP();
-            frm.Show();
+            try
+            {
+                frmBajarFTP frm = new frmBajarFTP();
+                frm.Show();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
     }
 }

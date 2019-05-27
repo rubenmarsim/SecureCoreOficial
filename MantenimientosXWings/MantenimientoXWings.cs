@@ -34,13 +34,27 @@ namespace MantenimientosXWings
 
         private void btnReferenceTypes_Click(object sender, EventArgs e)
         {
-            Instancias();
-            _ReferenceTypes.Show();
+            try
+            {
+                Instancias();
+                _ReferenceTypes.Show();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         private void btnReferences_Click(object sender, EventArgs e)
         {
-            Instancias();
-            _References.Show();
+            try
+            {
+                Instancias();
+                _References.Show();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         #endregion
 

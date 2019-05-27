@@ -86,56 +86,70 @@ namespace Escandall
         /// </summary>
         private void GetData()
         {
-            _lstFinalProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.FinalProducts).Select(x => x.descReference).ToList();
-            _lstMiddleProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.MiddleProducts).Select(x => x).ToList();
-            _lstRawMaterials = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.RawMaterials).Select(x => x).ToList();
-            var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
-            _lstProductsAla = JoinRefStruct.Where(x=>x.Structura.idReferenceFinal== (short)eIdReference.Ala).Select(x=>x.Referencia.descReference).ToList();
-            _lstProductsMotor = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Motor).Select(x => x.Referencia.descReference).ToList();
-            _lstProductsCabina = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Cabina).Select(x => x.Referencia.descReference).ToList();
-            _lstProductsMorro = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Morro).Select(x => x.Referencia.descReference).ToList();
+            try
+            {
+                _lstFinalProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.FinalProducts).Select(x => x.descReference).ToList();
+                _lstMiddleProducts = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.MiddleProducts).Select(x => x).ToList();
+                _lstRawMaterials = db.References.Where(x => x.idReferenceType == (short)eReferenceTypes.RawMaterials).Select(x => x).ToList();
+                var JoinRefStruct = db.References.Join(db.Structure, refe => refe.idReference, strct => strct.idReferencePart, (refe, strct) => new { Referencia = refe, Structura = strct });
+                _lstProductsAla = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Ala).Select(x => x.Referencia.descReference).ToList();
+                _lstProductsMotor = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Motor).Select(x => x.Referencia.descReference).ToList();
+                _lstProductsCabina = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Cabina).Select(x => x.Referencia.descReference).ToList();
+                _lstProductsMorro = JoinRefStruct.Where(x => x.Structura.idReferenceFinal == (short)eIdReference.Morro).Select(x => x.Referencia.descReference).ToList();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         /// <summary>
         /// Filtramos la info y la ponemos en el treeview
         /// </summary>
         private void LoadData()
         {
-            //--- Productos Principales ---------------------------------------------
-            foreach(var FinalProd in _lstFinalProducts) treeViewEscandall.Nodes.Add(FinalProd);
-            //--- Productos intermedios y materia prima -----------------------------
-            foreach (var middleProd in _lstMiddleProducts)
+            try
             {
-                treeViewEscandall.Nodes[0].Nodes.Add(middleProd.descReference);
+                //--- Productos Principales ---------------------------------------------
+                foreach (var FinalProd in _lstFinalProducts) treeViewEscandall.Nodes.Add(FinalProd);
+                //--- Productos intermedios y materia prima -----------------------------
+                foreach (var middleProd in _lstMiddleProducts)
+                {
+                    treeViewEscandall.Nodes[0].Nodes.Add(middleProd.descReference);
 
-                if(middleProd.idReference == (short)eIdReference.Ala)
-                {
-                    foreach (var ProductAla in _lstProductsAla)
+                    if (middleProd.idReference == (short)eIdReference.Ala)
                     {
-                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Ala].Nodes.Add(ProductAla);
+                        foreach (var ProductAla in _lstProductsAla)
+                        {
+                            treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Ala].Nodes.Add(ProductAla);
+                        }
                     }
-                }                        
-                else if(middleProd.idReference == (short)eIdReference.Motor)
-                {
-                    foreach (var ProductMotor in _lstProductsMotor)
+                    else if (middleProd.idReference == (short)eIdReference.Motor)
                     {
-                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Motor].Nodes.Add(ProductMotor);
+                        foreach (var ProductMotor in _lstProductsMotor)
+                        {
+                            treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Motor].Nodes.Add(ProductMotor);
+                        }
                     }
-                }                    
-                else if (middleProd.idReference == (short)eIdReference.Cabina)
-                {
-                    foreach (var ProductCabina in _lstProductsCabina)
+                    else if (middleProd.idReference == (short)eIdReference.Cabina)
                     {
-                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Cabina].Nodes.Add(ProductCabina);
+                        foreach (var ProductCabina in _lstProductsCabina)
+                        {
+                            treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Cabina].Nodes.Add(ProductCabina);
+                        }
                     }
-                }                    
-                else if (middleProd.idReference == (short)eIdReference.Morro)
-                {
-                    foreach (var ProductMorro in _lstProductsMorro)
+                    else if (middleProd.idReference == (short)eIdReference.Morro)
                     {
-                        treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Morro].Nodes.Add(ProductMorro);
+                        foreach (var ProductMorro in _lstProductsMorro)
+                        {
+                            treeViewEscandall.Nodes[0].Nodes[(int)MiddleProductsInTreeView.Morro].Nodes.Add(ProductMorro);
+                        }
                     }
-                }                                                 
+                }
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         /// <summary>
         /// Cogemos unicamente los nombres de la photo y del video teniendo en cuenta 
@@ -143,22 +157,38 @@ namespace Escandall
         /// </summary>
         private void GetMediaData()
         {
-            var slctedNode = treeViewEscandall.SelectedNode.Text;
-            _NamePhoto = db.References.Where(x=>x.descReference.Equals(slctedNode)).Select(x => x.Photo).ToList().First();
-            _NameVideo = db.References.Where(x => x.descReference.Equals(slctedNode)).Select(x => x.VideoExplode).ToList().First();
+            try
+            {
+                var slctedNode = treeViewEscandall.SelectedNode.Text;
+                _NamePhoto = db.References.Where(x => x.descReference.Equals(slctedNode)).Select(x => x.Photo).ToList().First();
+                _NameVideo = db.References.Where(x => x.descReference.Equals(slctedNode)).Select(x => x.VideoExplode).ToList().First();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         private void FillMedia()
         {
-            var ResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
-            if (!string.IsNullOrEmpty(_NamePhoto))
+            try
             {
-                picBoxEscandall.ImageLocation = ResourcesPath + _NamePhoto;
-                picBoxEscandall.SizeMode = PictureBoxSizeMode.StretchImage;
+                var ResourcesPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).Replace("\\", "/") + "/Resources/";
+                if (!string.IsNullOrEmpty(_NamePhoto))
+                {
+                    picBoxEscandall.ImageLocation = ResourcesPath + _NamePhoto;
+                    picBoxEscandall.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                if (!string.IsNullOrEmpty(_NameVideo))
+                {
+                    WMPEscandall.URL = ResourcesPath + _NameVideo;
+                }
             }
-            if (!string.IsNullOrEmpty(_NameVideo))
+            catch (Exception Ge)
             {
-                WMPEscandall.URL = ResourcesPath + _NameVideo;
-            }            
+                MessageBox.Show(Ge.Message);
+            }
+                       
         }
         #endregion Methods
 

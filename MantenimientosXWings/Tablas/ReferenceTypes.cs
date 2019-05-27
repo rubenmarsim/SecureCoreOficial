@@ -32,35 +32,59 @@ namespace MantenimientosXWings
         #region Events
         private void ReferenceTypes_Load(object sender, EventArgs e)
         {
-            Inicializaciones();
-            FillGrid();
+            try
+            {
+                Inicializaciones();
+                FillGrid();
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (_bEsNou)
+            try
             {
-                var inser = new GestionDB.ReferenceTypes
+                if (_bEsNou)
                 {
-                    codeReferenceType = sdsTexBoxcodeReference.Text,
-                    descReferenceType = sdsTexBoxdescReference.Text
-                };
-                db.ReferenceTypes.Add(inser);
-                db.SaveChanges();
-                FillGrid();
-                _bEsNou = false;
+                    var inser = new GestionDB.ReferenceTypes
+                    {
+                        codeReferenceType = sdsTexBoxcodeReference.Text,
+                        descReferenceType = sdsTexBoxdescReference.Text
+                    };
+                    db.ReferenceTypes.Add(inser);
+                    db.SaveChanges();
+                    FillGrid();
+                    _bEsNou = false;
+                }
+                else
+                {
+                    db.SaveChanges();
+                }
             }
-            else
+            catch (Exception Ge)
             {
-                db.SaveChanges();
+                MessageBox.Show(Ge.Message);
             }
+            
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            QuitarBindDades();
-            sdsTexBoxcodeReference.Clear();
-            sdsTexBoxdescReference.Clear();
-            _bEsNou = true;
+            try
+            {
+                QuitarBindDades();
+                sdsTexBoxcodeReference.Clear();
+                sdsTexBoxdescReference.Clear();
+                _bEsNou = true;
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
+            
         }
         #endregion Events
 

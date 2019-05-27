@@ -53,15 +53,22 @@ namespace PDFtoDB
         /// <param name="e"></param>
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            _oFD = new OpenFileDialog();
-            _oFD.Filter = "PDFs (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
-            _oFD.FilterIndex = 1;
-            _oFD.RestoreDirectory = true;
-
-            if (_oFD.ShowDialog() == DialogResult.OK)
+            try
             {
-                txtBoxArchivo.Text = _oFD.FileName;
+                _oFD = new OpenFileDialog();
+                _oFD.Filter = "PDFs (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
+                _oFD.FilterIndex = 1;
+                _oFD.RestoreDirectory = true;
+
+                if (_oFD.ShowDialog() == DialogResult.OK)
+                {
+                    txtBoxArchivo.Text = _oFD.FileName;
+                }
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }            
         }
         /// <summary>
         /// Cuando pulsamos el boton de guardar
@@ -99,6 +106,10 @@ namespace PDFtoDB
             {
                 MessageBox.Show("El nombre es obligatorio");
             }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -113,12 +124,18 @@ namespace PDFtoDB
         /// </summary>
         private void CargarListaNombre()
         {
-            var dt = db.References.Where(x => x.idReferenceType == 2).Select(x => x).ToList();
+            try
+            {
+                var dt = db.References.Where(x => x.idReferenceType == 2).Select(x => x).ToList();
 
-            cmbBoxIdReference.DataSource = dt;
-            cmbBoxIdReference.ValueMember = "idReference";
-            cmbBoxIdReference.DisplayMember = "descReference";
-
+                cmbBoxIdReference.DataSource = dt;
+                cmbBoxIdReference.ValueMember = "idReference";
+                cmbBoxIdReference.DisplayMember = "descReference";
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
         }
         /// <summary>
         /// Vuelve a cargar los datos en el grid
@@ -134,7 +151,10 @@ namespace PDFtoDB
                 for (int i=0; i<=1;i++) dgvPDF.Columns[i].Visible = false;
                 for (int i = 3; i <= dgvPDF.Columns.Count; i++) dgvPDF.Columns[i].Visible = false;
             }
-            catch (Exception) { }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
         }
 
         private void DecryptAndShowPDF()
@@ -172,7 +192,15 @@ namespace PDFtoDB
             catch(IOException ex)
             {
                 MessageBox.Show(ex.Message);
-            }            
+            }
+            catch (InvalidOperationException IOe)
+            {
+                MessageBox.Show(IOe.Message);
+            }
+            catch (Exception Ge)
+            {
+                MessageBox.Show(Ge.Message);
+            }
         }
 
         #endregion Methods
