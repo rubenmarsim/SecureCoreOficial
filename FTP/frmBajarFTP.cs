@@ -217,5 +217,10 @@ namespace FTP
         }
 
         #endregion Methods
+
+        private void btnNoDescarregar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

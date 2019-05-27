@@ -34,27 +34,15 @@ namespace MantenimientosXWings
 
         private void btnReferenceTypes_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Instancias();
-                _ReferenceTypes.Show();
-            }
-            catch (Exception Ge)
-            {
-                MessageBox.Show(Ge.Message);
-            }            
+            Instancias();
+            _ReferenceTypes.Show();
+            this.Close();
         }
         private void btnReferences_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Instancias();
-                _References.Show();
-            }
-            catch (Exception Ge)
-            {
-                MessageBox.Show(Ge.Message);
-            }            
+            Instancias();
+            _References.Show();
+            this.Close();
         }
         #endregion
 
@@ -65,5 +53,10 @@ namespace MantenimientosXWings
             _References = new References();
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

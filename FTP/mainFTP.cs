@@ -42,5 +42,10 @@ namespace FTP
                 MessageBox.Show(Ge.Message);
             }            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
