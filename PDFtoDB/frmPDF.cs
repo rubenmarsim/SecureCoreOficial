@@ -151,9 +151,9 @@ namespace PDFtoDB
                 for (int i=0; i<=1;i++) dgvPDF.Columns[i].Visible = false;
                 for (int i = 3; i <= dgvPDF.Columns.Count; i++) dgvPDF.Columns[i].Visible = false;
             }
-            catch (Exception Ge)
+            catch (Exception)
             {
-                MessageBox.Show(Ge.Message);
+                //MessageBox.Show(Ge.Message);
             }
         }
 
