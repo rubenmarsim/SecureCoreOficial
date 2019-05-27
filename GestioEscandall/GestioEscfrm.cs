@@ -182,20 +182,28 @@ namespace GestioEscandall
 
         private void listNoUsat_MouseDown(object sender, MouseEventArgs e)
         {
-            if (listNoUsat.Items.Count == 0)
-                return;
-
-            int index = listNoUsat.IndexFromPoint(e.X, e.Y);
-            if (index >= 0)
+            try
             {
-                string s = listNoUsat.Items[index].ToString();
-                DragDropEffects dde1 = DoDragDrop(s,
-                    DragDropEffects.All);
+                if (listNoUsat.Items.Count == 0)
+                    return;
 
-                if (dde1 == DragDropEffects.All)
+                int index = listNoUsat.IndexFromPoint(e.X, e.Y);
+                if (index >= 0)
                 {
-                    listNoUsat.Items.RemoveAt(listUsats.IndexFromPoint(e.X, e.Y));
+                    string s = listNoUsat.Items[index].ToString();
+                    DragDropEffects dde1 = DoDragDrop(s,
+                        DragDropEffects.All);
+
+                    if (dde1 == DragDropEffects.All)
+                    {
+                        listNoUsat.Items.RemoveAt(listUsats.IndexFromPoint(e.X, e.Y));
+                    }
                 }
+            }
+            catch(ArgumentOutOfRangeException AOoRE)
+            {
+                MessageBox.Show(AOoRE.Message);
+                CargarListBoxs();
             }
         }
 
