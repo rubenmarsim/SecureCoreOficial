@@ -28,5 +28,10 @@ namespace FTP
             frmBajarFTP frm = new frmBajarFTP();
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
