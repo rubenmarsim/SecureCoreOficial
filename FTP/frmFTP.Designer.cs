@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.gBoxPush = new System.Windows.Forms.GroupBox();
-            this.btnPush = new System.Windows.Forms.Button();
             this.btnBrowsePush = new System.Windows.Forms.Button();
             this.txtBoxDescPush = new System.Windows.Forms.TextBox();
             this.lblDescPush = new System.Windows.Forms.Label();
+            this.btnPush = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,16 +52,6 @@
             this.gBoxPush.TabIndex = 0;
             this.gBoxPush.TabStop = false;
             this.gBoxPush.Text = "URL para subir el archivo";
-            // 
-            // btnPush
-            // 
-            this.btnPush.Location = new System.Drawing.Point(637, 13);
-            this.btnPush.Name = "btnPush";
-            this.btnPush.Size = new System.Drawing.Size(75, 23);
-            this.btnPush.TabIndex = 3;
-            this.btnPush.Text = "PUSH";
-            this.btnPush.UseVisualStyleBackColor = true;
-            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
             // btnBrowsePush
             // 
@@ -90,6 +80,16 @@
             this.lblDescPush.Size = new System.Drawing.Size(49, 13);
             this.lblDescPush.TabIndex = 0;
             this.lblDescPush.Text = "Archivo: ";
+            // 
+            // btnPush
+            // 
+            this.btnPush.Location = new System.Drawing.Point(637, 13);
+            this.btnPush.Name = "btnPush";
+            this.btnPush.Size = new System.Drawing.Size(75, 23);
+            this.btnPush.TabIndex = 3;
+            this.btnPush.Text = "PUSH";
+            this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
             // label1
             // 
@@ -144,6 +144,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gBoxPush);
             this.Name = "frmFTP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subir archivo FTP";
             this.Load += new System.EventHandler(this.frmFTP_Load);
             this.gBoxPush.ResumeLayout(false);

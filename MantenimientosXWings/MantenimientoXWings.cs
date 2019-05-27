@@ -36,11 +36,13 @@ namespace MantenimientosXWings
         {
             Instancias();
             _ReferenceTypes.Show();
+            this.Close();
         }
         private void btnReferences_Click(object sender, EventArgs e)
         {
             Instancias();
             _References.Show();
+            this.Close();
         }
         #endregion
 
@@ -51,5 +53,10 @@ namespace MantenimientosXWings
             _References = new References();
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

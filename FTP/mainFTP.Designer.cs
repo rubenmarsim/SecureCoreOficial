@@ -161,7 +161,8 @@
             this.Controls.Add(this.btnSubir);
             this.Controls.Add(this.shapeContainer1);
             this.Name = "mainFTP";
-            this.Text = "mainFTP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu FTP";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
